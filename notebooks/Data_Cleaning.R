@@ -78,7 +78,7 @@ DFS <- as.data.frame(cpi_silver_table)
 inflation_schange_matrix <- cbind(Date, Inflation, Change)
 inflation_schange_table <- as.data.table(inflation_schange_matrix)
 setkey(inflation_schange_table, Date, Inflation, Change)
-DFS <- as.data.frame(inflation_schange_table)
+DFSI <- as.data.frame(inflation_schange_table)
 
 #conversion from factor to numeric (silver prices)
 Silver_factor <- DFS$Silver
@@ -87,19 +87,19 @@ Silver_numbers <- as.numeric(levels(Silver_factor)[as.integer(Silver_factor)])
 CPI_numbers = as.numeric(levels(CPI_factor)[as.integer(CPI_factor)])
 DateS <- levels(DFS$Date)[DFS$Date]
 DateS <- as.Date(Date, "%m/%d/%Y")
-DFS$Date = Date
+DFS$Date = DateS
 DFS$Silver <- Silver_numbers
 DFS$CPI = CPI_numbers
 
 #conversion from factor to numeric (change in silver prices)
-Schange_factor <- DFS$Change
-Inflation_factor = DFS$Inflation
+Schange_factor <- DFSI$Change
+Inflation_factor = DFSI$Inflation
 Schange_numbers <- as.numeric(levels(Schange_factor)[as.integer(Schange_factor)])
 Inflation_numbers = as.numeric(levels(Inflation_factor)[as.integer(Inflation_factor)])
-DateS <- levels(DFS$Date)[DFS$Date]
+DateS <- levels(DFSI$Date)[DFSI$Date]
 DateS <- as.Date(Date, "%m/%d/%Y")
-DFS$Date = Date
-DFS$Change <- Schange_numbers
-DFS$Inflation = Inflation_numbers
+DFSI$Date = DateS
+DFSI$Change <- Schange_numbers
+DFSI$Inflation = Inflation_numbers
 
 #can now use numberic values to run tests
