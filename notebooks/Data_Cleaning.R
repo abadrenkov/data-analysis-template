@@ -101,5 +101,37 @@ DateS <- as.Date(Date, "%m/%d/%Y")
 DFSI$Date = DateS
 DFSI$Change <- Schange_numbers
 DFSI$Inflation = Inflation_numbers
-
 #can now use numberic values to run tests
+
+# Side by side line plot
+par(mfrow=c(1,2))
+
+#plot Gold
+plot(year(DFGC$Date),DFGC$Inflation, type="n", xlab="Year", ylab="Changes")
+lines(year(DFGC$Date),DFGC$Change, col="blue")
+lines(year(DFGC$Date),DFGC$Inflation, col="red")
+lines(year(DFGC$Date),DFGC$Change, col="blue")
+title("Gold")
+
+#plot Silver
+plot(year(DFSI$Date),DFSI$Inflation, type="n", xlab="Year", ylab="Changes")
+lines(year(DFSI$Date),DFSI$Inflation, col="red")
+lines(year(DFSI$Date),DFSI$Change, col="blue")
+title("Silver")
+
+
+# Wheat Stuff
+
+# graph of overall pricing for summary
+
+# segment data into relevant years past to 1900s
+
+# research what happened to make the prices go crazy
+
+# congregation of data lines for all variables
+
+# look at lm (t-stats)
+
+# In terms of dahsboards: means, variances, data per century
+
+#put everything in the notebooks
