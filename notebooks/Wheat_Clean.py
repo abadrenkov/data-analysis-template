@@ -2,12 +2,18 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from pandas import DataFrame
+import xlwt
+from tempfile import TemporaryFile
 
 # reading from the first xl file
 xl = pd.ExcelFile("Wheat_Prices_1278_1536.xls")
 df = xl.parse("Wheat")
 
 #gathering all the data into a dictionary by year
+#First we grab the year into the x variable. We check if the year is already in the dictionary. 
+#If it is not, we start a new list for the data points. If it is, we grab the list associated with the
+#year we want. Then we add a list of all the data points for that year
+#to the dictionary. We do this for all the data in 5 files.
 dict1 = {}
 df2 = DataFrame(df)['Season']
 for i in range(0, len(df2)) :
@@ -96,19 +102,32 @@ for i in range(0, len(df10)) :
 
 #gather averages of the data
 arr = []
-for k in range(0, 680):
+for k in range(280, 680):
     if ((1270+k) in dict1.keys() and len(dict1[1270+k]) != 0) :
         ls2 = dict1[1270+k]
         sum = 0.0
-        counter = 0
+        counter = 0.0
         for l in ls2:
             sum = sum + l
             counter = counter + 1
-        arr.append(sum/counter)
+        arr.append(sum/counter/20.0)
     else:
 		arr.append(None)
 
-#graphing the data
-z = np.array(range(1270, 1950))
+#graphing the data from 1270 to 1950
+z = np.array(range(1550, 1950))
 plt.plot(z, arr)
+plt.xlabel('Year')
+plt.ylabel('Pounds per Quarter')
+plt.title('Wheat Prices')
 plt.show()
+
+#write to a excel file
+book = xlwt.Workbook()
+sheet1 = book.add_sheet('Wheat')
+for i,e in enumerate(arr):
+    sheet1.write(i,0,e)
+
+name = "Cleaned_Wheat.xls"
+book.save(name)
+book.save(TemporaryFile())
