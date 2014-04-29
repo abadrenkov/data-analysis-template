@@ -126,7 +126,9 @@ plt.show()
 book = xlwt.Workbook()
 sheet1 = book.add_sheet('Wheat')
 for i,e in enumerate(arr):
-    sheet1.write(i,0,e)
+    sheet1.write(i,1,e)
+for i in range(0, 400):
+    sheet1.write(i,0,1550+i)
 
 name = "Cleaned_Wheat.xls"
 book.save(name)
