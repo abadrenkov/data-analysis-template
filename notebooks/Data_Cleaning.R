@@ -1,5 +1,5 @@
 #first change director to where the data is located
-setwd("~/../Project-2/data-analysis-template/notebooks")
+
 #can achieve this using the `setwd()` function
 if(require(data.table)==FALSE)
   install.packages("data.table")
