@@ -161,6 +161,28 @@ SI_cluster2 = as.data.frame(SI_cluster2)
 names(SI_cluster2) = c("Date", "Inflation", "Change")
 
 
+#plotting silver clusters
+plot(SI_cluster1$Date,SI_cluster1$Inflation, type="n", xlab="Year", ylab="Changes")
+lines(SI_cluster1$Date,SI_cluster1$Inflation, col="red")
+lines(SI_cluster1$Date,SI_cluster1$Change, col="blue")
+title("Silver Cluster 1")
+
+plot(SI_cluster2$Date,SI_cluster2$Inflation, type="n", xlab="Year", ylab="Changes")
+lines(SI_cluster2$Date,SI_cluster2$Inflation, col="red")
+lines(SI_cluster2$Date,SI_cluster2$Change, col="blue")
+title("Silver Cluster 2")
+
+#plotting gold clusters
+plot(GC_cluster1$Date,GC_cluster1$Inflation, type="n", xlab="Year", ylab="Changes")
+lines(GC_cluster1$Date,GC_cluster1$Inflation, col="red")
+lines(GC_cluster1$Date,GC_cluster1$Change, col="blue")
+title("Gold Cluster 1")
+
+plot(GC_cluster2$Date,GC_cluster2$Inflation, type="n", xlab="Year", ylab="Changes")
+lines(GC_cluster2$Date,GC_cluster2$Inflation, col="red")
+lines(GC_cluster2$Date,GC_cluster2$Change, col="blue")
+title("Gold Cluster 2")
+
 # research what happened to make the prices go crazy
 
 # congregation of data lines for all variables
