@@ -7,16 +7,16 @@ if(require(XLConnect)==FALSE)
 library(XLConnect)               # load XLConnect package 
 
 # This package might make it easier to read
-#if(require(xlsx)==FALSE)
-#    install.packages("xlsx")
-#library(xlsx)
+if(require(xlsx)==FALSE)
+    install.packages("xlsx")
+library(xlsx)
 
 #this would be the command to run to read the xls file
-# df <- read.xlsx("Cleaned_Whear.xls", sheetIndex=1)
+ df <- read.xlsx("Cleaned_Wheat.xls", sheetIndex=1)
 
 #this part didn't seem to want to run. It said there were illegal arguments
-wk = loadWorkbook("Cleaned_Wheat.xls") 
-df = readWorksheet(wk, sheet="Wheat")
+#wk = loadWorkbook("Cleaned_Wheat.xls") 
+#df = readWorksheet(wk, sheet="Wheat")
 
 #grab csv files
 a = paste(getwd(), "/*.csv", sep="")
@@ -49,11 +49,12 @@ Wheat_numbers <- as.numeric(levels(Wheat_factor)[as.integer(Wheat_factor)])
 CPI_numbers <- as.numeric(levels(CPI_factor)[as.integer(CPI_factor)])
 Date <- levels(DFW$Date)[DFW$Date]
 Date <- as.Date(Date, "%m/%d/%Y")
+Date <- year(Date)
 DFW$Date <- Date
 DFW$Wheat <- Wheat_numbers
 DFW$CPI <- CPI_numbers
 
 #plot Wheat
-plot(year(DFW$Date),DFW$Wheat, type="n", xlab="Year", ylab="Wheat Price")
-lines(year(DFW$Date),DFW$Wheat, col="red")
+plot(DFW$Date,DFW$Wheat, type="n", xlab="Year", ylab="Wheat Price")
+lines(DFW$Date,DFW$Wheat, col="red")
 title("Wheat")
