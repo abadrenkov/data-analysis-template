@@ -29,6 +29,7 @@ cpi.sub <- cpi[343:741]
 
 year <- df[[1]]
 wheat <- df[[2]]
+Change <- df[[3]]
 cpi.sub$Wheat <- wheat
 
 Date <- cpi.sub$Date
@@ -42,6 +43,12 @@ cpi_wheat_table <- as.data.table(cpi_wheat_matrix)
 setkey(cpi_wheat_table, Date, CPI, Wheat)
 DFW <- as.data.frame(cpi_wheat_table)
 
+#conversion from matrix to DT to DF (changes in gold prices)
+inflation_wchange_matrix = cbind(Date, Inflation, Change)
+inflation_wchange_table = as.data.table(inflation_wchange_matrix)
+setkey(inflation_wchange_table, Date, Inflation, Change)
+DFWC = as.data.frame(inflation_wchange_table)
+
 #conversion from factor to numeric (wheat prices)
 Wheat_factor <- DFW$Wheat
 CPI_factor <- DFW$CPI
@@ -54,7 +61,25 @@ DFW$Date <- Date
 DFW$Wheat <- Wheat_numbers
 DFW$CPI <- CPI_numbers
 
+#conversion from factor to numeric (changes in gold prices)
+Wchange_factor <- DFWC$Change
+Inflation_factor <- DFWC$Inflation
+Wchange_numbers <- as.numeric(levels(Wchange_factor)[as.integer(Wchange_factor)])
+Inflation_numbers <- as.numeric(levels(Inflation_factor)[as.integer(Inflation_factor)])
+Date <- levels(DFWC$Date)[DFWC$Date]
+Date <- as.Date(Date, "%m/%d/%Y")
+Date <- year(Date)
+DFWC$Date <- Date
+DFWC$Change <- Wchange_numbers
+DFWC$Inflation <- Inflation_numbers
+
 #plot Wheat
 plot(DFW$Date,DFW$Wheat, type="n", xlab="Year", ylab="Wheat Price")
 lines(DFW$Date,DFW$Wheat, col="red")
+title("Wheat")
+
+#plot Wheat Changes
+plot(DFWC$Date,DFWC$Inflation, type="n", xlab="Year", ylab="Changes")
+lines(DFWC$Date,DFWC$Change, col="blue")
+lines(DFWC$Date,DFWC$Inflation, col="red")
 title("Wheat")
