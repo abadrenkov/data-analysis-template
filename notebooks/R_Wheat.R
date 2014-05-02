@@ -5,6 +5,16 @@ library(data.table)
 if(require(XLConnect)==FALSE)
   install.packages("XLConnect")
 library(XLConnect)               # load XLConnect package 
+
+# This package might make it easier to read
+#if(require(xlsx)==FALSE)
+#    install.packages("xlsx")
+#library(xlsx)
+
+#this would be the command to run to read the xls file
+# df <- read.xlsx("Cleaned_Whear.xls", sheetIndex=1)
+
+#this part didn't seem to want to run. It said there were illegal arguments
 wk = loadWorkbook("Cleaned_Wheat.xls") 
 df = readWorksheet(wk, sheet="Wheat")
 
