@@ -7,10 +7,10 @@ import os
 # AUTHORSHIP AND WEBSITE INFO (Replace accordingly)
 ###################################################
 
-AUTHOR = u'Benoit Dherin'
+AUTHOR = u'Alexander Badrenkov, Ivan Kho, Yvonne Ng, Tony Lin'
 SITENAME = u'Data Analysis Project'
 SITESUBTITLE = u'Template using the iPython notebook'
-GITHUB_REPOSITORY_URL = u'https://github.com/BenoitDherin/data-analysis-template'
+GITHUB_REPOSITORY_URL = u'https://github.com/abadrenkov/data-analysis-template'
 
 ###################################################
 # FINER WEBSITE CONF (Defaults should be okay)
