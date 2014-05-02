@@ -1,4 +1,5 @@
 #first change director to where the data is located
+setwd("~/../Project-2/data-analysis-template/notebooks")
 #can achieve this using the `setwd()` function
 if(require(data.table)==FALSE)
   install.packages("data.table")
@@ -124,7 +125,37 @@ title("Silver")
 
 # graph of overall pricing for summary
 
-# segment data into relevant years past to 1900s
+# segment data into two parts: 1257-1900 and 1901-2011
+first_GC_cluster = DFGC[1:644, 2] #2 is Inflation, #3 is change in price
+second_GC_cluster = DFGC[645:755, 2]
+third_GC_cluster = DFGC[1:644, 3]
+four_GC_cluster = DFGC[645:755, 3]
+
+first_SI_cluster = DFSI[1:644, 2]
+second_SI_cluster = DFSI[645:754, 2]
+third_SI_cluster = DFSI[1:644, 3]
+four_SI_cluster = DFSI[645:754, 2]
+
+GC_cluster1 = cbind(Date[1:644], first_GC_cluster, third_GC_cluster)
+GC_cluster1 = as.data.table(GC_cluster1)
+GC_cluster1 = as.data.frame(GC_cluster1)
+names(GC_cluster1) = c("Date", "Inflation", "Change")
+
+GC_cluster2 = cbind(Date[645:755], second_GC_cluster, four_GC_cluster)
+GC_cluster2 = as.data.table(GC_cluster2)
+GC_cluster2 = as.data.frame(GC_cluster2)
+names(GC_cluster2) = c("Date", "Inflation", "Change")
+
+SI_cluster1 = cbind(Date[1:644], first_SI_cluster, third_SI_cluster)
+SI_cluster1 = as.data.table(SI_cluster1)
+SI_cluster1 = as.data.frame(SI_cluster1)
+names(SI_cluster1) = c("Date", "Inflation", "Change")
+
+SI_cluster2 = cbind(Date[645:754], second_SI_cluster, four_SI_cluster)
+SI_cluster2 = as.data.table(SI_cluster2)
+SI_cluster2 = as.data.frame(SI_cluster2)
+names(SI_cluster2) = c("Date", "Inflation", "Change")
+
 
 # research what happened to make the prices go crazy
 
