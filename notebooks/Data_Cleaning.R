@@ -42,6 +42,7 @@ Gold_numbers <- as.numeric(levels(Gold_factor)[as.integer(Gold_factor)])
 CPI_numbers <- as.numeric(levels(CPI_factor)[as.integer(CPI_factor)])
 Date <- levels(DFG$Date)[DFG$Date]
 Date <- as.Date(Date, "%m/%d/%Y")
+Date <- year(Date)
 DFG$Date <- Date
 DFG$Gold <- Gold_numbers
 DFG$CPI <- CPI_numbers
@@ -53,6 +54,7 @@ Gchange_numbers <- as.numeric(levels(Gchange_factor)[as.integer(Gchange_factor)]
 Inflation_numbers <- as.numeric(levels(Inflation_factor)[as.integer(Inflation_factor)])
 Date <- levels(DFGC$Date)[DFGC$Date]
 Date <- as.Date(Date, "%m/%d/%Y")
+Date <- year(Date)
 DFGC$Date <- Date
 DFGC$Change <- Gchange_numbers
 DFGC$Inflation <- Inflation_numbers
@@ -88,6 +90,7 @@ Silver_numbers <- as.numeric(levels(Silver_factor)[as.integer(Silver_factor)])
 CPI_numbers = as.numeric(levels(CPI_factor)[as.integer(CPI_factor)])
 DateS <- levels(DFS$Date)[DFS$Date]
 DateS <- as.Date(Date, "%m/%d/%Y")
+DateS <- year(DateS)
 DFS$Date = DateS
 DFS$Silver <- Silver_numbers
 DFS$CPI = CPI_numbers
@@ -99,6 +102,7 @@ Schange_numbers <- as.numeric(levels(Schange_factor)[as.integer(Schange_factor)]
 Inflation_numbers = as.numeric(levels(Inflation_factor)[as.integer(Inflation_factor)])
 DateS <- levels(DFSI$Date)[DFSI$Date]
 DateS <- as.Date(Date, "%m/%d/%Y")
+DateS <- year(DateS)
 DFSI$Date = DateS
 DFSI$Change <- Schange_numbers
 DFSI$Inflation = Inflation_numbers
@@ -108,16 +112,16 @@ DFSI$Inflation = Inflation_numbers
 par(mfrow=c(1,2))
 
 #plot Gold
-plot(year(DFGC$Date),DFGC$Inflation, type="n", xlab="Year", ylab="Changes")
-lines(year(DFGC$Date),DFGC$Change, col="blue")
-lines(year(DFGC$Date),DFGC$Inflation, col="red")
-lines(year(DFGC$Date),DFGC$Change, col="blue")
+plot(DFGC$Date,DFGC$Inflation, type="n", xlab="Year", ylab="Changes")
+lines(DFGC$Date,DFGC$Change, col="blue")
+lines(DFGC$Date,DFGC$Inflation, col="red")
+lines(DFGC$Date,DFGC$Change, col="blue")
 title("Gold")
 
 #plot Silver
-plot(year(DFSI$Date),DFSI$Inflation, type="n", xlab="Year", ylab="Changes")
-lines(year(DFSI$Date),DFSI$Inflation, col="red")
-lines(year(DFSI$Date),DFSI$Change, col="blue")
+plot(DFSI$Date,DFSI$Inflation, type="n", xlab="Year", ylab="Changes")
+lines(DFSI$Date,DFSI$Inflation, col="red")
+lines(DFSI$Date,DFSI$Change, col="blue")
 title("Silver")
 
 
@@ -126,32 +130,32 @@ title("Silver")
 # graph of overall pricing for summary
 
 # segment data into two parts: 1257-1900 and 1901-2011
-first_GC_cluster = DFGC[1:644, 2] #2 is Inflation, #3 is change in price
-second_GC_cluster = DFGC[645:755, 2]
-third_GC_cluster = DFGC[1:644, 3]
-four_GC_cluster = DFGC[645:755, 3]
+first_inflation_GC_cluster = DFGC[DFGC$Date < 1901, 2] #2 is Inflation, #3 is change in price
+second_inflation_GC_cluster = DFGC[DFGC$Date > 1900, 2]
+first_price_GC_cluster = DFGC[DFGC$Date < 1901, 3]
+second_price_GC_cluster = DFGC[DFGC$Date > 1900, 3]
 
-first_SI_cluster = DFSI[1:644, 2]
-second_SI_cluster = DFSI[645:754, 2]
-third_SI_cluster = DFSI[1:644, 3]
-four_SI_cluster = DFSI[645:754, 2]
+first_inflation_SI_cluster = DFSI[DFSI$Date < 1901, 2]
+second_inflation_SI_cluster = DFSI[DFSI$Date > 1900, 2]
+first_price_SI_cluster = DFSI[DFSI$Date < 1901, 3]
+second_price_SI_cluster = DFSI[DFSI$Date > 1900, 3]
 
-GC_cluster1 = cbind(Date[1:644], first_GC_cluster, third_GC_cluster)
+GC_cluster1 = cbind(DFGC$Date[DFGC$Date < 1901], first_inflation_GC_cluster, first_price_GC_cluster)
 GC_cluster1 = as.data.table(GC_cluster1)
 GC_cluster1 = as.data.frame(GC_cluster1)
 names(GC_cluster1) = c("Date", "Inflation", "Change")
 
-GC_cluster2 = cbind(Date[645:755], second_GC_cluster, four_GC_cluster)
+GC_cluster2 = cbind(DFGC$Date[DFGC$Date > 1900], second_inflation_GC_cluster, second_price_GC_cluster)
 GC_cluster2 = as.data.table(GC_cluster2)
 GC_cluster2 = as.data.frame(GC_cluster2)
 names(GC_cluster2) = c("Date", "Inflation", "Change")
 
-SI_cluster1 = cbind(Date[1:644], first_SI_cluster, third_SI_cluster)
+SI_cluster1 = cbind(DFSI$Date[DFSI$Date < 1901], first_inflation_SI_cluster, first_price_SI_cluster)
 SI_cluster1 = as.data.table(SI_cluster1)
 SI_cluster1 = as.data.frame(SI_cluster1)
 names(SI_cluster1) = c("Date", "Inflation", "Change")
 
-SI_cluster2 = cbind(Date[645:754], second_SI_cluster, four_SI_cluster)
+SI_cluster2 = cbind(DFSI$Date[DFSI$Date > 1900], second_inflation_SI_cluster, second_price_SI_cluster)
 SI_cluster2 = as.data.table(SI_cluster2)
 SI_cluster2 = as.data.frame(SI_cluster2)
 names(SI_cluster2) = c("Date", "Inflation", "Change")
