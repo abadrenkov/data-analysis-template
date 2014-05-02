@@ -129,6 +129,12 @@ for i,e in enumerate(arr):
     sheet1.write(i,1,e)
 for i in range(0, 400):
     sheet1.write(i,0,1550+i)
+sheet1.write(0,2,0)
+for i in range(1, 400):
+    if arr[i] != None and arr[i-1] != None :
+        sheet1.write(i,2,arr[i]-arr[i-1])
+    else :
+        sheet1.write(i,2,0)
 
 name = "Cleaned_Wheat.xls"
 book.save(name)
