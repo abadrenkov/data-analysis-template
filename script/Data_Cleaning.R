@@ -1,6 +1,7 @@
-#first change director to where the data is located
-
+#first change directory to where the scripts are located
 #can achieve this using the `setwd()` function
+
+#load packages
 if(require(data.table)==FALSE)
   install.packages("data.table")
 library(data.table)
@@ -10,6 +11,7 @@ setwd("..")
 a = paste(getwd(),"/data/raw/*.csv", sep="")
 b = Sys.glob(a)
 c = lapply(b, fread)
+setwd("script")
 
 #grab desired variables (gold)
 cpi <- c[[1]]
