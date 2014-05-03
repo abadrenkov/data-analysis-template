@@ -6,7 +6,8 @@ if(require(data.table)==FALSE)
 library(data.table)
 
 #grab csv files
-a = paste(getwd(), "/*.csv", sep="")
+setwd("..")
+a = paste(getwd(),"/data/raw/*.csv", sep="")
 b = Sys.glob(a)
 c = lapply(b, fread)
 
@@ -46,6 +47,7 @@ Date <- year(Date)
 DFG$Date <- Date
 DFG$Gold <- Gold_numbers
 DFG$CPI <- CPI_numbers
+
 
 #conversion from factor to numeric (changes in gold prices)
 Gchange_factor <- DFGC$Change
@@ -162,23 +164,23 @@ names(SI_cluster2) = c("Date", "Inflation", "Change")
 
 
 #plotting silver clusters
-plot(SI_cluster1$Date,SI_cluster1$Inflation, type="n", xlab="Year", ylab="Changes")
+plot(SI_cluster1$Date,SI_cluster1$Inflation, type="n", xlab="Year", ylab="Changes", ylim=c(-0.5,.8))
 lines(SI_cluster1$Date,SI_cluster1$Inflation, col="red")
 lines(SI_cluster1$Date,SI_cluster1$Change, col="blue")
 title("Silver Cluster 1")
 
-plot(SI_cluster2$Date,SI_cluster2$Inflation, type="n", xlab="Year", ylab="Changes")
+plot(SI_cluster2$Date,SI_cluster2$Inflation, type="n", xlab="Year", ylab="Changes", ylim=c(-0.5,.8))
 lines(SI_cluster2$Date,SI_cluster2$Inflation, col="red")
 lines(SI_cluster2$Date,SI_cluster2$Change, col="blue")
 title("Silver Cluster 2")
 
 #plotting gold clusters
-plot(GC_cluster1$Date,GC_cluster1$Inflation, type="n", xlab="Year", ylab="Changes")
+plot(GC_cluster1$Date,GC_cluster1$Inflation, type="n", xlab="Year", ylab="Changes", ylim=c(-0.5,.8))
 lines(GC_cluster1$Date,GC_cluster1$Inflation, col="red")
 lines(GC_cluster1$Date,GC_cluster1$Change, col="blue")
 title("Gold Cluster 1")
 
-plot(GC_cluster2$Date,GC_cluster2$Inflation, type="n", xlab="Year", ylab="Changes")
+plot(GC_cluster2$Date,GC_cluster2$Inflation, type="n", xlab="Year", ylab="Changes", ylim=c(-0.5,.8))
 lines(GC_cluster2$Date,GC_cluster2$Inflation, col="red")
 lines(GC_cluster2$Date,GC_cluster2$Change, col="blue")
 title("Gold Cluster 2")
