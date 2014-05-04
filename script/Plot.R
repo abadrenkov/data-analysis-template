@@ -1,5 +1,5 @@
-source("Data_Cleaning.R")
-source("Clustering.R")
+source("../script/Data_Cleaning.R")
+source("../script/Clustering.R")
 
 # Side by side line plot
 par(mfrow=c(1,2))
