@@ -8,9 +8,9 @@ import os
 ###################################################
 
 AUTHOR = u'Alexander Badrenkov, Ivan Kho, Yvonne Ng, Tony Lin'
-SITENAME = u'Data Analysis Project'
+SITENAME = u'Gold vs Inflation'
 SITESUBTITLE = u'Template using the iPython notebook'
-GITHUB_REPOSITORY_URL = u'https://github.com/abadrenkov/data-analysis-template'
+GITHUB_REPOSITORY_URL = u'https://github.com/abadrenkov/gold_vs_inflation'
 
 ###################################################
 # FINER WEBSITE CONF (Defaults should be okay)
@@ -44,7 +44,7 @@ LINKS = (('Project Report', 'nb4'),
 
 
 # Social widget
-#SOCIAL = (('View on Github', 'https://github.com/BenoitDherin/data-analysis-template'),)
+#SOCIAL = (('View on Github', 'https://github.com/abadrenkov/gold_vs_inflation'),)
 SOCIAL = (('View on Github', GITHUB_REPOSITORY_URL),)
 
 DEFAULT_PAGINATION = 10
