@@ -1719,18 +1719,18 @@ init_mathjax();
     <!-- Open Graph tags -->
             <meta property="og:type" content="article"/>
             <meta property="og:title" content="Data Gathering"/>
-            <meta property="og:url" content="http://benoitdherin.github.io/data-analysis-template/nb1.html"/>
-            <meta property="og:description" content="In this notebook, you'll create the directory structure for your project download the raw data for your project write functions and classes to transform raw data (e.g in XML, jason, etc.) into data frames explain what your are doing Team members responsible for this notebook: List the team ..."/>
+            <meta property="og:url" content="http://abadrenkov.github.io/gold_vs_inflation/nb1.html"/>
+            <meta property="og:description" content="IMPORTANT!!¶ Please close the notebook and run the following command R CMD javareconf -e This makes it so that the package xlsx will run Instructions¶ In this notebook, you'll create the directory structure for your project download the raw data for your project write functions and classes to transform ..."/>
 
     <!-- Bootstrap -->
-        <link rel="stylesheet" href="http://benoitdherin.github.io/data-analysis-template/theme/css/bootstrap.min.css" type="text/css"/>
-    <link href="http://benoitdherin.github.io/data-analysis-template/theme/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="http://abadrenkov.github.io/gold_vs_inflation/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="http://abadrenkov.github.io/gold_vs_inflation/theme/css/font-awesome.min.css" rel="stylesheet">
 
-    <link href="http://benoitdherin.github.io/data-analysis-template/theme/css/pygments.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://benoitdherin.github.io/data-analysis-template/theme/css/style.css" type="text/css"/>
+    <link href="http://abadrenkov.github.io/gold_vs_inflation/theme/css/pygments.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://abadrenkov.github.io/gold_vs_inflation/theme/css/style.css" type="text/css"/>
 
-        <link href="http://benoitdherin.github.io/data-analysis-template/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
-              title="Data Analysis Project ATOM Feed"/>
+        <link href="http://abadrenkov.github.io/gold_vs_inflation/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Gold vs Inflation ATOM Feed"/>
 
     
     <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
@@ -1766,8 +1766,8 @@ init_mathjax();
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="http://benoitdherin.github.io/data-analysis-template/" class="navbar-brand">
-Data Analysis Project            </a>
+            <a href="http://abadrenkov.github.io/gold_vs_inflation/" class="navbar-brand">
+Gold vs Inflation            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
@@ -1777,7 +1777,7 @@ Data Analysis Project            </a>
                     <li><a href="nb1">Data Gathering</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://benoitdherin.github.io/data-analysis-template/archives.html"><i class="fa fa-th-list"></i>Archives</a></li>
+                <li><a href="http://abadrenkov.github.io/gold_vs_inflation/archives.html"><i class="fa fa-th-list"></i>Archives</a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -1792,7 +1792,7 @@ Data Analysis Project            </a>
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="http://benoitdherin.github.io/data-analysis-template/nb1.html"
+                    <a href="http://abadrenkov.github.io/gold_vs_inflation/nb1.html"
                        rel="bookmark"
                        title="Permalink to Data Gathering">
                         Data Gathering
@@ -1815,6 +1815,19 @@ Data Analysis Project            </a>
                 </div>
                 <p>
 <div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="IMPORTANT!!">IMPORTANT!!<a class="anchor-link" href="#IMPORTANT!!">&#182;</a></h1>
+</div>
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Please close the notebook and run the following command</p>
+<pre><code>R CMD javareconf -e</code></pre>
+<p>This makes it so that the package <code>xlsx</code> will run</p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Instructions">Instructions<a class="anchor-link" href="#Instructions">&#182;</a></h3>
+</div>
+
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>In this notebook, you'll</p>
 <ul>
 <li>create the directory structure for your project</li>
@@ -1825,10 +1838,10 @@ Data Analysis Project            </a>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="team-members-responsible-for-this-notebook">Team members responsible for this notebook:</h2>
-<p>List the team members contributing to this notebook, along with their responsabilities:</p>
+<p>List the team members contributing to this notebook, along with their responsibilities:</p>
 <ul>
-<li>team member 1 <strong>name</strong>: team member 1 <strong>responsabilities</strong></li>
-<li>team member 2 <strong>name</strong>: team member 2 <strong>responsabilities</strong></li>
+<li>Team member 1 - <strong>Ivan Kho: Gathering the cpi, gold, and silver data</strong></li>
+<li>Team member 2 - <strong>Alexander Badrenkov: Gathering the wheat data</strong></li>
 <li>etc.</li>
 </ul>
 <p>I advise you to work at least in pairs for each project notebook, as you did for the homework assignments. Of course, all team members may participate to each notebook.</p>
@@ -1867,24 +1880,16 @@ Data Analysis Project            </a>
 <p><strong>Remark 2:</strong> Try to make your notebook as readable and usable (by others) as possible.</p>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Example">Example<a class="anchor-link" href="#Example">&#182;</a></h2>
-</div>
-
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Here is an example of how to package your code into scripts reusable in other notebook.</p>
-<p>You'll need to do something similar to that. You'll also need to write explanations as outlined above in markdown cells.</p>
-</div>
-<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="creating-the-directory-structure">Creating the directory structure</h3>
 </div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[2]:
+In&nbsp;[1]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">bash</span>
-<span class="n">mkdir</span> <span class="o">../</span><span class="n">script</span> <span class="o">../</span><span class="n">data</span> <span class="o">../</span><span class="n">data</span><span class="o">/</span><span class="n">raw</span> <span class="o">../</span><span class="n">data</span><span class="o">/</span><span class="n">cleaned</span> <span class="o">../</span><span class="n">data</span><span class="o">/</span><span class="n">simulated</span> <span class="o">../</span><span class="n">visualizations</span>
+<span class="n">mkdir</span> <span class="o">../</span><span class="n">script</span> <span class="o">../</span><span class="n">data</span> <span class="o">../</span><span class="n">data</span><span class="o">/</span><span class="n">raw</span> <span class="o">../</span><span class="n">data</span><span class="o">/</span><span class="n">cleaned</span>  <span class="o">../</span><span class="n">visualizations</span>
 <span class="n">ls</span> <span class="o">-</span><span class="n">r</span>
 </pre></div>
 
@@ -1898,23 +1903,28 @@ In&nbsp;[2]:
 <div class="hbox output_area"><div class="prompt"></div>
 <div class="box-flex1 output_subarea output_stream output_stdout">
 <pre>
-visualizations
-script
+Wheat_Segmenting.R
+Wheat_Prices_1929_1955.xls
+Wheat_Prices_1850_1950_2.xlsx
+Wheat_Prices_1850_1950.xlsx
+Wheat_Prices_1790_1850_2.xlsx
+Wheat_Prices_1790_1850.xlsx
+Wheat_Prices_1657_1817.xls
+Wheat_Prices_1594_1681.xls
+Wheat_Prices_1278_1536.xls
+Wheat_Clean.py
+UK_silver Prices per oz. (1257-2011).csv
+UK_gold Prices (1257-2011).csv
+UK_CPI data.csv
+R_Wheat.R
 README.md
+READ.ME.txt
 NB4_project_report.ipynb
 NB3_data_analysis.ipynb
 NB2_data_cleaning.ipynb
 NB1_data_gathering.ipynb
-data
-
-</pre>
-</div>
-</div>
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_stream output_stderr">
-<pre>
-mkdir: cannot create directory ‘../data’: File exists
+Data_Cleaning.R
+Cleaned_Wheat.xls
 
 </pre>
 </div>
@@ -1928,13 +1938,10 @@ mkdir: cannot create directory ‘../data’: File exists
 <h3 id="Downloading-and-displaying-raw-data">Downloading and displaying raw data<a class="anchor-link" href="#Downloading-and-displaying-raw-data">&#182;</a></h3>
 </div>
 
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>In this example, I am using R. You want to use Python instead.</p>
-</div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[4]:
+In&nbsp;[1]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%</span><span class="k">load_ext</span> <span class="n">rmagic</span>
@@ -1948,26 +1955,166 @@ In&nbsp;[4]:
 <p><strong>TO DO:</strong> list sources, display data sample, explain data content, etc.</p>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We now download an XML source containing plant data, and display an typical plant entry, represented as a XML node:</p>
+<h3 id="Getting-the-Wheat-Data">Getting the Wheat Data<a class="anchor-link" href="#Getting-the-Wheat-Data">&#182;</a></h3>
+</div>
+
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[2]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">bash</span>
+<span class="c">#These 6 files contain the wheat data that we will use. The contents of the file contain the dates that the </span>
+<span class="c">#wheat data was collected along with the prices of the wheat. The prices of the wheat are split up</span>
+<span class="c">#into months or seasons (depending on the file). We will want to grab these prices in </span>
+<span class="c">#the data cleaning notebook. Two files also contain data for other commodities. </span>
+<span class="c">#We used the curl command in bash to grab the excel files and saved them in the raw</span>
+<span class="c">#data folder.</span>
+<span class="n">curl</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">iisg</span><span class="o">.</span><span class="n">nl</span><span class="o">/</span><span class="n">hpw</span><span class="o">/</span><span class="n">varioustowns</span><span class="o">.</span><span class="n">xls</span> <span class="o">&gt;&gt;</span> <span class="o">../</span><span class="n">data</span><span class="o">/</span><span class="n">raw</span><span class="o">/</span><span class="n">Wheat_Prices_1278_1536</span><span class="o">.</span><span class="n">xls</span>
+<span class="n">curl</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">iisg</span><span class="o">.</span><span class="n">nl</span><span class="o">/</span><span class="n">hpw</span><span class="o">/</span><span class="n">cambridge</span><span class="o">.</span><span class="n">xls</span> <span class="o">&gt;&gt;</span> <span class="o">../</span><span class="n">data</span><span class="o">/</span><span class="n">raw</span><span class="o">/</span><span class="n">Wheat_Prices_1594_1681</span><span class="o">.</span><span class="n">xls</span>
+<span class="n">curl</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">iisg</span><span class="o">.</span><span class="n">nl</span><span class="o">/</span><span class="n">hpw</span><span class="o">/</span><span class="n">winchester</span><span class="o">.</span><span class="n">xls</span> <span class="o">&gt;&gt;</span> <span class="o">../</span><span class="n">data</span><span class="o">/</span><span class="n">raw</span><span class="o">/</span><span class="n">Wheat_Prices_1657_1817</span><span class="o">.</span><span class="n">xls</span>
+<span class="n">curl</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">sfu</span><span class="o">.</span><span class="n">ca</span><span class="o">/~</span><span class="n">djacks</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">publications</span><span class="o">/</span><span class="n">Britain</span><span class="p">,</span><span class="o">%</span><span class="k">20Commodity</span><span class="o">%</span><span class="k">20Prices</span><span class="p">,</span><span class="o">%</span><span class="k">201790</span><span class="o">-</span><span class="mi">1850</span><span class="p">,</span><span class="o">%</span><span class="k">20monthly</span><span class="o">.</span><span class="n">xlsx</span> <span class="o">&gt;&gt;</span> <span class="o">../</span><span class="n">data</span><span class="o">/</span><span class="n">raw</span><span class="o">/</span><span class="n">Wheat_Prices_1790_1850</span><span class="o">.</span><span class="n">xls</span>
+<span class="n">curl</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">sfu</span><span class="o">.</span><span class="n">ca</span><span class="o">/~</span><span class="n">djacks</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">publications</span><span class="o">/</span><span class="n">Britain</span><span class="p">,</span><span class="o">%</span><span class="k">20Commodity</span><span class="o">%</span><span class="k">20Prices</span><span class="p">,</span><span class="o">%</span><span class="k">201850</span><span class="o">-</span><span class="mi">1950</span><span class="p">,</span><span class="o">%</span><span class="k">20annual</span><span class="o">.</span><span class="n">xlsx</span> <span class="o">&gt;&gt;</span> <span class="o">../</span><span class="n">data</span><span class="o">/</span><span class="n">raw</span><span class="o">/</span><span class="n">Wheat_Prices_1850_1950</span><span class="o">.</span><span class="n">xls</span>
+<span class="n">curl</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">iisg</span><span class="o">.</span><span class="n">nl</span><span class="o">/</span><span class="n">hpw</span><span class="o">/</span><span class="n">englandgrain2</span><span class="o">.</span><span class="n">xls</span> <span class="o">&gt;&gt;</span> <span class="o">../</span><span class="n">data</span><span class="o">/</span><span class="n">raw</span><span class="o">/</span><span class="n">Wheat_Prices_1929_1955</span><span class="o">.</span><span class="n">xls</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stderr">
+<pre>
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  9  127k    9 12726    0     0   9730      0  0:00:13  0:00:01  0:00:12 15987 64  127k   64 83678    0     0  36452      0  0:00:03  0:00:02  0:00:01 46904100  127k  100  127k    0     0  52277      0  0:00:02  0:00:02 --:--:-- 65740
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 22 37888   22  8384    0     0  11280      0  0:00:03 --:--:--  0:00:03 11314100 37888  100 37888    0     0  33987      0  0:00:01  0:00:01 --:--:-- 34071
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 35 36352   35 12709    0     0  17088      0  0:00:02 --:--:--  0:00:02 17128100 36352  100 36352    0     0  32635      0  0:00:01  0:00:01 --:--:-- 32720
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 61  778k   61  482k    0     0  1041k      0 --:--:-- --:--:-- --:--:-- 1109k100  778k  100  778k    0     0  1362k      0 --:--:-- --:--:-- --:--:-- 1431k
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 91711  100 91711    0     0   491k      0 --:--:-- --:--:-- --:--:--  497k
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 20 69120   20 14156    0     0  17762      0  0:00:03 --:--:--  0:00:03 17783100 69120  100 69120    0     0  49470      0  0:00:01  0:00:01 --:--:-- 49548
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[6]:
+In&nbsp;[2]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
-<span class="n">library</span><span class="p">(</span><span class="n">XML</span><span class="p">)</span>
-<span class="n">plant_url</span>  <span class="o">=</span>  <span class="s">&#39;http://www.stat.berkeley.edu/classes/s133/data/plant_catalog.xml&#39;</span>
-<span class="n">plant_file</span> <span class="o">=</span> <span class="s">&#39;./data/raw/plant.xml&#39;</span>
+<span class="c">#For the following two files, we only want to grab the wheat data instead of the data for other</span>
+<span class="c">#commodities. We do this by grabbing only certain columns of the excel file, labeling the row/column names,</span>
+<span class="c">#and then saving them to another file in the raw data folder.</span>
+<span class="nb">file</span> <span class="o">&lt;-</span> <span class="n">read</span><span class="o">.</span><span class="n">xlsx</span><span class="p">(</span><span class="s">&quot;../data/raw/Wheat_Prices_1790_1850.xls&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">segment</span> <span class="o">&lt;-</span> <span class="nb">file</span><span class="p">[</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">),</span><span class="n">c</span><span class="p">(</span><span class="s">&quot;NA.&quot;</span><span class="p">,</span><span class="s">&quot;NA..23&quot;</span><span class="p">)]</span>
+<span class="n">names</span><span class="p">(</span><span class="n">segment</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;Year&quot;</span><span class="p">,</span> <span class="s">&quot;Price&quot;</span><span class="p">)</span>
+<span class="n">rownames</span><span class="p">(</span><span class="n">segment</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="mi">1</span><span class="p">:</span><span class="n">dim</span><span class="p">(</span><span class="n">segment</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">write</span><span class="o">.</span><span class="n">xlsx</span><span class="p">(</span><span class="n">segment</span><span class="p">,</span> <span class="s">&quot;../data/raw/Wheat_Prices_1790_1850_2.xls&quot;</span><span class="p">,</span> <span class="n">sheetName</span><span class="o">=</span><span class="s">&quot;Wheat&quot;</span><span class="p">)</span>
 
-<span class="n">download</span><span class="o">.</span><span class="n">file</span><span class="p">(</span><span class="n">plant_url</span><span class="p">,</span> <span class="n">plant_file</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s">&quot;curl&quot;</span><span class="p">)</span>
+<span class="n">file2</span> <span class="o">&lt;-</span> <span class="n">read</span><span class="o">.</span><span class="n">xlsx</span><span class="p">(</span><span class="s">&quot;../data/raw/Wheat_Prices_1850_1950.xls&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">segment</span> <span class="o">&lt;-</span> <span class="n">file2</span><span class="p">[</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">7</span><span class="p">),</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">names</span><span class="p">(</span><span class="n">segment</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;Year&quot;</span><span class="p">,</span> <span class="s">&quot;Price&quot;</span><span class="p">)</span>
+<span class="n">rownames</span><span class="p">(</span><span class="n">segment</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="mi">1</span><span class="p">:</span><span class="n">dim</span><span class="p">(</span><span class="n">segment</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">write</span><span class="o">.</span><span class="n">xlsx</span><span class="p">(</span><span class="n">segment</span><span class="p">,</span> <span class="s">&quot;../data/raw/Wheat_Prices_1850_1950_2.xls&quot;</span><span class="p">,</span> <span class="n">sheetName</span><span class="o">=</span><span class="s">&quot;Wheat&quot;</span><span class="p">)</span>
+</pre></div>
 
-<span class="n">xml_doc</span>   <span class="o">=</span> <span class="n">xmlParse</span><span class="p">(</span><span class="n">plant_file</span><span class="p">)</span>
-<span class="n">root_node</span> <span class="o">=</span> <span class="n">xmlRoot</span><span class="p">(</span><span class="n">xml_doc</span><span class="p">)</span>
+</div>
+</div>
 
-<span class="n">plant_nodes</span> <span class="o">=</span> <span class="n">xmlChildren</span><span class="p">(</span><span class="n">root_node</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">plant_nodes</span><span class="p">[[</span><span class="mi">1</span><span class="p">]])</span>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stderr">
+<pre>
+ERROR: Cell magic &#96;%%R&#96; not found.
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Getting-the-Gold,-Silver,-and-CPI-data">Getting the Gold, Silver, and CPI data<a class="anchor-link" href="#Getting-the-Gold,-Silver,-and-CPI-data">&#182;</a></h3>
+</div>
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The files were gotten from the GlobalFinancialData website here: https://www.globalfinancialdata.com/Databases/databases.html <br> There are no convienient APIs and you need a membership to grab the data, so they were loaded onto google drive, then downloaded below. <br> The files contain CPI, gold, and silver information.</p>
+<p>The data consists of annual data. The price of Silver and Gold are given in Pounds per Ounce.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[1]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">bash</span>
+<span class="n">curl</span>  <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">googledrive</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">host</span><span class="o">/</span><span class="mi">0</span><span class="n">B40_9</span><span class="o">-</span><span class="n">iPWYmiNUdtNkdTQkoySUU</span> <span class="o">&gt;&gt;</span> <span class="s">&quot;../data/raw/UK_CPI data.csv&quot;</span>
+<span class="n">curl</span>  <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">googledrive</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">host</span><span class="o">/</span><span class="mi">0</span><span class="n">B40_9</span><span class="o">-</span><span class="n">iPWYmiZHJjQzI2ZHlnTkE</span> <span class="o">&gt;&gt;</span> <span class="s">&quot;../data/raw/UK_gold Prices (1257-2011).csv&quot;</span>
+<span class="n">curl</span>  <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">googledrive</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">host</span><span class="o">/</span><span class="mi">0</span><span class="n">B40_9</span><span class="o">-</span><span class="n">iPWYmidEdzelZ5cVRMamM</span> <span class="o">&gt;&gt;</span> <span class="s">&quot;../data/raw/UK_silver Prices per oz. (1257-2011).csv&quot;</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stderr">
+<pre>
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 32531  100 32531    0     0   104k      0 --:--:-- --:--:-- --:--:--  115k
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 23559  100 23559    0     0  45154      0 --:--:-- --:--:-- --:--:-- 45305
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0  199k    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  199k  100  199k    0     0   356k      0 --:--:-- --:--:-- --:--:--  357k
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[17]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="k">print</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;../data/raw/UK_CPI data.csv&quot;</span><span class="p">)))</span>
 </pre></div>
 
 </div>
@@ -1982,21 +2129,13 @@ In&nbsp;[6]:
 
 
 <pre>
-
-Attaching package: ‘XML’
-
-The following object(s) are masked from ‘package:tools’:
-
-    toHTML
-
-&lt;PLANT&gt;
-  &lt;COMMON&gt;Bloodroot&lt;/COMMON&gt;
-  &lt;BOTANICAL&gt;Sanguinaria canadensis&lt;/BOTANICAL&gt;
-  &lt;ZONE&gt;4&lt;/ZONE&gt;
-  &lt;LIGHT&gt;Mostly Shady&lt;/LIGHT&gt;
-  &lt;PRICE&gt;$2.44&lt;/PRICE&gt;
-  &lt;AVAILABILITY&gt;031599&lt;/AVAILABILITY&gt;
-&lt;/PLANT&gt; 
+        Date Ticker     Close    Inflation
+1 12/31/1209 CPGBRM  0.211248             
+2 12/31/1210 CPGBRM  0.211248            0
+3 12/31/1211 CPGBRM 0.2322401  0.099371828
+4 12/31/1212 CPGBRM 0.2035141 -0.123690956
+5 12/31/1213 CPGBRM 0.2035141            0
+6 12/31/1214 CPGBRM 0.2063943  0.014152336
 
 </pre>
 
@@ -2008,21 +2147,16 @@ The following object(s) are masked from ‘package:tools’:
 
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Loading-raw-data-into-data-frames">Loading raw data into data frames<a class="anchor-link" href="#Loading-raw-data-into-data-frames">&#182;</a></h3>
-</div>
-
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The dataframe column labels are the tags of the XML nodes, contained in the plant XML nodes:</p>
+<p>The <strong>Date</strong>, <strong>Close</strong>, and <strong>Inflation</strong> factors are the frames we want to look at.<br> The <strong>Date</strong> refers to the date.<br> The <strong>Close</strong> refers to the CPI data.<br> The <strong>Inflation</strong> refers to the difference between the current and previous year's CPI.</p>
 </div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[7]:
+In&nbsp;[18]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
-<span class="n">column_names</span> <span class="o">=</span> <span class="n">names</span><span class="p">(</span><span class="n">plant_nodes</span><span class="p">[[</span><span class="mi">1</span><span class="p">]])</span>
-<span class="n">cat</span><span class="p">(</span><span class="n">column_names</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;../data/raw/UK_gold Prices (1257-2011).csv&quot;</span><span class="p">)))</span>
 </pre></div>
 
 </div>
@@ -2037,7 +2171,14 @@ In&nbsp;[7]:
 
 
 <pre>
-COMMON BOTANICAL ZONE LIGHT PRICE AVAILABILITY
+        Date  Ticker Close Change
+1 12/31/1257 CMGCGBW 0.889     NA
+2 12/31/1258 CMGCGBW 0.889      0
+3 12/31/1259 CMGCGBW 0.889      0
+4 12/31/1260 CMGCGBW 0.889      0
+5 12/31/1261 CMGCGBW 0.889      0
+6 12/31/1262 CMGCGBW 0.889      0
+
 </pre>
 
 </div>
@@ -2048,22 +2189,16 @@ COMMON BOTANICAL ZONE LIGHT PRICE AVAILABILITY
 
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Given a column name, we create a data frame column containing the column values:</p>
+<p>The <strong>Date</strong>, <strong>Close</strong>, and <strong>Change</strong> are the important columns we want to look at. <br> The <strong>Close</strong> references the price of Gold, while the <strong>Change</strong> refers to the difference between the current and prior year's data.</p>
 </div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[11]:
+In&nbsp;[19]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
-<span class="n">common_tag</span> <span class="o">=</span> <span class="n">column_names</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="n">get_value</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">plant_node</span><span class="p">,</span> <span class="n">tag</span><span class="p">)</span> <span class="n">xmlValue</span><span class="p">(</span><span class="n">plant_node</span><span class="p">[[</span><span class="n">tag</span><span class="p">]])</span>
-    
-<span class="n">common_column</span> <span class="o">=</span> <span class="n">sapply</span><span class="p">(</span><span class="n">plant_nodes</span><span class="p">,</span> <span class="n">get_value</span><span class="p">,</span> <span class="n">common_tag</span><span class="p">)</span>
-    
-<span class="n">cat</span><span class="p">(</span><span class="n">common_column</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;../data/raw/UK_silver Prices per oz. (1257-2011).csv&quot;</span><span class="p">)))</span>
 </pre></div>
 
 </div>
@@ -2078,96 +2213,13 @@ In&nbsp;[11]:
 
 
 <pre>
-Bloodroot Columbine Marsh Marigold Cowslip Dutchman&apos;s-Breeches Ginger, Wild Hepatica Liverleaf Jack-In-The-Pulpit Mayapple Phlox, Woodland Phlox, Blue Spring-Beauty Trillium Wake Robin Violet, Dog-Tooth Trout Lily Adder&apos;s-Tongue Anemone Grecian Windflower Bee Balm Bergamot Black-Eyed Susan Buttercup Crowfoot Butterfly Weed Cinquefoil Primrose Gentian Blue Gentian Jacob&apos;s Ladder Greek Valerian California Poppy Shooting Star Snakeroot Cardinal Flower
-</pre>
-
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We package the code above into a function that creates the data frame column corresponding from a tag name and a list of plant nodes:</p>
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">
-In&nbsp;[12]:
-</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
-<span class="n">get_column</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">plants</span><span class="p">)</span> <span class="n">sapply</span><span class="p">(</span><span class="n">plants</span><span class="p">,</span> <span class="n">get_value</span><span class="p">,</span> <span class="n">tag</span><span class="p">)</span>
-    
-<span class="n">cat</span><span class="p">((</span><span class="n">get_column</span><span class="p">(</span><span class="s">&#39;COMMON&#39;</span><span class="p">,</span> <span class="n">plant_nodes</span><span class="p">)))</span>
-</pre></div>
-
-</div>
-</div>
-
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
-
-
-<pre>
-Bloodroot Columbine Marsh Marigold Cowslip Dutchman&apos;s-Breeches Ginger, Wild Hepatica Liverleaf Jack-In-The-Pulpit Mayapple Phlox, Woodland Phlox, Blue Spring-Beauty Trillium Wake Robin Violet, Dog-Tooth Trout Lily Adder&apos;s-Tongue Anemone Grecian Windflower Bee Balm Bergamot Black-Eyed Susan Buttercup Crowfoot Butterfly Weed Cinquefoil Primrose Gentian Blue Gentian Jacob&apos;s Ladder Greek Valerian California Poppy Shooting Star Snakeroot Cardinal Flower
-</pre>
-
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We are now ready to retrieve all the columns of our data frame into a list of vectors, which we will use to construct our data frame:</p>
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">
-In&nbsp;[13]:
-</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">lapply</span><span class="p">(</span><span class="n">column_names</span><span class="p">,</span> <span class="n">get_column</span><span class="p">,</span> <span class="n">plant_nodes</span><span class="p">)</span>
-
-<span class="n">plant_df</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">stringsAsFactors</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">plant_df</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
-
-
-<pre>
-               COMMON              BOTANICAL ZONE        LIGHT PRICE
-1           Bloodroot Sanguinaria canadensis    4 Mostly Shady $2.44
-2           Columbine   Aquilegia canadensis    3 Mostly Shady $9.37
-3      Marsh Marigold       Caltha palustris    4 Mostly Sunny $6.81
-4             Cowslip       Caltha palustris    4 Mostly Shady $9.90
-5 Dutchman&apos;s-Breeches    Dicentra cucullaria    3 Mostly Shady $6.44
-6        Ginger, Wild       Asarum canadense    3 Mostly Shady $9.03
-  AVAILABILITY
-1       031599
-2       030699
-3       051799
-4       030699
-5       012099
-6       041899
+        Date  Ticker   Open   High    Low  Close      Change
+1 12/31/1257 CMSIGBW 23.243 23.243 23.243 23.243          NA
+2 12/31/1258 CMSIGBW 23.243 23.243 23.243 23.243 0.000000000
+3 12/31/1259 CMSIGBW 23.243 23.243 23.243 23.243 0.000000000
+4 12/31/1260 CMSIGBW 23.243 23.243 23.243 23.243 0.000000000
+5 12/31/1261 CMSIGBW 23.243 23.243 23.243 23.243 0.000000000
+6 12/31/1262 CMSIGBW 23.243 23.243 23.243 23.243 0.004474465
 
 </pre>
 
@@ -2179,146 +2231,7 @@ In&nbsp;[13]:
 
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Using the data frame we just created, we save the plant data into a csv file into the raw data directory:</p>
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">
-In&nbsp;[14]:
-</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
-<span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">plant_df</span><span class="p">,</span> <span class="s">&#39;./data/raw/plants_to_be_cleaned.csv&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">
-In&nbsp;[]:
-</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="o">!</span>head ./data/raw/plants_to_be_cleaned.csv
-</pre></div>
-
-</div>
-</div>
-
-</div>
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Packaging-the-gathering-code-into-reusable-functions">Packaging the gathering code into reusable functions<a class="anchor-link" href="#Packaging-the-gathering-code-into-reusable-functions">&#182;</a></h3>
-</div>
-
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">
-In&nbsp;[15]:
-</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">file</span> <span class="o">./</span><span class="n">script</span><span class="o">/</span><span class="n">plant_df</span><span class="o">-</span><span class="n">R</span>
-
-<span class="n">get_value</span>  <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">plant_node</span><span class="p">,</span> <span class="n">tag</span><span class="p">)</span> <span class="n">xmlValue</span><span class="p">(</span><span class="n">plant_node</span><span class="p">[[</span><span class="n">tag</span><span class="p">]])</span>
-    
-<span class="n">get_column</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">plants</span><span class="p">)</span> <span class="n">sapply</span><span class="p">(</span><span class="n">plants</span><span class="p">,</span> <span class="n">get_value</span><span class="p">,</span> <span class="n">tag</span><span class="p">)</span>
-    
-<span class="n">create_df_from_plant_xml</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">plant_file</span><span class="p">){</span>
-    <span class="n">require</span><span class="p">(</span><span class="n">XML</span><span class="p">)</span>
-    <span class="n">xml_doc</span>      <span class="o">=</span> <span class="n">xmlParse</span><span class="p">(</span><span class="n">plant_file</span><span class="p">)</span>
-    <span class="n">root_node</span>    <span class="o">=</span> <span class="n">xmlRoot</span><span class="p">(</span><span class="n">xml_doc</span><span class="p">)</span>
-    <span class="n">plant_nodes</span>  <span class="o">=</span> <span class="n">xmlChildren</span><span class="p">(</span><span class="n">root_node</span><span class="p">)</span>
-    <span class="n">column_names</span> <span class="o">=</span> <span class="n">names</span><span class="p">(</span><span class="n">plant_nodes</span><span class="p">[[</span><span class="mi">1</span><span class="p">]])</span>
-
-    <span class="n">data</span>     <span class="o">=</span> <span class="n">lapply</span><span class="p">(</span><span class="n">column_names</span><span class="p">,</span> <span class="n">get_column</span><span class="p">,</span> <span class="n">plant_nodes</span><span class="p">)</span>
-    <span class="k">return</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">stringsAsFactors</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">))</span>
-<span class="p">}</span>
-</pre></div>
-
-</div>
-</div>
-
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_stream output_stdout">
-<pre>
-Writing ./script/plant_df-R
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now, our function converting a raw plant XML file into a R data frame can be used in other notebooks, using the <code>source</code> command:</p>
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">
-In&nbsp;[16]:
-</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
-<span class="n">source</span><span class="p">(</span><span class="s">&#39;./script/plant_df-R&#39;</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">create_df_from_plant_xml</span><span class="p">(</span><span class="n">plant_file</span><span class="p">)))</span>
-</pre></div>
-
-</div>
-</div>
-
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_display_data">
-
-
-<pre>
-               COMMON              BOTANICAL ZONE        LIGHT PRICE
-1           Bloodroot Sanguinaria canadensis    4 Mostly Shady $2.44
-2           Columbine   Aquilegia canadensis    3 Mostly Shady $9.37
-3      Marsh Marigold       Caltha palustris    4 Mostly Sunny $6.81
-4             Cowslip       Caltha palustris    4 Mostly Shady $9.90
-5 Dutchman&apos;s-Breeches    Dicentra cucullaria    3 Mostly Shady $6.44
-6        Ginger, Wild       Asarum canadense    3 Mostly Shady $9.03
-  AVAILABILITY
-1       031599
-2       030699
-3       051799
-4       030699
-5       012099
-6       041899
-
-</pre>
-
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">
-In&nbsp;[]:
-</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb">
-</pre></div>
-
-</div>
-</div>
-
+<p>The <strong>Date</strong>, <strong>Close</strong>, and <strong>Change</strong> are the important columns we want to look at. <br> The <strong>Close</strong> references the price of Silver, while the <strong>Change</strong> refers to the difference between the current and prior year's data.</p>
 </div></p>
             </div>
             <!-- /.entry-content -->
@@ -2332,7 +2245,7 @@ In&nbsp;[]:
     <section>
         <ul class="list-group list-group-flush">
                 <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i>Social</h4></li>
-                    <li class="list-group-item"><a href="https://github.com/BenoitDherin/data-analysis-template"><i
+                    <li class="list-group-item"><a href="https://github.com/abadrenkov/gold_vs_inflation"><i
                             class="fa fa-view on github-square fa-lg"></i>View on Github
                     </a></li>
 
@@ -2370,7 +2283,7 @@ In&nbsp;[]:
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2014 Benoit Dherin
+         <div class="col-xs-10">&copy; 2014 Alexander Badrenkov, Ivan Kho, Yvonne Ng, Tony Lin
             &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
@@ -2385,10 +2298,10 @@ In&nbsp;[]:
 <script src="http://code.jquery.com/jquery.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="http://benoitdherin.github.io/data-analysis-template/theme/js/bootstrap.min.js"></script>
+<script src="http://abadrenkov.github.io/gold_vs_inflation/theme/js/bootstrap.min.js"></script>
 
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-<script src="http://benoitdherin.github.io/data-analysis-template/theme/js/respond.min.js"></script>
+<script src="http://abadrenkov.github.io/gold_vs_inflation/theme/js/respond.min.js"></script>
 
 </body>
 </html>
