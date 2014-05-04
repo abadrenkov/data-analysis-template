@@ -38,3 +38,14 @@ plot(GC_cluster2$Date,GC_cluster2$Inflation, type="n", xlab="Year", ylab="Change
 lines(GC_cluster2$Date,GC_cluster2$Inflation, col="red")
 lines(GC_cluster2$Date,GC_cluster2$Change, col="blue")
 title("Gold Cluster 2")
+
+#plotting wheat clusters
+plot(wheat_cluster1$Date,wheat_cluster1$Inflation, type="n", xlab="Year", ylab="Changes", ylim=c(-1.5,1.5))
+lines(wheat_cluster1$Date,wheat_cluster1$Inflation, col="red")
+lines(wheat_cluster1$Date,wheat_cluster1$Change, col="blue")
+title("Wheat Cluster 1")
+
+plot(wheat_cluster2$Date,wheat_cluster2$Inflation, type="n", xlab="Year", ylab="Changes", ylim=c(-1.5,1.5))
+lines(wheat_cluster2$Date,wheat_cluster2$Inflation, col="red")
+lines(wheat_cluster2$Date,wheat_cluster2$Change, col="blue")
+title("Wheat Cluster 2")
