@@ -12,16 +12,15 @@ if(require(xlsx)==FALSE)
 library(xlsx)
 
 #this would be the command to run to read the xls file
- df <- read.xlsx("Cleaned_Wheat.xls", sheetIndex=1)
+df <- read.xlsx("../data/cleaned/Cleaned_Wheat.xls", sheetIndex=1)
 
-#this part didn't seem to want to run. It said there were illegal arguments
-#wk = loadWorkbook("Cleaned_Wheat.xls") 
-#df = readWorksheet(wk, sheet="Wheat")
 
 #grab csv files
-a = paste(getwd(), "/*.csv", sep="")
+setwd("..")
+a = paste(getwd(), "/data/raw/*.csv", sep="")
 b = Sys.glob(a)
 c = lapply(b, fread)
+setwd("notebooks")
 
 #grab desired variables (cpi)
 cpi <- c[[1]]
