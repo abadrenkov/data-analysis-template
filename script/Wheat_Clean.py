@@ -6,7 +6,7 @@ import xlwt
 from tempfile import TemporaryFile
 
 # reading from the first xl file
-xl = pd.ExcelFile("Wheat_Prices_1278_1536.xls")
+xl = pd.ExcelFile("../data/raw/Wheat_Prices_1278_1536.xls")
 df = xl.parse("Wheat")
 
 #gathering all the data into a dictionary by year
@@ -29,7 +29,7 @@ for i in range(0, len(df2)) :
     dict1[int(x)] = ls1
 
 # reading from the second xl file
-xl2 = pd.ExcelFile("Wheat_Prices_1594_1681.xls")
+xl2 = pd.ExcelFile("../data/raw/Wheat_Prices_1594_1681.xls")
 df3 = xl2.parse("Wheat")
 
 #gathering all the data into a dictionary by year
@@ -47,7 +47,7 @@ for i in range(0, len(df4)) :
     dict1[int(x)] = ls1	
 
 # reading from the third xl file
-xl3 = pd.ExcelFile("Wheat_Prices_1657_1817.xls")
+xl3 = pd.ExcelFile("../data/raw/Wheat_Prices_1657_1817.xls")
 df5 = xl3.parse("Wheat")
 
 #gathering all the data into a dictionary by year
@@ -65,7 +65,7 @@ for i in range(0, len(df6)) :
     dict1[int(x)] = ls1	
 
 # reading from the fourth xl file
-xl4 = pd.ExcelFile("Wheat_Prices_1790_1850_2.xlsx")
+xl4 = pd.ExcelFile("../data/raw/Wheat_Prices_1790_1850_2.xls")
 df7 = xl4.parse("Wheat")
 
 #gathering all the data into a dictionary by year
@@ -83,7 +83,7 @@ for i in range(0, len(df8)) :
     dict1[int(x)] = ls1	
 
 # reading from the fifth xl file
-xl5 = pd.ExcelFile("Wheat_Prices_1850_1950_2.xlsx")
+xl5 = pd.ExcelFile("../data/raw/Wheat_Prices_1850_1950_2.xls")
 df9 = xl5.parse("Wheat")
 
 #gathering all the data into a dictionary by year
@@ -132,10 +132,10 @@ for i in range(0, 400):
 sheet1.write(0,2,0)
 for i in range(1, 400):
     if arr[i] != None and arr[i-1] != None :
-        sheet1.write(i,2,arr[i]-arr[i-1])
+        sheet1.write(i,2,(arr[i]-arr[i-1])/arr[i-1])
     else :
         sheet1.write(i,2,0)
 
-name = "Cleaned_Wheat.xls"
+name = "../data/cleaned/Cleaned_Wheat.xls"
 book.save(name)
 book.save(TemporaryFile())
