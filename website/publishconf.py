@@ -15,7 +15,7 @@ from pelicanconf import *
 # of this repository  (Replace accordingly)
 ####################################################################
 
-SITEURL = 'http://abadrenkov.github.io/data-analysis-template'
+SITEURL = 'http://abadrenkov.github.io/gold_vs_inflation'
 
 ####################################################################
 
