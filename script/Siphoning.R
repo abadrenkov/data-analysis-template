@@ -19,9 +19,9 @@ mean_DFG <- as.data.frame(mean_gold_matrix)
 
 diff_CPI = diff(mean_DFG$mean_CPI, lag=1)
 diff_gold = diff(mean_DFG$mean_gold, lag=1)
-diff_matrix = cbind(mean_DFG$Decades, diff_CPI, diff_gold)
+diff_matrix = cbind(diff_CPI, diff_gold)
 diff_table = as.data.table(diff_matrix)
-setkey(diff_table, Decades, diff_CPI, diff_gold)
+setkey(diff_table, diff_CPI, diff_gold)
 
 plot(mean_DFG$mean_CPI, mean_DFG$mean_gold, xlab = "mean_CPI", ylab = "mean_gold")
 plot(log(mean_DFG$mean_CPI), log(mean_DFG$mean_gold),

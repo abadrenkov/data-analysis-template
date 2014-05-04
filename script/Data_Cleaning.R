@@ -112,23 +112,6 @@ DFSI$Change <- Schange_numbers
 DFSI$Inflation = Inflation_numbers
 #can now use numberic values to run tests
 
-# Side by side line plot
-par(mfrow=c(1,2))
-
-#plot Gold
-plot(DFGC$Date,DFGC$Inflation, type="n", xlab="Year", ylab="Changes")
-lines(DFGC$Date,DFGC$Change, col="blue")
-lines(DFGC$Date,DFGC$Inflation, col="red")
-lines(DFGC$Date,DFGC$Change, col="blue")
-title("Gold")
-
-#plot Silver
-plot(DFSI$Date,DFSI$Inflation, type="n", xlab="Year", ylab="Changes")
-lines(DFSI$Date,DFSI$Inflation, col="red")
-lines(DFSI$Date,DFSI$Change, col="blue")
-title("Silver")
-
-
 # Wheat Stuff
 
 # graph of overall pricing for summary
