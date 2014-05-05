@@ -97,9 +97,10 @@ pdflatex NB4_report.tex&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id="team-members-responsible-for-this-notebook"&gt;Team members responsible for this notebook:&lt;/h2&gt;
 &lt;p&gt;List the team members contributing to this notebook, along with their responsabilities:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;team member 1 &lt;strong&gt;name&lt;/strong&gt;: team member 1 &lt;strong&gt;responsabilities&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;team member 2 &lt;strong&gt;name&lt;/strong&gt;: team member 2 &lt;strong&gt;responsabilities&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;etc.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Alexander Badrenkov: Everything&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ivan Kho: Everything&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tony Lin: Everything&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Yvonne Ng: Everything&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;I advise you to work at least in pairs for each project notebook, as you did for the homework assignments. Of course, all team members may participate to each notebook.&lt;/p&gt;
 &lt;/div&gt;
@@ -17346,13 +17347,25 @@ In&amp;nbsp;[18]:
 &lt;/div&gt;
 
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Price-Changes-from-1257-1900"&gt;Price Changes from 1257-1900&lt;a class="anchor-link" href="#Price-Changes-from-1257-1900"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;As a first step towards meaningful analysis of the data, we saw that there was a marked difference in the behavior of gold and silver prices between 1257 to 1900 and 1900 to 2011.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Gold: The &amp;quot;Positive Gold Cluster 1&amp;quot; graph shows that gold prices were relatively less volatile from 1257 to 1900. Changes in gold prices remained close to 0 even though inflation fluctuated greatly. In comparison, gold prices from 1901 to 2011 seemed to fluctuate much more greatly in this period and sometimes moved with inflation.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Silver: The &amp;quot;Positive Silver Cluster 1&amp;quot; graph shows that silver prices were relatively less volatile from 1257 to 1900. Changes in silver prices remained close to 0 even though inflation fluctuated greatly. In comparison, gold prices from 1901 to 2011 seemed to fluctuate much more greatly in this period and sometimes moved with inflation.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Wheat: In comparison to both gold and silver, there did not seem to be a difference in the behavior of wheat prices between the two periods. Wheat prices were highly volatile throughout the entire period of measurement. This could mean that wheat is greatly affected by inflation, while gold and silver are not as affected.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell vbox"&gt;
+&lt;div class="input hbox"&gt;
+&lt;div class="prompt input_prompt"&gt;
+In&amp;nbsp;[]:
+&lt;/div&gt;
+&lt;div class="input_area box-flex1"&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;ul&gt;
-&lt;li&gt;Gold: The &amp;quot;Gold Cluster 1&amp;quot; graph shows that gold prices were relatively less volatile during this period. Changes in gold prices remained close to 0 even though inflation fluctuated between&lt;/li&gt;
-&lt;/ul&gt;
 &lt;/div&gt;&lt;/p&gt;</summary></entry><entry><title>Data Cleaning</title><link href="http://abadrenkov.github.io/gold_vs_inflation/nb2.html" rel="alternate"></link><updated>2014-03-02T00:00:00-08:00</updated><author><name>Benoit Dherin</name></author><id>tag:abadrenkov.github.io,2014-03-02:gold_vs_inflation/nb2.html</id><summary type="html">&lt;p&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h1 id="Data-Cleaning"&gt;Data Cleaning&lt;a class="anchor-link" href="#Data-Cleaning"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;
