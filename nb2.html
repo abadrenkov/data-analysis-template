@@ -3,7 +3,7 @@
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-    <title>Gold vs Inflation - misc</title>
+    <title>Data Cleaning</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -1717,10 +1717,10 @@ init_mathjax();
 
 
     <!-- Open Graph tags -->
-            <meta property="og:type" content="website"/>
-            <meta property="og:title" content="Gold vs Inflation"/>
-            <meta property="og:url" content="http://abadrenkov.github.io/gold_vs_inflation"/>
-            <meta property="og:description" content="Gold vs Inflation"/>
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Data Cleaning"/>
+            <meta property="og:url" content="http://abadrenkov.github.io/gold_vs_inflation/nb2.html"/>
+            <meta property="og:description" content="Data Cleaning¶ Team members responsible for this notebook: Alexander Badrenkov: Cleaning the Wheat data Ivan Kho: Assist in CPI, Gold, Silver, Wheat cleaning Tony Lin: Assist in CPI, Gold, Silver cleaning Yvonne Ng: Assist in CPI, Gold, Silver cleaning The Cleaning begins¶ Data Cleaning for the CPI, Gold, and Silver ..."/>
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="http://abadrenkov.github.io/gold_vs_inflation/theme/css/bootstrap.min.css" type="text/css"/>
@@ -1788,31 +1788,32 @@ Gold vs Inflation            </a>
     <div class="row">
         <div class="col-sm-9">
 
-            <article>
-                <h2><a href="http://abadrenkov.github.io/gold_vs_inflation/nb4.html">Project Report</a></h2>
-                <div class="summary"><p>
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>In this notebook, you'll sumarize your finding for the class presentation.</p>
-<p>The class presentation will use this notebook in slide mode, as I do during lecture time.</p>
-<p>You'll need to download the following <a href="https://github.com/fperez/nb-slideshow-template/archive/master.zip">zip file</a>, unzip it, and run the following notebook <code>install-support.ipynb</code> to install the slide ...</p></div></p>
-                    <a class="btn btn-default btn-xs" href="http://abadrenkov.github.io/gold_vs_inflation/nb4.html">more ...</a>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://abadrenkov.github.io/gold_vs_inflation/nb2.html"
+                       rel="bookmark"
+                       title="Permalink to Data Cleaning">
+                        Data Cleaning
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2014-03-02T00:00:00">Sun 02 March 2014</time>
+    </span>
+
+
+
+    
+</footer><!-- /.post-info -->                    </div>
                 </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://abadrenkov.github.io/gold_vs_inflation/nb3.html">Data Analysis</a></h2>
-                <div class="summary"><p>
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>In this notebook, you'll perform the actual analysis of the data stored in the directory</p>
-<pre><code>./data/cleaned</code></pre>
-<p>If the data is not ready yet (e.g. the other members of the team in charge of cleaning the data are not done yet), you may want to simulate cleaned data ...</p></div></p>
-                    <a class="btn btn-default btn-xs" href="http://abadrenkov.github.io/gold_vs_inflation/nb3.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://abadrenkov.github.io/gold_vs_inflation/nb2.html">Data Cleaning</a></h2>
-                <div class="summary"><p>
+                <p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Data-Cleaning">Data Cleaning<a class="anchor-link" href="#Data-Cleaning">&#182;</a></h1>
 </div>
@@ -1831,41 +1832,1749 @@ Gold vs Inflation            </a>
 </div>
 
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Data Cleaning for the CPI, Gold, and Silver ...</p></div></p>
-                    <a class="btn btn-default btn-xs" href="http://abadrenkov.github.io/gold_vs_inflation/nb2.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://abadrenkov.github.io/gold_vs_inflation/nb1.html">Data Gathering</a></h2>
-                <div class="summary"><p>
+<p>Data Cleaning for the CPI, Gold, and Silver will involve R</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[1]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%</span><span class="k">load_ext</span> <span class="n">rmagic</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Data-Gathering">Data Gathering<a class="anchor-link" href="#Data-Gathering">&#182;</a></h1>
+<p>Install the necessary packages if nonexistant</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[2]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="k">if</span><span class="p">(</span><span class="n">require</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">table</span><span class="p">)</span><span class="o">==</span><span class="n">FALSE</span><span class="p">)</span>
+    <span class="n">install</span><span class="o">.</span><span class="n">packages</span><span class="p">(</span><span class="s">&quot;data.table&quot;</span><span class="p">)</span>
+<span class="k">if</span><span class="p">(</span><span class="n">require</span><span class="p">(</span><span class="n">xlsx</span><span class="p">)</span><span class="o">==</span><span class="n">FALSE</span><span class="p">)</span>
+    <span class="n">install</span><span class="o">.</span><span class="n">packages</span><span class="p">(</span><span class="s">&quot;xlsx&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+Loading required package: data.table
+data.table 1.9.2  For help type: help(&quot;data.table&quot;)
+Loading required package: xlsx
+Loading required package: rJava
+Loading required package: xlsxjars
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Load the necessary packages</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[3]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="n">library</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">table</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">xlsx</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">base</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Load the necessary data files to begin working</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[4]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="c">#grab csv files</span>
+<span class="n">setwd</span><span class="p">(</span><span class="s">&quot;..&quot;</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">paste</span><span class="p">(</span><span class="n">getwd</span><span class="p">(),</span> <span class="s">&quot;/data/raw/*.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">Sys</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">lapply</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">fread</span><span class="p">)</span>
+<span class="n">setwd</span><span class="p">(</span><span class="s">&quot;notebooks&quot;</span><span class="p">)</span>
+
+<span class="c"># Separate datafiles</span>
+<span class="n">cpi</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">[[</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">gold</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">[[</span><span class="mi">2</span><span class="p">]]</span>
+<span class="n">silver</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">[[</span><span class="mi">3</span><span class="p">]]</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Gold:">Gold:<a class="anchor-link" href="#Gold:">&#182;</a></h4>
 </div>
 
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="important">Important!!</h2>
-<p>If the package <code>xlsx</code> does not run for you, please close the notebook and run the following command:</p>
-<pre><code>R CMD javareconf -e</code></pre>
-<p>This makes it so that the package <code>xlsx</code> will run</p>
+<p>What we want to do for the gold data is to separate them into two separate dataframes. <br> One will involve the year to year data while the other will involve the changes in years.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[5]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="c"># Because the datasets are of different lengths</span>
+<span class="c"># we want to match available time frames</span>
+<span class="n">cpi_gold</span> <span class="o">&lt;-</span> <span class="n">merge</span><span class="p">(</span><span class="n">cpi</span><span class="p">,</span><span class="n">gold</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s">&quot;Date&quot;</span><span class="p">)</span>
+<span class="n">Date</span> <span class="o">&lt;-</span> <span class="n">cpi_gold</span><span class="err">$</span><span class="n">Date</span>
+<span class="n">CPI</span> <span class="o">&lt;-</span> <span class="n">cpi_gold</span><span class="err">$</span><span class="n">Close</span><span class="o">.</span><span class="n">x</span>
+<span class="n">Inflation</span> <span class="o">&lt;-</span> <span class="n">cpi_gold</span><span class="err">$</span><span class="n">Inflation</span>
+<span class="n">Gold</span> <span class="o">&lt;-</span> <span class="n">cpi_gold</span><span class="err">$</span><span class="n">Close</span><span class="o">.</span><span class="n">y</span>
+<span class="n">Change</span> <span class="o">&lt;-</span> <span class="n">cpi_gold</span><span class="err">$</span><span class="n">Change</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[6]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="c"># Conversion from matrix to DataFrame for gold prices</span>
+<span class="n">cpi_gold_matrix</span> <span class="o">&lt;-</span> <span class="n">cbind</span><span class="p">(</span><span class="n">Date</span><span class="p">,</span> <span class="n">CPI</span><span class="p">,</span> <span class="n">Gold</span><span class="p">)</span>
+<span class="n">DFG</span> <span class="o">&lt;-</span> <span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">cpi_gold_matrix</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">DFG</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+        Date       CPI  Gold
+1 12/31/1257 0.4414265 0.889
+2 12/31/1258  0.475071 0.889
+3 12/31/1259  0.475071 0.889
+4 12/31/1260  0.475071 0.889
+5 12/31/1261  0.475071 0.889
+6 12/31/1262  0.475071 0.889
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[7]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="c"># Conversion from factor to numeric</span>
+<span class="n">Gold_factor</span> <span class="o">&lt;-</span> <span class="n">DFG</span><span class="err">$</span><span class="n">Gold</span>
+<span class="n">CPI_factor</span> <span class="o">&lt;-</span> <span class="n">DFG</span><span class="err">$</span><span class="n">CPI</span>
+<span class="n">Gold_numbers</span> <span class="o">&lt;-</span> <span class="k">as</span><span class="o">.</span><span class="n">numeric</span><span class="p">(</span><span class="n">levels</span><span class="p">(</span><span class="n">Gold_factor</span><span class="p">)[</span><span class="k">as</span><span class="o">.</span><span class="n">integer</span><span class="p">(</span><span class="n">Gold_factor</span><span class="p">)])</span>
+<span class="n">CPI_numbers</span> <span class="o">&lt;-</span> <span class="k">as</span><span class="o">.</span><span class="n">numeric</span><span class="p">(</span><span class="n">levels</span><span class="p">(</span><span class="n">CPI_factor</span><span class="p">)[</span><span class="k">as</span><span class="o">.</span><span class="n">integer</span><span class="p">(</span><span class="n">CPI_factor</span><span class="p">)])</span>
+<span class="n">Date</span> <span class="o">&lt;-</span> <span class="n">levels</span><span class="p">(</span><span class="n">DFG</span><span class="err">$</span><span class="n">Date</span><span class="p">)[</span><span class="n">DFG</span><span class="err">$</span><span class="n">Date</span><span class="p">]</span>
+<span class="n">Date</span> <span class="o">&lt;-</span> <span class="k">as</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">Date</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s">&quot;%m/</span><span class="si">%d</span><span class="s">/%Y&quot;</span><span class="p">)</span>
+<span class="n">Date</span> <span class="o">&lt;-</span> <span class="n">year</span><span class="p">(</span><span class="n">Date</span><span class="p">)</span>
+<span class="n">DFG</span><span class="err">$</span><span class="n">Date</span> <span class="o">&lt;-</span> <span class="n">Date</span>
+<span class="n">DFG</span><span class="err">$</span><span class="n">Gold</span> <span class="o">&lt;-</span> <span class="n">Gold_numbers</span>
+<span class="n">DFG</span><span class="err">$</span><span class="n">CPI</span> <span class="o">&lt;-</span> <span class="n">CPI_numbers</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[8]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="k">print</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">DFG</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+  Date       CPI  Gold
+1 1257 0.4414265 0.889
+2 1258 0.4750710 0.889
+3 1259 0.4750710 0.889
+4 1260 0.4750710 0.889
+5 1261 0.4750710 0.889
+6 1262 0.4750710 0.889
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[9]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="c"># Conversion from matrix to DF for changes in gold prices</span>
+
+<span class="n">inflation_gchange_matrix</span> <span class="o">=</span> <span class="n">cbind</span><span class="p">(</span><span class="n">Date</span><span class="p">,</span> <span class="n">Inflation</span><span class="p">,</span> <span class="n">Change</span><span class="p">)</span>
+<span class="n">DFGC</span> <span class="o">=</span> <span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">inflation_gchange_matrix</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">tail</span><span class="p">(</span><span class="n">DFGC</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+    Date   Inflation     Change
+750 2006 0.044307058  0.2923575
+751 2007 0.040453873  0.4302549
+752 2008 0.009483167  0.1296494
+753 2009 0.023954908  0.3412162
+754 2010 0.047706422  0.2330029
+755 2011 0.048161121 -1.0000000
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="team-members-responsible-for-this-notebook">Team members responsible for this notebook:</h2>
-<ul>
-<li><strong>Ivan Kho: Gathering the Cpi, Gold, and Silver data ...</strong></li></ul></div></p>
-                    <a class="btn btn-default btn-xs" href="http://abadrenkov.github.io/gold_vs_inflation/nb1.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://abadrenkov.github.io/gold_vs_inflation/reproducibility.html">Reproducibility</a></h2>
-                <div class="summary"><h1>Reproducibility</h1>
-<h2>Virtual OskiBox</h2>
-<h2>Software Requirements</h2>
-                    <a class="btn btn-default btn-xs" href="http://abadrenkov.github.io/gold_vs_inflation/reproducibility.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
+<p>Here, we want to look only at the positive values of inflation</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[10]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="n">pos_DFGC</span> <span class="o">&lt;-</span> <span class="n">DFGC</span><span class="p">[</span><span class="n">DFGC</span><span class="err">$</span><span class="n">Inflation</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">pos_DFGC</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+   Date  Inflation   Change
+1  1257 0.77185505       NA
+2  1258 0.07621767 0.000000
+8  1264 0.01543473 0.200225
+10 1266 0.03750013 0.000000
+13 1269 0.18571459 0.000000
+14 1270 0.10362850 0.000000
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Writing-cleaned-gold-files">Writing cleaned gold files<a class="anchor-link" href="#Writing-cleaned-gold-files">&#182;</a></h4>
+</div>
+
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[11]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">DFG</span><span class="p">,</span> <span class="s">&quot;../data/cleaned/DF_Gold.csv&quot;</span><span class="p">)</span>
+<span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">DFGC</span><span class="p">,</span> <span class="s">&quot;../data/cleaned/DF_Gold_Change.csv&quot;</span><span class="p">)</span>
+<span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">pos_DFGC</span><span class="p">,</span> <span class="s">&quot;../data/cleaned/DFG_positive_inflation.csv&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Silver:">Silver:<a class="anchor-link" href="#Silver:">&#182;</a></h4>
+</div>
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As in gold, we want to separate silver into two separate dataframes. <br> One will involve the year to year data while the other will involve the changes in years.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[12]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="n">cpi_silver</span> <span class="o">=</span> <span class="n">merge</span><span class="p">(</span><span class="n">cpi</span><span class="p">,</span> <span class="n">silver</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s">&quot;Date&quot;</span><span class="p">)</span>
+<span class="n">Date</span> <span class="o">=</span> <span class="n">cpi_silver</span><span class="err">$</span><span class="n">Date</span>
+<span class="n">CPI</span> <span class="o">&lt;-</span> <span class="n">cpi_silver</span><span class="err">$</span><span class="n">Close</span><span class="o">.</span><span class="n">x</span>
+<span class="n">Inflation</span> <span class="o">&lt;-</span> <span class="n">cpi_silver</span><span class="err">$</span><span class="n">Inflation</span>
+<span class="n">Silver</span> <span class="o">&lt;-</span> <span class="n">cpi_silver</span><span class="err">$</span><span class="n">Close</span><span class="o">.</span><span class="n">y</span>
+<span class="n">Change</span> <span class="o">&lt;-</span> <span class="n">cpi_silver</span><span class="err">$</span><span class="n">Change</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[13]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="c">#conversion of matrix to DF for silver prices</span>
+<span class="n">cpi_silver_matrix</span> <span class="o">&lt;-</span> <span class="n">cbind</span><span class="p">(</span><span class="n">Date</span><span class="p">,</span> <span class="n">CPI</span><span class="p">,</span> <span class="n">Silver</span><span class="p">)</span>
+<span class="n">DFS</span> <span class="o">&lt;-</span> <span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">cpi_silver_matrix</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[14]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="c">#conversion from factor to numeric (silver prices)</span>
+<span class="n">Silver_factor</span> <span class="o">&lt;-</span> <span class="n">DFS</span><span class="err">$</span><span class="n">Silver</span>
+<span class="n">CPI_factor</span> <span class="o">=</span> <span class="n">DFS</span><span class="err">$</span><span class="n">CPI</span>
+<span class="n">Silver_numbers</span> <span class="o">&lt;-</span> <span class="k">as</span><span class="o">.</span><span class="n">numeric</span><span class="p">(</span><span class="n">levels</span><span class="p">(</span><span class="n">Silver_factor</span><span class="p">)[</span><span class="k">as</span><span class="o">.</span><span class="n">integer</span><span class="p">(</span><span class="n">Silver_factor</span><span class="p">)])</span>
+<span class="n">CPI_numbers</span> <span class="o">=</span> <span class="k">as</span><span class="o">.</span><span class="n">numeric</span><span class="p">(</span><span class="n">levels</span><span class="p">(</span><span class="n">CPI_factor</span><span class="p">)[</span><span class="k">as</span><span class="o">.</span><span class="n">integer</span><span class="p">(</span><span class="n">CPI_factor</span><span class="p">)])</span>
+<span class="n">DateS</span> <span class="o">&lt;-</span> <span class="n">levels</span><span class="p">(</span><span class="n">DFS</span><span class="err">$</span><span class="n">Date</span><span class="p">)[</span><span class="n">DFS</span><span class="err">$</span><span class="n">Date</span><span class="p">]</span>
+<span class="n">DateS</span> <span class="o">&lt;-</span> <span class="k">as</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">Date</span><span class="p">,</span> <span class="s">&quot;%m/</span><span class="si">%d</span><span class="s">/%Y&quot;</span><span class="p">)</span>
+<span class="n">DateS</span> <span class="o">&lt;-</span> <span class="n">year</span><span class="p">(</span><span class="n">DateS</span><span class="p">)</span>
+<span class="n">DFS</span><span class="err">$</span><span class="n">Date</span> <span class="o">=</span> <span class="n">DateS</span>
+<span class="n">DFS</span><span class="err">$</span><span class="n">Silver</span> <span class="o">&lt;-</span> <span class="n">Silver_numbers</span>
+<span class="n">DFS</span><span class="err">$</span><span class="n">CPI</span> <span class="o">=</span> <span class="n">CPI_numbers</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[15]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="c"># Conversion of matrix to DF for change in silver prices</span>
+<span class="n">inflation_schange_matrix</span> <span class="o">&lt;-</span> <span class="n">cbind</span><span class="p">(</span><span class="n">Date</span><span class="p">,</span> <span class="n">Inflation</span><span class="p">,</span> <span class="n">Change</span><span class="p">)</span>
+<span class="n">DFSI</span> <span class="o">&lt;-</span> <span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">inflation_schange_matrix</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">lapply</span><span class="p">(</span><span class="n">DFSI</span><span class="p">,</span> <span class="n">class</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+$Date
+[1] &quot;factor&quot;
+
+$Inflation
+[1] &quot;factor&quot;
+
+$Change
+[1] &quot;factor&quot;
+
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[16]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="c">#conversion from factor to numeric (change in silver prices)</span>
+<span class="n">Schange_factor</span> <span class="o">&lt;-</span> <span class="n">DFSI</span><span class="err">$</span><span class="n">Change</span>
+<span class="n">Inflation_factor</span> <span class="o">=</span> <span class="n">DFSI</span><span class="err">$</span><span class="n">Inflation</span>
+<span class="n">Schange_numbers</span> <span class="o">&lt;-</span> <span class="k">as</span><span class="o">.</span><span class="n">numeric</span><span class="p">(</span><span class="n">levels</span><span class="p">(</span><span class="n">Schange_factor</span><span class="p">)[</span><span class="k">as</span><span class="o">.</span><span class="n">integer</span><span class="p">(</span><span class="n">Schange_factor</span><span class="p">)])</span>
+<span class="n">Inflation_numbers</span> <span class="o">=</span> <span class="k">as</span><span class="o">.</span><span class="n">numeric</span><span class="p">(</span><span class="n">levels</span><span class="p">(</span><span class="n">Inflation_factor</span><span class="p">)[</span><span class="k">as</span><span class="o">.</span><span class="n">integer</span><span class="p">(</span><span class="n">Inflation_factor</span><span class="p">)])</span>
+<span class="n">DateS</span> <span class="o">&lt;-</span> <span class="n">levels</span><span class="p">(</span><span class="n">DFSI</span><span class="err">$</span><span class="n">Date</span><span class="p">)[</span><span class="n">DFSI</span><span class="err">$</span><span class="n">Date</span><span class="p">]</span>
+<span class="n">DateS</span> <span class="o">&lt;-</span> <span class="k">as</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">Date</span><span class="p">,</span> <span class="s">&quot;%m/</span><span class="si">%d</span><span class="s">/%Y&quot;</span><span class="p">)</span>
+<span class="n">DateS</span> <span class="o">&lt;-</span> <span class="n">year</span><span class="p">(</span><span class="n">DateS</span><span class="p">)</span>
+<span class="n">DFSI</span><span class="err">$</span><span class="n">Date</span> <span class="o">=</span> <span class="n">DateS</span>
+<span class="n">DFSI</span><span class="err">$</span><span class="n">Change</span> <span class="o">&lt;-</span> <span class="n">Schange_numbers</span>
+<span class="n">DFSI</span><span class="err">$</span><span class="n">Inflation</span> <span class="o">=</span> <span class="n">Inflation_numbers</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">lapply</span><span class="p">(</span><span class="n">DFSI</span><span class="p">,</span> <span class="n">class</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+$Date
+[1] &quot;integer&quot;
+
+$Inflation
+[1] &quot;numeric&quot;
+
+$Change
+[1] &quot;numeric&quot;
+
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[17]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="k">print</span><span class="p">(</span><span class="n">tail</span><span class="p">(</span><span class="n">DFSI</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+    Date   Inflation      Change
+749 2005 0.022116904  0.07025440
+750 2006 0.044307058  0.05971083
+751 2007 0.040453873  0.14512843
+752 2008 0.009483167  0.15216670
+753 2009 0.023954908 -0.03823706
+754 2010 0.047706422 -0.10768176
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We want to look at the positive values of inflation</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[18]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="n">pos_DFSI</span> <span class="o">&lt;-</span> <span class="n">DFSI</span><span class="p">[</span><span class="n">DFSI</span><span class="err">$</span><span class="n">Inflation</span> <span class="o">&gt;</span><span class="mi">0</span><span class="p">,]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">pos_DFSI</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+   Date  Inflation Change
+1  1257 0.77185505     NA
+2  1258 0.07621767      0
+8  1264 0.01543473      0
+10 1266 0.03750013      0
+13 1269 0.18571459      0
+14 1270 0.10362850      0
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Writing-cleaned-Silver-files">Writing cleaned Silver files<a class="anchor-link" href="#Writing-cleaned-Silver-files">&#182;</a></h4>
+</div>
+
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[19]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">DFS</span><span class="p">,</span> <span class="s">&quot;../data/cleaned/DF_silver.csv&quot;</span><span class="p">)</span>
+<span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">DFSI</span><span class="p">,</span> <span class="s">&quot;../data/cleaned/DF_Silver_Inflation.csv&quot;</span><span class="p">)</span>
+<span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">pos_DFSI</span><span class="p">,</span> <span class="s">&quot;../data/cleaned/DFS_positive_inflation.csv&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Procedure for wheat data: </strong> Below is the code that gathers the wheat data from 6 files (located in the raw data folder). <br> 1. Load a file. <br> 1. Grab the data for a certain year in our dictionary. <br> 2. Check if that data is empty. If it is, we start a new list for the data points. If it isn't, we grab the list associated with the year we want. <br> 3. For all the values for that year in our current file, add them to the list. <br> 4. Repeat this for all the data in 5 files. <br> 5. Sum all the values of the wheat per year. <br> 6. Put these values in an array and save it to an excel file.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[20]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
+<span class="kn">import</span> <span class="nn">xlwt</span>
+<span class="kn">from</span> <span class="nn">tempfile</span> <span class="kn">import</span> <span class="n">TemporaryFile</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>First File (1278-1536)</strong></p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[21]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="c"># reading from the first xl file</span>
+<span class="n">xl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">ExcelFile</span><span class="p">(</span><span class="s">&quot;../data/raw/Wheat_Prices_1278_1536.xls&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">xl</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s">&quot;Wheat&quot;</span><span class="p">)</span>
+
+<span class="c">#gathering all the data into a dictionary by year</span>
+<span class="n">dict1</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">df</span><span class="p">)[</span><span class="s">&#39;Season&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df2</span><span class="p">))</span> <span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s">&#39;Season&#39;</span><span class="p">][:</span><span class="mi">4</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">dict1</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="p">:</span>
+        <span class="n">ls1</span> <span class="o">=</span> <span class="n">dict1</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ls1</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span> <span class="p">:</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="p">:</span>
+            <span class="n">ls1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+    <span class="n">dict1</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span> <span class="o">=</span> <span class="n">ls1</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Second File (1594-1681)</strong></p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[22]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="c"># reading from the second xl file</span>
+<span class="n">xl2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">ExcelFile</span><span class="p">(</span><span class="s">&quot;../data/raw/Wheat_Prices_1594_1681.xls&quot;</span><span class="p">)</span>
+<span class="n">df3</span> <span class="o">=</span> <span class="n">xl2</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s">&quot;Wheat&quot;</span><span class="p">)</span>
+
+<span class="c">#gathering all the data into a dictionary by year</span>
+<span class="n">df4</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">df3</span><span class="p">)[</span><span class="s">&#39;Season&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df4</span><span class="p">))</span> <span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">df3</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s">&#39;Season&#39;</span><span class="p">][:</span><span class="mi">4</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">dict1</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="p">:</span>
+        <span class="n">ls1</span> <span class="o">=</span> <span class="n">dict1</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ls1</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span> <span class="p">:</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">df3</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="p">:</span>
+            <span class="n">ls1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+    <span class="n">dict1</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span> <span class="o">=</span> <span class="n">ls1</span>	
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Third File (1657-1817)</strong></p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[23]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="c"># reading from the third xl file</span>
+<span class="n">xl3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">ExcelFile</span><span class="p">(</span><span class="s">&quot;../data/raw/Wheat_Prices_1657_1817.xls&quot;</span><span class="p">)</span>
+<span class="n">df5</span> <span class="o">=</span> <span class="n">xl3</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s">&quot;Wheat&quot;</span><span class="p">)</span>
+
+<span class="c">#gathering all the data into a dictionary by year</span>
+<span class="n">df6</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">df5</span><span class="p">)[</span><span class="s">&#39;Year&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df6</span><span class="p">))</span> <span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">df5</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s">&#39;Year&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">dict1</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="p">:</span>
+        <span class="n">ls1</span> <span class="o">=</span> <span class="n">dict1</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ls1</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="p">:</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">df5</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="p">:</span>
+            <span class="n">ls1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+    <span class="n">dict1</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span> <span class="o">=</span> <span class="n">ls1</span>	
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Fourth File (1790-1850)</strong></p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[24]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="c"># reading from the fourth xl file</span>
+<span class="n">xl4</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">ExcelFile</span><span class="p">(</span><span class="s">&quot;../data/raw/Wheat_Prices_1790_1850_2.xls&quot;</span><span class="p">)</span>
+<span class="n">df7</span> <span class="o">=</span> <span class="n">xl4</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s">&quot;Wheat&quot;</span><span class="p">)</span>
+
+<span class="c">#gathering all the data into a dictionary by year</span>
+<span class="n">df8</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">df7</span><span class="p">)[</span><span class="s">&#39;Year&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df8</span><span class="p">))</span> <span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">df7</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s">&#39;Year&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">dict1</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="p">:</span>
+        <span class="n">ls1</span> <span class="o">=</span> <span class="n">dict1</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ls1</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="p">:</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">df7</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="p">:</span>
+            <span class="n">ls1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+    <span class="n">dict1</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span> <span class="o">=</span> <span class="n">ls1</span>	
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Fifth File (1850-1950)</strong></p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[25]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="c"># reading from the fifth xl file</span>
+<span class="n">xl5</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">ExcelFile</span><span class="p">(</span><span class="s">&quot;../data/raw/Wheat_Prices_1850_1950_2.xls&quot;</span><span class="p">)</span>
+<span class="n">df9</span> <span class="o">=</span> <span class="n">xl5</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s">&quot;Wheat&quot;</span><span class="p">)</span>
+
+<span class="c">#gathering all the data into a dictionary by year</span>
+<span class="n">df10</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">df9</span><span class="p">)[</span><span class="s">&#39;Year&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df10</span><span class="p">))</span> <span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">df9</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s">&#39;Year&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">dict1</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="p">:</span>
+        <span class="n">ls1</span> <span class="o">=</span> <span class="n">dict1</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ls1</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="p">:</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">df9</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="p">:</span>
+            <span class="n">ls1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+    <span class="n">dict1</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span> <span class="o">=</span> <span class="n">ls1</span>		
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Gathering the Averages per Year</strong></p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[26]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="c">#gather averages of the data</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">280</span><span class="p">,</span> <span class="mi">680</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">((</span><span class="mi">1270</span><span class="o">+</span><span class="n">k</span><span class="p">)</span> <span class="ow">in</span> <span class="n">dict1</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">dict1</span><span class="p">[</span><span class="mi">1270</span><span class="o">+</span><span class="n">k</span><span class="p">])</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+        <span class="n">ls2</span> <span class="o">=</span> <span class="n">dict1</span><span class="p">[</span><span class="mi">1270</span><span class="o">+</span><span class="n">k</span><span class="p">]</span>
+        <span class="nb">sum</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">counter</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">ls2</span><span class="p">:</span>
+            <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">l</span>
+            <span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">arr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="o">/</span><span class="n">counter</span><span class="o">/</span><span class="mf">20.0</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+		<span class="n">arr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Writing To a New Excel File</strong></p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[27]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="c">#write to a excel file</span>
+<span class="n">book</span> <span class="o">=</span> <span class="n">xlwt</span><span class="o">.</span><span class="n">Workbook</span><span class="p">()</span>
+<span class="n">sheet1</span> <span class="o">=</span> <span class="n">book</span><span class="o">.</span><span class="n">add_sheet</span><span class="p">(</span><span class="s">&#39;Wheat&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">e</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="n">sheet1</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">e</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">400</span><span class="p">):</span>
+    <span class="n">sheet1</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1550</span><span class="o">+</span><span class="n">i</span><span class="p">)</span>
+<span class="n">sheet1</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">400</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="bp">None</span> <span class="p">:</span>
+        <span class="n">sheet1</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">,(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">else</span> <span class="p">:</span>
+        <span class="n">sheet1</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Cleaned_Wheat.xls&quot;</span>
+<span class="n">book</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;../data/cleaned/&quot;</span><span class="o">+</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Combining-Wheat-and-Inflation-data">Combining Wheat and Inflation data<a class="anchor-link" href="#Combining-Wheat-and-Inflation-data">&#182;</a></h3>
+</div>
+
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[28]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="n">dfWheat</span> <span class="o">&lt;-</span> <span class="n">read</span><span class="o">.</span><span class="n">xlsx</span><span class="p">(</span><span class="s">&quot;../data/cleaned/Cleaned_Wheat.xls&quot;</span><span class="p">,</span> <span class="n">sheetIndex</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[29]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="c"># To get the corresponding years</span>
+<span class="n">cpi</span><span class="o">.</span><span class="n">sub</span> <span class="o">&lt;-</span> <span class="n">cpi</span><span class="p">[</span><span class="mi">343</span><span class="p">:</span><span class="mi">741</span><span class="p">]</span>
+
+<span class="n">year</span> <span class="o">&lt;-</span> <span class="n">dfWheat</span><span class="p">[[</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">wheat</span> <span class="o">&lt;-</span> <span class="n">dfWheat</span><span class="p">[[</span><span class="mi">2</span><span class="p">]]</span>
+<span class="n">Change</span> <span class="o">&lt;-</span> <span class="n">dfWheat</span><span class="p">[[</span><span class="mi">3</span><span class="p">]]</span>
+<span class="n">cpi</span><span class="o">.</span><span class="n">sub</span><span class="err">$</span><span class="n">Wheat</span> <span class="o">&lt;-</span> <span class="n">wheat</span>
+
+<span class="n">Date</span> <span class="o">&lt;-</span> <span class="n">cpi</span><span class="o">.</span><span class="n">sub</span><span class="err">$</span><span class="n">Date</span>
+<span class="n">CPI</span> <span class="o">&lt;-</span> <span class="n">cpi</span><span class="o">.</span><span class="n">sub</span><span class="err">$</span><span class="n">Close</span>
+<span class="n">Inflation</span> <span class="o">&lt;-</span> <span class="n">cpi</span><span class="o">.</span><span class="n">sub</span><span class="err">$</span><span class="n">Inflation</span>
+<span class="n">Wheat</span> <span class="o">&lt;-</span> <span class="n">cpi</span><span class="o">.</span><span class="n">sub</span><span class="err">$</span><span class="n">Wheat</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[30]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="c"># Conversion from matrix to DF for wheat prices</span>
+<span class="n">cpi_wheat_matrix</span> <span class="o">&lt;-</span> <span class="n">cbind</span><span class="p">(</span><span class="n">Date</span><span class="p">,</span> <span class="n">CPI</span><span class="p">,</span> <span class="n">Wheat</span><span class="p">)</span>
+<span class="n">DFW</span> <span class="o">&lt;-</span> <span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">cpi_wheat_matrix</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[31]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="c"># Conversion from matrix to DT to DF for changes in wheat prices</span>
+<span class="n">inflation_wchange_matrix</span> <span class="o">=</span> <span class="n">cbind</span><span class="p">(</span><span class="n">Date</span><span class="p">,</span> <span class="n">Inflation</span><span class="p">,</span> <span class="n">Change</span><span class="p">)</span>
+<span class="n">DFWC</span> <span class="o">=</span> <span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">inflation_wchange_matrix</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[32]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="c"># Conversion from factor to numeric for wheat prices</span>
+<span class="n">Wheat_factor</span> <span class="o">&lt;-</span> <span class="n">DFW</span><span class="err">$</span><span class="n">Wheat</span>
+<span class="n">CPI_factor</span> <span class="o">&lt;-</span> <span class="n">DFW</span><span class="err">$</span><span class="n">CPI</span>
+<span class="n">Wheat_numbers</span> <span class="o">&lt;-</span> <span class="k">as</span><span class="o">.</span><span class="n">numeric</span><span class="p">(</span><span class="n">levels</span><span class="p">(</span><span class="n">Wheat_factor</span><span class="p">)[</span><span class="k">as</span><span class="o">.</span><span class="n">integer</span><span class="p">(</span><span class="n">Wheat_factor</span><span class="p">)])</span>
+<span class="n">CPI_numbers</span> <span class="o">&lt;-</span> <span class="k">as</span><span class="o">.</span><span class="n">numeric</span><span class="p">(</span><span class="n">levels</span><span class="p">(</span><span class="n">CPI_factor</span><span class="p">)[</span><span class="k">as</span><span class="o">.</span><span class="n">integer</span><span class="p">(</span><span class="n">CPI_factor</span><span class="p">)])</span>
+<span class="n">Date</span> <span class="o">&lt;-</span> <span class="n">levels</span><span class="p">(</span><span class="n">DFW</span><span class="err">$</span><span class="n">Date</span><span class="p">)[</span><span class="n">DFW</span><span class="err">$</span><span class="n">Date</span><span class="p">]</span>
+<span class="n">Date</span> <span class="o">&lt;-</span> <span class="k">as</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">Date</span><span class="p">,</span> <span class="s">&quot;%m/</span><span class="si">%d</span><span class="s">/%Y&quot;</span><span class="p">)</span>
+<span class="n">Date</span> <span class="o">&lt;-</span> <span class="n">year</span><span class="p">(</span><span class="n">Date</span><span class="p">)</span>
+<span class="n">DFW</span><span class="err">$</span><span class="n">Date</span> <span class="o">&lt;-</span> <span class="n">Date</span>
+<span class="n">DFW</span><span class="err">$</span><span class="n">Wheat</span> <span class="o">&lt;-</span> <span class="n">Wheat_numbers</span>
+<span class="n">DFW</span><span class="err">$</span><span class="n">CPI</span> <span class="o">&lt;-</span> <span class="n">CPI_numbers</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[33]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="k">print</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">DFW</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+  Date      CPI     Wheat
+1 1551 1.147901 1.1412500
+2 1552 1.111614 0.5178000
+3 1553 1.043147 0.4319438
+4 1554 1.111614        NA
+5 1555 1.087455 1.0365667
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[34]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="c">#conversion from factor to numeric (changes in gold prices)</span>
+<span class="n">Wchange_factor</span> <span class="o">&lt;-</span> <span class="n">DFWC</span><span class="err">$</span><span class="n">Change</span>
+<span class="n">Inflation_factor</span> <span class="o">&lt;-</span> <span class="n">DFWC</span><span class="err">$</span><span class="n">Inflation</span>
+<span class="n">Wchange_numbers</span> <span class="o">&lt;-</span> <span class="k">as</span><span class="o">.</span><span class="n">numeric</span><span class="p">(</span><span class="n">levels</span><span class="p">(</span><span class="n">Wchange_factor</span><span class="p">)[</span><span class="k">as</span><span class="o">.</span><span class="n">integer</span><span class="p">(</span><span class="n">Wchange_factor</span><span class="p">)])</span>
+<span class="n">Inflation_numbers</span> <span class="o">&lt;-</span> <span class="k">as</span><span class="o">.</span><span class="n">numeric</span><span class="p">(</span><span class="n">levels</span><span class="p">(</span><span class="n">Inflation_factor</span><span class="p">)[</span><span class="k">as</span><span class="o">.</span><span class="n">integer</span><span class="p">(</span><span class="n">Inflation_factor</span><span class="p">)])</span>
+<span class="n">Date</span> <span class="o">&lt;-</span> <span class="n">levels</span><span class="p">(</span><span class="n">DFWC</span><span class="err">$</span><span class="n">Date</span><span class="p">)[</span><span class="n">DFWC</span><span class="err">$</span><span class="n">Date</span><span class="p">]</span>
+<span class="n">Date</span> <span class="o">&lt;-</span> <span class="k">as</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">Date</span><span class="p">,</span> <span class="s">&quot;%m/</span><span class="si">%d</span><span class="s">/%Y&quot;</span><span class="p">)</span>
+<span class="n">Date</span> <span class="o">&lt;-</span> <span class="n">year</span><span class="p">(</span><span class="n">Date</span><span class="p">)</span>
+<span class="n">DFWC</span><span class="err">$</span><span class="n">Date</span> <span class="o">&lt;-</span> <span class="n">Date</span>
+<span class="n">DFWC</span><span class="err">$</span><span class="n">Change</span> <span class="o">&lt;-</span> <span class="n">Wchange_numbers</span>
+<span class="n">DFWC</span><span class="err">$</span><span class="n">Inflation</span> <span class="o">&lt;-</span> <span class="n">Inflation_numbers</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[35]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="k">print</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">DFWC</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+  Date   Inflation     Change
+1 1551  0.08777455  0.0000000
+2 1552 -0.03161212 -0.5462870
+3 1553 -0.06159261 -0.1658097
+4 1554  0.06563526  0.0000000
+5 1555 -0.02173336  0.0000000
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We want positive inflation values</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[36]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="n">pos_DFWC</span> <span class="o">&lt;-</span> <span class="n">DFWC</span><span class="p">[</span><span class="n">DFWC</span><span class="err">$</span><span class="n">Inflation</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,]</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Write-data-frames-as-csv-files">Write data frames as csv files<a class="anchor-link" href="#Write-data-frames-as-csv-files">&#182;</a></h4>
+</div>
+
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[37]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">DFW</span><span class="p">,</span> <span class="s">&quot;../data/cleaned/DF_Wheat.csv&quot;</span><span class="p">)</span>
+<span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">DFWC</span><span class="p">,</span> <span class="s">&quot;../data/cleaned/DF_Wheat_change.csv&quot;</span><span class="p">)</span>
+<span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">pos_DFWC</span><span class="p">,</span> <span class="s">&quot;../data/cleaned/DFW_positive_inflation.csv&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Cluster-data">Cluster data<a class="anchor-link" href="#Cluster-data">&#182;</a></h3>
+</div>
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We want to separate the data into 2 clusters (one from the years before 1900, and one after).</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[38]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="n">first_inflation_GC_cluster</span> <span class="o">=</span> <span class="n">DFGC</span><span class="p">[</span><span class="n">DFGC</span><span class="err">$</span><span class="n">Date</span> <span class="o">&lt;</span> <span class="mi">1901</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="c">#2 is Inflation, #3 is change in price</span>
+<span class="n">second_inflation_GC_cluster</span> <span class="o">=</span> <span class="n">DFGC</span><span class="p">[</span><span class="n">DFGC</span><span class="err">$</span><span class="n">Date</span> <span class="o">&gt;</span> <span class="mi">1900</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">first_price_GC_cluster</span> <span class="o">=</span> <span class="n">DFGC</span><span class="p">[</span><span class="n">DFGC</span><span class="err">$</span><span class="n">Date</span> <span class="o">&lt;</span> <span class="mi">1901</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">second_price_GC_cluster</span> <span class="o">=</span> <span class="n">DFGC</span><span class="p">[</span><span class="n">DFGC</span><span class="err">$</span><span class="n">Date</span> <span class="o">&gt;</span> <span class="mi">1900</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="n">first_inflation_SI_cluster</span> <span class="o">=</span> <span class="n">DFSI</span><span class="p">[</span><span class="n">DFSI</span><span class="err">$</span><span class="n">Date</span> <span class="o">&lt;</span> <span class="mi">1901</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">second_inflation_SI_cluster</span> <span class="o">=</span> <span class="n">DFSI</span><span class="p">[</span><span class="n">DFSI</span><span class="err">$</span><span class="n">Date</span> <span class="o">&gt;</span> <span class="mi">1900</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">first_price_SI_cluster</span> <span class="o">=</span> <span class="n">DFSI</span><span class="p">[</span><span class="n">DFSI</span><span class="err">$</span><span class="n">Date</span> <span class="o">&lt;</span> <span class="mi">1901</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">second_price_SI_cluster</span> <span class="o">=</span> <span class="n">DFSI</span><span class="p">[</span><span class="n">DFSI</span><span class="err">$</span><span class="n">Date</span> <span class="o">&gt;</span> <span class="mi">1900</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="n">first_inflation_wheat_cluster</span> <span class="o">=</span> <span class="n">DFWC</span><span class="p">[</span><span class="n">DFWC</span><span class="err">$</span><span class="n">Date</span> <span class="o">&lt;</span> <span class="mi">1901</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="c">#2 is Inflation, #3 is change in price</span>
+<span class="n">second_inflation_wheat_cluster</span> <span class="o">=</span> <span class="n">DFWC</span><span class="p">[</span><span class="n">DFWC</span><span class="err">$</span><span class="n">Date</span> <span class="o">&gt;</span> <span class="mi">1900</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">first_price_wheat_cluster</span> <span class="o">=</span> <span class="n">DFWC</span><span class="p">[</span><span class="n">DFWC</span><span class="err">$</span><span class="n">Date</span> <span class="o">&lt;</span> <span class="mi">1901</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">second_price_wheat_cluster</span> <span class="o">=</span> <span class="n">DFWC</span><span class="p">[</span><span class="n">DFWC</span><span class="err">$</span><span class="n">Date</span> <span class="o">&gt;</span> <span class="mi">1900</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="n">first_inflation_G_pos_cluster</span> <span class="o">=</span> <span class="n">pos_DFGC</span><span class="p">[</span><span class="n">pos_DFGC</span><span class="err">$</span><span class="n">Date</span> <span class="o">&lt;</span> <span class="mi">1901</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> 
+<span class="n">second_inflation_G_pos_cluster</span> <span class="o">=</span> <span class="n">pos_DFGC</span><span class="p">[</span><span class="n">pos_DFGC</span><span class="err">$</span><span class="n">Date</span> <span class="o">&gt;</span> <span class="mi">1900</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">first_price_G_pos_cluster</span> <span class="o">=</span> <span class="n">pos_DFGC</span><span class="p">[</span><span class="n">pos_DFGC</span><span class="err">$</span><span class="n">Date</span> <span class="o">&lt;</span> <span class="mi">1901</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">second_price_G_pos_cluster</span> <span class="o">=</span> <span class="n">pos_DFGC</span><span class="p">[</span><span class="n">pos_DFGC</span><span class="err">$</span><span class="n">Date</span> <span class="o">&gt;</span> <span class="mi">1900</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="n">first_inflation_S_pos_cluster</span> <span class="o">=</span> <span class="n">pos_DFSI</span><span class="p">[</span><span class="n">pos_DFSI</span><span class="err">$</span><span class="n">Date</span> <span class="o">&lt;</span> <span class="mi">1901</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> 
+<span class="n">second_inflation_S_pos_cluster</span> <span class="o">=</span> <span class="n">pos_DFSI</span><span class="p">[</span><span class="n">pos_DFSI</span><span class="err">$</span><span class="n">Date</span> <span class="o">&gt;</span> <span class="mi">1900</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">first_price_S_pos_cluster</span> <span class="o">=</span> <span class="n">pos_DFSI</span><span class="p">[</span><span class="n">pos_DFSI</span><span class="err">$</span><span class="n">Date</span> <span class="o">&lt;</span> <span class="mi">1901</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">second_price_S_pos_cluster</span> <span class="o">=</span> <span class="n">pos_DFSI</span><span class="p">[</span><span class="n">pos_DFSI</span><span class="err">$</span><span class="n">Date</span> <span class="o">&gt;</span> <span class="mi">1900</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="n">first_inflation_W_pos_cluster</span> <span class="o">=</span> <span class="n">pos_DFWC</span><span class="p">[</span><span class="n">pos_DFWC</span><span class="err">$</span><span class="n">Date</span> <span class="o">&lt;</span> <span class="mi">1901</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> 
+<span class="n">second_inflation_W_pos_cluster</span> <span class="o">=</span> <span class="n">pos_DFWC</span><span class="p">[</span><span class="n">pos_DFWC</span><span class="err">$</span><span class="n">Date</span> <span class="o">&gt;</span> <span class="mi">1900</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">first_price_W_pos_cluster</span> <span class="o">=</span> <span class="n">pos_DFWC</span><span class="p">[</span><span class="n">pos_DFWC</span><span class="err">$</span><span class="n">Date</span> <span class="o">&lt;</span> <span class="mi">1901</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">second_price_W_pos_cluster</span> <span class="o">=</span> <span class="n">pos_DFWC</span><span class="p">[</span><span class="n">pos_DFWC</span><span class="err">$</span><span class="n">Date</span> <span class="o">&gt;</span> <span class="mi">1900</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Next, we turn the data into data frames</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[39]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="n">GC_cluster1</span> <span class="o">=</span> <span class="n">cbind</span><span class="p">(</span><span class="n">DFGC</span><span class="err">$</span><span class="n">Date</span><span class="p">[</span><span class="n">DFGC</span><span class="err">$</span><span class="n">Date</span> <span class="o">&lt;</span> <span class="mi">1901</span><span class="p">],</span> <span class="n">first_inflation_GC_cluster</span><span class="p">,</span> <span class="n">first_price_GC_cluster</span><span class="p">)</span>
+<span class="n">GC_cluster1</span> <span class="o">=</span> <span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">GC_cluster1</span><span class="p">)</span>
+<span class="n">GC_cluster1</span> <span class="o">=</span> <span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">GC_cluster1</span><span class="p">)</span>
+<span class="n">names</span><span class="p">(</span><span class="n">GC_cluster1</span><span class="p">)</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;Date&quot;</span><span class="p">,</span> <span class="s">&quot;Inflation&quot;</span><span class="p">,</span> <span class="s">&quot;Change&quot;</span><span class="p">)</span>
+
+<span class="n">SI_cluster1</span> <span class="o">=</span> <span class="n">cbind</span><span class="p">(</span><span class="n">DFSI</span><span class="err">$</span><span class="n">Date</span><span class="p">[</span><span class="n">DFSI</span><span class="err">$</span><span class="n">Date</span> <span class="o">&lt;</span> <span class="mi">1901</span><span class="p">],</span> <span class="n">first_inflation_SI_cluster</span><span class="p">,</span> <span class="n">first_price_SI_cluster</span><span class="p">)</span>
+<span class="n">SI_cluster1</span> <span class="o">=</span> <span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">SI_cluster1</span><span class="p">)</span>
+<span class="n">SI_cluster1</span> <span class="o">=</span> <span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">SI_cluster1</span><span class="p">)</span>
+<span class="n">names</span><span class="p">(</span><span class="n">SI_cluster1</span><span class="p">)</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;Date&quot;</span><span class="p">,</span> <span class="s">&quot;Inflation&quot;</span><span class="p">,</span> <span class="s">&quot;Change&quot;</span><span class="p">)</span>
+
+<span class="n">wheat_cluster1</span> <span class="o">=</span> <span class="n">cbind</span><span class="p">(</span><span class="n">DFWC</span><span class="err">$</span><span class="n">Date</span><span class="p">[</span><span class="n">DFWC</span><span class="err">$</span><span class="n">Date</span> <span class="o">&lt;</span> <span class="mi">1901</span><span class="p">],</span> <span class="n">first_inflation_wheat_cluster</span><span class="p">,</span> <span class="n">first_price_wheat_cluster</span><span class="p">)</span>
+<span class="n">wheat_cluster1</span> <span class="o">=</span> <span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">wheat_cluster1</span><span class="p">)</span>
+<span class="n">names</span><span class="p">(</span><span class="n">wheat_cluster1</span><span class="p">)</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;Date&quot;</span><span class="p">,</span> <span class="s">&quot;Inflation&quot;</span><span class="p">,</span> <span class="s">&quot;Change&quot;</span><span class="p">)</span>
+
+<span class="n">gold_positive_inflation_cluster1</span> <span class="o">=</span> <span class="n">cbind</span><span class="p">(</span><span class="n">pos_DFGC</span><span class="err">$</span><span class="n">Date</span><span class="p">[</span><span class="n">pos_DFGC</span><span class="err">$</span><span class="n">Date</span> <span class="o">&lt;</span> <span class="mi">1901</span><span class="p">],</span> <span class="n">first_inflation_G_pos_cluster</span><span class="p">,</span> <span class="n">first_price_G_pos_cluster</span><span class="p">)</span>
+<span class="n">gold_positive_inflation_cluster1</span> <span class="o">=</span> <span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">gold_positive_inflation_cluster1</span><span class="p">)</span>
+<span class="n">names</span><span class="p">(</span><span class="n">gold_positive_inflation_cluster1</span><span class="p">)</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;Date&quot;</span><span class="p">,</span> <span class="s">&quot;Inflation&quot;</span><span class="p">,</span> <span class="s">&quot;Change&quot;</span><span class="p">)</span>
+
+<span class="n">silver_positive_inflation_cluster1</span> <span class="o">=</span> <span class="n">cbind</span><span class="p">(</span><span class="n">pos_DFSI</span><span class="err">$</span><span class="n">Date</span><span class="p">[</span><span class="n">pos_DFSI</span><span class="err">$</span><span class="n">Date</span> <span class="o">&lt;</span> <span class="mi">1901</span><span class="p">],</span> <span class="n">first_inflation_S_pos_cluster</span><span class="p">,</span> <span class="n">first_price_S_pos_cluster</span><span class="p">)</span>
+<span class="n">silver_positive_inflation_cluster1</span> <span class="o">=</span> <span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">silver_positive_inflation_cluster1</span><span class="p">)</span>
+<span class="n">names</span><span class="p">(</span><span class="n">silver_positive_inflation_cluster1</span><span class="p">)</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;Date&quot;</span><span class="p">,</span> <span class="s">&quot;Inflation&quot;</span><span class="p">,</span> <span class="s">&quot;Change&quot;</span><span class="p">)</span>
+
+<span class="n">wheat_positive_inflation_cluster1</span> <span class="o">=</span> <span class="n">cbind</span><span class="p">(</span><span class="n">pos_DFWC</span><span class="err">$</span><span class="n">Date</span><span class="p">[</span><span class="n">pos_DFWC</span><span class="err">$</span><span class="n">Date</span> <span class="o">&lt;</span> <span class="mi">1901</span><span class="p">],</span> <span class="n">first_inflation_W_pos_cluster</span><span class="p">,</span> <span class="n">first_price_W_pos_cluster</span><span class="p">)</span>
+<span class="n">wheat_positive_inflation_cluster1</span> <span class="o">=</span> <span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">wheat_positive_inflation_cluster1</span><span class="p">)</span>
+<span class="n">names</span><span class="p">(</span><span class="n">wheat_positive_inflation_cluster1</span><span class="p">)</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;Date&quot;</span><span class="p">,</span> <span class="s">&quot;Inflation&quot;</span><span class="p">,</span> <span class="s">&quot;Change&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[40]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Gold&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">GC_cluster1</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+[1] &quot;Gold&quot;
+  Date  Inflation Change
+1 1257 0.77185505     NA
+2 1258 0.07621767      0
+3 1259 0.00000000      0
+4 1260 0.00000000      0
+5 1261 0.00000000      0
+6 1262 0.00000000      0
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[41]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Silver&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">SI_cluster1</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+[1] &quot;Silver&quot;
+  Date  Inflation      Change
+1 1257 0.77185505          NA
+2 1258 0.07621767 0.000000000
+3 1259 0.00000000 0.000000000
+4 1260 0.00000000 0.000000000
+5 1261 0.00000000 0.000000000
+6 1262 0.00000000 0.004474465
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[42]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Wheat&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">wheat_cluster1</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+[1] &quot;Wheat&quot;
+  Date   Inflation     Change
+1 1551  0.08777455  0.0000000
+2 1552 -0.03161212 -0.5462870
+3 1553 -0.06159261 -0.1658097
+4 1554  0.06563526  0.0000000
+5 1555 -0.02173336  0.0000000
+6 1556  0.37039033  0.5596440
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[43]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Positive Gold&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">gold_positive_inflation_cluster1</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+[1] &quot;Positive Gold&quot;
+  Date  Inflation   Change
+1 1257 0.77185505       NA
+2 1258 0.07621767 0.000000
+3 1264 0.01543473 0.200225
+4 1266 0.03750013 0.000000
+5 1269 0.18571459 0.000000
+6 1270 0.10362850 0.000000
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[44]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Positive Silver&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">silver_positive_inflation_cluster1</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+[1] &quot;Positive Silver&quot;
+  Date  Inflation Change
+1 1257 0.77185505     NA
+2 1258 0.07621767      0
+3 1264 0.01543473      0
+4 1266 0.03750013      0
+5 1269 0.18571459      0
+6 1270 0.10362850      0
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[45]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Positive Wheat&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">wheat_positive_inflation_cluster1</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+[1] &quot;Positive Wheat&quot;
+  Date  Inflation     Change
+1 1551 0.08777455  0.0000000
+2 1554 0.06563526  0.0000000
+3 1556 0.37039033  0.5596440
+4 1557 0.10540824 -0.7369636
+5 1559 0.10875306  0.0000000
+6 1560 0.03913911  0.0000000
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Combining inflation with gold, silver, wheat data into data frames</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[46]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="n">GC_cluster2</span> <span class="o">=</span> <span class="n">cbind</span><span class="p">(</span><span class="n">DFGC</span><span class="err">$</span><span class="n">Date</span><span class="p">[</span><span class="n">DFGC</span><span class="err">$</span><span class="n">Date</span> <span class="o">&gt;</span> <span class="mi">1900</span><span class="p">],</span> <span class="n">second_inflation_GC_cluster</span><span class="p">,</span> <span class="n">second_price_GC_cluster</span><span class="p">)</span>
+<span class="n">GC_cluster2</span> <span class="o">=</span> <span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">GC_cluster2</span><span class="p">)</span>
+<span class="n">GC_cluster2</span> <span class="o">=</span> <span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">GC_cluster2</span><span class="p">)</span>
+<span class="n">names</span><span class="p">(</span><span class="n">GC_cluster2</span><span class="p">)</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;Date&quot;</span><span class="p">,</span> <span class="s">&quot;Inflation&quot;</span><span class="p">,</span> <span class="s">&quot;Change&quot;</span><span class="p">)</span>
+
+<span class="n">SI_cluster2</span> <span class="o">=</span> <span class="n">cbind</span><span class="p">(</span><span class="n">DFSI</span><span class="err">$</span><span class="n">Date</span><span class="p">[</span><span class="n">DFSI</span><span class="err">$</span><span class="n">Date</span> <span class="o">&gt;</span> <span class="mi">1900</span><span class="p">],</span> <span class="n">second_inflation_SI_cluster</span><span class="p">,</span> <span class="n">second_price_SI_cluster</span><span class="p">)</span>
+<span class="n">SI_cluster2</span> <span class="o">=</span> <span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">SI_cluster2</span><span class="p">)</span>
+<span class="n">SI_cluster2</span> <span class="o">=</span> <span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">SI_cluster2</span><span class="p">)</span>
+<span class="n">names</span><span class="p">(</span><span class="n">SI_cluster2</span><span class="p">)</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;Date&quot;</span><span class="p">,</span> <span class="s">&quot;Inflation&quot;</span><span class="p">,</span> <span class="s">&quot;Change&quot;</span><span class="p">)</span>
+
+<span class="n">wheat_cluster2</span> <span class="o">=</span> <span class="n">cbind</span><span class="p">(</span><span class="n">DFWC</span><span class="err">$</span><span class="n">Date</span><span class="p">[</span><span class="n">DFWC</span><span class="err">$</span><span class="n">Date</span> <span class="o">&gt;</span> <span class="mi">1900</span><span class="p">],</span> <span class="n">second_inflation_wheat_cluster</span><span class="p">,</span> <span class="n">second_price_wheat_cluster</span><span class="p">)</span>
+<span class="n">wheat_cluster2</span> <span class="o">=</span> <span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">wheat_cluster2</span><span class="p">)</span>
+<span class="n">names</span><span class="p">(</span><span class="n">wheat_cluster2</span><span class="p">)</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;Date&quot;</span><span class="p">,</span> <span class="s">&quot;Inflation&quot;</span><span class="p">,</span> <span class="s">&quot;Change&quot;</span><span class="p">)</span>
+
+<span class="n">gold_positive_inflation_cluster2</span> <span class="o">=</span> <span class="n">cbind</span><span class="p">(</span><span class="n">pos_DFGC</span><span class="err">$</span><span class="n">Date</span><span class="p">[</span><span class="n">pos_DFGC</span><span class="err">$</span><span class="n">Date</span> <span class="o">&gt;</span> <span class="mi">1900</span><span class="p">],</span> <span class="n">second_inflation_G_pos_cluster</span><span class="p">,</span> <span class="n">second_price_G_pos_cluster</span><span class="p">)</span>
+<span class="n">gold_positive_inflation_cluster2</span> <span class="o">=</span> <span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">gold_positive_inflation_cluster2</span><span class="p">)</span>
+<span class="n">names</span><span class="p">(</span><span class="n">gold_positive_inflation_cluster2</span><span class="p">)</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;Date&quot;</span><span class="p">,</span> <span class="s">&quot;Inflation&quot;</span><span class="p">,</span> <span class="s">&quot;Change&quot;</span><span class="p">)</span>
+
+<span class="n">silver_positive_inflation_cluster2</span> <span class="o">=</span> <span class="n">cbind</span><span class="p">(</span><span class="n">pos_DFSI</span><span class="err">$</span><span class="n">Date</span><span class="p">[</span><span class="n">pos_DFSI</span><span class="err">$</span><span class="n">Date</span> <span class="o">&gt;</span> <span class="mi">1900</span><span class="p">],</span> <span class="n">second_inflation_S_pos_cluster</span><span class="p">,</span> <span class="n">second_price_S_pos_cluster</span><span class="p">)</span>
+<span class="n">silver_positive_inflation_cluster2</span> <span class="o">=</span> <span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">silver_positive_inflation_cluster2</span><span class="p">)</span>
+<span class="n">names</span><span class="p">(</span><span class="n">silver_positive_inflation_cluster2</span><span class="p">)</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;Date&quot;</span><span class="p">,</span> <span class="s">&quot;Inflation&quot;</span><span class="p">,</span> <span class="s">&quot;Change&quot;</span><span class="p">)</span>
+
+<span class="n">wheat_positive_inflation_cluster2</span> <span class="o">=</span> <span class="n">cbind</span><span class="p">(</span><span class="n">pos_DFWC</span><span class="err">$</span><span class="n">Date</span><span class="p">[</span><span class="n">pos_DFWC</span><span class="err">$</span><span class="n">Date</span> <span class="o">&gt;</span> <span class="mi">1900</span><span class="p">],</span> <span class="n">second_inflation_W_pos_cluster</span><span class="p">,</span> <span class="n">second_price_W_pos_cluster</span><span class="p">)</span>
+<span class="n">wheat_positive_inflation_cluster2</span> <span class="o">=</span> <span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">wheat_positive_inflation_cluster2</span><span class="p">)</span>
+<span class="n">names</span><span class="p">(</span><span class="n">wheat_positive_inflation_cluster2</span><span class="p">)</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;Date&quot;</span><span class="p">,</span> <span class="s">&quot;Inflation&quot;</span><span class="p">,</span> <span class="s">&quot;Change&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[47]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Gold&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">GC_cluster2</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+[1] &quot;Gold&quot;
+  Date  Inflation       Change
+1 1901 0.00000000  0.000257069
+2 1902 0.00000000  0.002313030
+3 1903 0.01086956 -0.001794872
+4 1904 0.00000000 -0.000256871
+5 1905 0.00000000 -0.001027749
+6 1906 0.00000000  0.002572016
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[48]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Silver&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">SI_cluster2</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+[1] &quot;Silver&quot;
+  Date  Inflation       Change
+1 1901 0.00000000  0.024660912
+2 1902 0.00000000  0.005706134
+3 1903 0.01086956  0.026731470
+4 1904 0.00000000  0.004469274
+5 1905 0.00000000 -0.016580311
+6 1906 0.00000000 -0.002932551
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[49]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Wheat&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">wheat_cluster2</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+[1] &quot;Wheat&quot;
+  Date  Inflation      Change
+1 1901 0.00000000  0.03025661
+2 1902 0.00000000  0.04460967
+3 1903 0.01086956 -0.04270463
+4 1904 0.00000000  0.05576208
+5 1905 0.00000000  0.04929577
+6 1906 0.00000000 -0.05033557
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[50]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Positive Gold&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">gold_positive_inflation_cluster2</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+[1] &quot;Positive Gold&quot;
+  Date  Inflation       Change
+1 1903 0.01086956 -0.001794872
+2 1907 0.01075268 -0.000513084
+3 1909 0.01063832  0.000000000
+4 1910 0.01052631  0.000000000
+5 1912 0.03124999  0.000000000
+6 1915 0.22066881 -0.004078546
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[51]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Positive Silver&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">silver_positive_inflation_cluster2</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+[1] &quot;Positive Silver&quot;
+  Date  Inflation       Change
+1 1903 0.01086956  0.026731470
+2 1907 0.01075268  0.018404908
+3 1909 0.01063832  0.007832898
+4 1910 0.01052631 -0.011124845
+5 1912 0.03124999 -0.012834225
+6 1915 0.22066881  0.022485207
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[52]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Positive Wheat&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">wheat_positive_inflation_cluster2</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+[1] &quot;Positive Wheat&quot;
+  Date  Inflation      Change
+1 1903 0.01086956 -0.04270463
+2 1907 0.01075268  0.08480565
+3 1909 0.01063832  0.12843750
+4 1910 0.01052631 -0.11935752
+5 1912 0.03124999  0.09748428
+6 1915 0.22066881  0.51742857
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Writing-clusters-into-CSV-files">Writing clusters into CSV files<a class="anchor-link" href="#Writing-clusters-into-CSV-files">&#182;</a></h4>
+</div>
+
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[53]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">GC_cluster1</span><span class="p">,</span> <span class="s">&quot;../data/cleaned/GC_cluster1.csv&quot;</span><span class="p">)</span>
+<span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">GC_cluster2</span><span class="p">,</span> <span class="s">&quot;../data/cleaned/GC_cluster2.csv&quot;</span><span class="p">)</span>
+<span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">SI_cluster1</span><span class="p">,</span> <span class="s">&quot;../data/cleaned/SI_cluster1.csv&quot;</span><span class="p">)</span>
+<span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">SI_cluster2</span><span class="p">,</span> <span class="s">&quot;../data/cleaned/SI_cluster2.csv&quot;</span><span class="p">)</span>
+<span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">wheat_cluster1</span><span class="p">,</span> <span class="s">&quot;../data/cleaned/wheat_cluster1.csv&quot;</span><span class="p">)</span>
+<span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">wheat_cluster2</span><span class="p">,</span> <span class="s">&quot;../data/cleaned/wheat_cluster2.csv&quot;</span><span class="p">)</span>
+<span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">silver_positive_inflation_cluster1</span><span class="p">,</span> <span class="s">&quot;../data/cleaned/silver_positive_inflation_cluster1.csv&quot;</span><span class="p">)</span>
+<span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">silver_positive_inflation_cluster2</span><span class="p">,</span> <span class="s">&quot;../data/cleaned/silver_positive_inflation_cluster2.csv&quot;</span><span class="p">)</span>
+<span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">gold_positive_inflation_cluster1</span><span class="p">,</span> <span class="s">&quot;../data/cleaned/gold_positive_inflation_cluster1.csv&quot;</span><span class="p">)</span>
+<span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">gold_positive_inflation_cluster2</span><span class="p">,</span> <span class="s">&quot;../data/cleaned/gold_positive_inflation_cluster2.csv&quot;</span><span class="p">)</span>
+<span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">wheat_positive_inflation_cluster1</span><span class="p">,</span> <span class="s">&quot;../data/cleaned/wheat_positive_inflation_cluster1.csv&quot;</span><span class="p">)</span>
+<span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">wheat_positive_inflation_cluster2</span><span class="p">,</span> <span class="s">&quot;../data/cleaned/wheat_positive_inflation_cluster2.csv&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+</div></p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
 
         </div>
         <div class="col-sm-3 well well-sm" id="sidebar">
