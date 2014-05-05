@@ -44,3 +44,21 @@ names(wheat_cluster1) = c("Date", "Inflation", "Change")
 wheat_cluster2 = cbind(DFWC$Date[DFWC$Date > 1900], second_inflation_wheat_cluster, second_price_wheat_cluster)
 wheat_cluster2 = as.data.frame(wheat_cluster2)
 names(wheat_cluster2) = c("Date", "Inflation", "Change")
+
+gold = read.csv("../data/cleaned/DFG_positive_inflation.csv")
+gold_positive_inflation_cluster1 = cbind(gold$Date[gold$Date < 1901], gold$Inflation[gold$Date <1901], gold$Change[gold$Date <1901])
+gold_positive_inflation_cluster1 = as.data.frame(gold_positive_inflation_cluster1)
+names(gold_positive_inflation_cluster1) = c("Date", "Inflation", "Change")
+
+gold_positive_inflation_cluster2 = cbind(gold$Date[gold$Date > 1900], gold$Inflation[gold$Date > 1900], gold$Change[gold$Date > 1900])
+gold_positive_inflation_cluster2 = as.data.frame(gold_positive_inflation_cluster2)
+names(gold_positive_inflation_cluster2) = c("Date", "Inflation", "Change")
+
+silver = read.csv("../data/cleaned/DFS_positive_inflation.csv")
+silver_positive_inflation_cluster1 = cbind(silver$Date[silver$Date < 1901], silver$Inflation[silver$Date <1901], silver$Change[silver$Date <1901])
+silver_positive_inflation_cluster1 = as.data.frame(silver_positive_inflation_cluster1)
+names(silver_positive_inflation_cluster1) = c("Date", "Inflation", "Change")
+
+silver_positive_inflation_cluster2 = cbind(silver$Date[silver$Date > 1900], silver$Inflation[silver$Date > 1900], silver$Change[silver$Date > 1900])
+silver_positive_inflation_cluster2 = as.data.frame(silver_positive_inflation_cluster2)
+names(silver_positive_inflation_cluster2) = c("Date", "Inflation", "Change")
