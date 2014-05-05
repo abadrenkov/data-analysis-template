@@ -71,14 +71,3 @@ Date <- year(Date)
 DFWC$Date <- Date
 DFWC$Change <- Wchange_numbers
 DFWC$Inflation <- Inflation_numbers
-
-#plot Wheat
-plot(DFW$Date,DFW$Wheat, type="n", xlab="Year", ylab="Wheat Price")
-lines(DFW$Date,DFW$Wheat, col="red")
-title("Wheat")
-
-#plot Wheat Changes
-plot(DFWC$Date,DFWC$Inflation, type="n", xlab="Year", ylab="Changes")
-lines(DFWC$Date,DFWC$Change, col="blue")
-lines(DFWC$Date,DFWC$Inflation, col="red")
-title("Wheat")
