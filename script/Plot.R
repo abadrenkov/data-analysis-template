@@ -17,6 +17,12 @@ lines(DFSI$Date,DFSI$Inflation, col="red")
 lines(DFSI$Date,DFSI$Change, col="blue")
 title("Silver")
 
+#plot Wheat
+plot(DFWC$Date,DFWC$Inflation, type="n", xlab="Year", ylab="Changes")
+lines(DFWC$Date,DFWC$Change, col="blue")
+lines(DFWC$Date,DFWC$Inflation, col="red")
+title("Wheat")
+
 #plotting silver clusters
 plot(SI_cluster1$Date,SI_cluster1$Inflation, type="n", xlab="Year", ylab="Changes", ylim=c(-0.5,.8))
 lines(SI_cluster1$Date,SI_cluster1$Inflation, col="red")
