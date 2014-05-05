@@ -1835,14 +1835,69 @@ pdflatex NB4_report.tex</code></pre>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="team-members-responsible-for-this-notebook">Team members responsible for this notebook:</h2>
-<p>List the team members contributing to this notebook, along with their responsabilities:</p>
 <ul>
-<li>team member 1 <strong>name</strong>: team member 1 <strong>responsabilities</strong></li>
-<li>team member 2 <strong>name</strong>: team member 2 <strong>responsabilities</strong></li>
-<li>etc.</li>
+<li><strong>Alexander Badrenkov: Everything</strong></li>
+<li><strong>Ivan Kgo: Everything</strong></li>
+<li><strong>Tony Lin: Everything</strong></li>
+<li><strong>Yvonne Ng: Everything</strong></li>
 </ul>
-<p>I advise you to work at least in pairs for each project notebook, as you did for the homework assignments. Of course, all team members may participate to each notebook.</p>
-</div></p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-Problem">The Problem<a class="anchor-link" href="#The-Problem">&#182;</a></h2>
+</div>
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Gold as an inflationary hedge has long been the topic of controversy for investors. Many advise that gold be used as a hedge against inflation while others argue that gold prices are too volatile for this purpose. For our project, we wished to test the functionality of gold as an inflationary hedge.</p>
+<p>To measure inflation, we used the percent change in the Consumer Price Index (CPI).</p>
+<p>A commodity that is an inflationary hedge will have a market price that moves more slowly or not at all in the direction of inflation (i.e. if overall price levels (CPI) rises, a good that is an inflationary hedge will not increase in price). A commodity that is not an inflationary hedge will be highly affected by inflation (i.e. if CPI rises, the price of a commodity that is not an inflationary hedge will rise with it).</p>
+<p>To determine how closely gold prices moved with inflation, we also compared the movements in silver and wheat with inflation. By analyzing the movements of silver and wheat prices in the direction of inflation, we were able to determine whether gold moved relatively closely with inflation. From historical data over the last 500 years, we calculated the changes in gold, silver, and wheat prices over time. We then plotted the historical changes in gold, silver, and wheat prices against inflation and created summary statistics that measure how closely the prices of each commodity moved with inflation.</p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Data-Sources">Data Sources<a class="anchor-link" href="#Data-Sources">&#182;</a></h2>
+</div>
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We obtained the CPI, gold, and silver files from the GlobalFinancialData website. The website is accessible at https://www.globalfinancialdata.com/Databases/databases.html. This website required a memebership to download the files, so we downloaded them and put them into a google drive. One of the difficulties that we encountered while gathering the data was using the bash command curl to gather something from the google drive instead of from a regular website. The CPI, gold, and silver data was gathered annually and the prices were in pounds.</p>
+<p>We obtained the wheat data from two different websites. Wheat data from 1278 to 1817 was obtained from the International Institute of Social History at http://www.iisg.nl/hpw/. Wheat data from 1790 to 1950 was obtained from &quot;Commodity Price Volatility and World Market Integration since 1700,&quot; which is accessible at http://www.sfu.ca/~djacks/data/publications/. The wheat data came in excel files with the prices in shillings per quarter gathered annually, seasonally, or monthly (depending on the file). The difficulty that we had with the wheat data was that the the data from &quot;Commodity Price Volatility and World Market Integration since 1700&quot; had data for many commodities that we did not need. We had to take subsets of this data in order to isolate the data that we needed.</p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Main-Challenges">Main Challenges<a class="anchor-link" href="#Main-Challenges">&#182;</a></h2>
+</div>
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>While working on this project, we encountered numerous challenges. The first challenge that we faced was working outside of Oski Box. Many packages would not load for us (rJava, xlsx). We had to find other ways to load these packages so they would work on our ipython notebook. We sometimes had to use other packages that had the same functionality in order to get something done. We also encountered numerous errors on Oski box. The most prevalent was that the Internet would disconnect on Oski Box while we still had Internet on our computers.</p>
+<p>The second challenge that we encountered was gathering the data for such a long period of time and making sure the data came from a specific region of the world. We wanted to gather data over the last 500 years from England. The wheat data was incomplete for a lot of the years. We were forced to combine data from many files together. Even after we did that, we could only have complete data starting from 1550. Luckily, the data for the silver, inflation, and gold was complete and we did not need to go through many files to obtain it.</p>
+<p>The last challenge that we faced was analyzing the data. Given the scatterplot of our data, we did not know enough about time series to generate many relevant plots and generate a good explanation of those plots. We did our best to research the effects of economic policies on the prices of gold. Also, we had trouble showing that something was indeed an inflationary hedge. We had to take subsets of the data in order to do so.</p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Findings">Findings<a class="anchor-link" href="#Findings">&#182;</a></h2>
+</div>
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We found that gold was indeed an inflationary hedge from the earliest time we had data available until the 1900's. When changes in inflation were positive, gold showed little to no movement in price. This is consistent with the definition of an inflationary hedge.</p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Graph-of-price-changes-of-gold-from-1257-1900-vs-changes-in-inflation">Graph of price changes of gold from 1257-1900 vs changes in inflation<a class="anchor-link" href="#Graph-of-price-changes-of-gold-from-1257-1900-vs-changes-in-inflation">&#182;</a></h4>
+</div>
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>During the 1900's there were multiple policy changes and historical events that got rid of the gold standard. During WWII and the Great Depression, banks slowly changed from being on the gold standard to getting rid of their gold holdings. As we can see from the following graphs, during the 1900's, there were great changes in the prices of gold.</p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Graph-of-price-changes-of-gold-from-1900-2011-vs-changes-in-inflation">Graph of price changes of gold from 1900-2011 vs changes in inflation<a class="anchor-link" href="#Graph-of-price-changes-of-gold-from-1900-2011-vs-changes-in-inflation">&#182;</a></h4>
+</div>
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>With the wheat data that we obtained, we saw that wheat was not an inflationary change. Changes in inflation affected changes in the price of wheat. Even if we clustered the data (one cluster from 1550-1900 and another 1900-1950), we saw the effect of inflation on wheat prices. We can also see that wheat is greatly volatile (as is true with all non-durable goods). It is affected greatly by natural events (like droughts), and by inflation.</p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Graph-of-price-changes-of-wheat-from-1550-1900-vs-changes-in-inflation">Graph of price changes of wheat from 1550-1900 vs changes in inflation<a class="anchor-link" href="#Graph-of-price-changes-of-wheat-from-1550-1900-vs-changes-in-inflation">&#182;</a></h4>
+</div>
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Graph-of-price-changes-of-gold-from-1900-1950-vs-changes-in-inflation">Graph of price changes of gold from 1900-1950 vs changes in inflation<a class="anchor-link" href="#Graph-of-price-changes-of-gold-from-1900-1950-vs-changes-in-inflation">&#182;</a></h4>
+</div>
+</p>
             </div>
             <!-- /.entry-content -->
         </article>
