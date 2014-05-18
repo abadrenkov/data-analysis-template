@@ -1720,7 +1720,7 @@ init_mathjax();
             <meta property="og:type" content="article"/>
             <meta property="og:title" content="Data Analysis"/>
             <meta property="og:url" content="http://abadrenkov.github.io/gold_vs_inflation/nb3.html"/>
-            <meta property="og:description" content="In this notebook, you'll perform the actual analysis of the data stored in the directory ./data/cleaned If the data is not ready yet (e.g. the other members of the team in charge of cleaning the data are not done yet), you may want to simulate cleaned data ..."/>
+            <meta property="og:description" content="##Summary In this notebook, we analyzed our data through the methods of clustering and graphical representation. Our analysis mainly derives from graphical interpretation. We find that Gold and Silver have in the past been stable during times of inflation, but over the past century, volatility has been increasing. Wheat prices ..."/>
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="http://abadrenkov.github.io/gold_vs_inflation/theme/css/bootstrap.min.css" type="text/css"/>
@@ -1815,13 +1815,8 @@ Gold vs Inflation            </a>
                 </div>
                 <p>
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In this notebook, you'll perform the actual analysis of the data stored in the directory</p>
-<pre><code>./data/cleaned</code></pre>
-<p>If the data is not ready yet (e.g. the other members of the team in charge of cleaning the data are not done yet), you may want to simulate cleaned data in the form you want them to be in order to perform the analysis. This may also help you data cleaning team to come up with the rigth data frame. If you choose to do so, store your simulated data into the directory</p>
-<pre><code>./data/simulated</code></pre>
-<p>Having performed analysis of simulated data may help you with the analysis of the actual data, since you will be able to notice deviations between the real and simulated data, which may be worth explaining and investigating further.</p>
-<p>The graphics your going to produce as a result of your analysis should be store in the directory:</p>
-<pre><code>./visualization</code></pre>
+<h2 id="summary">##Summary</h2>
+<p>In this notebook, we analyzed our data through the methods of clustering and graphical representation. Our analysis mainly derives from graphical interpretation. We find that Gold and Silver have in the past been stable during times of inflation, but over the past century, volatility has been increasing. Wheat prices have always been volatile. To go straight to our analysis of the graphs, <a href="#analysis"> click here</a>.</p>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="team-members-responsible-for-this-notebook">Team members responsible for this notebook:</h2>
@@ -1832,12 +1827,11 @@ Gold vs Inflation            </a>
 <li><strong>Tony Lin: Everything</strong></li>
 <li><strong>Yvonne Ng: Everything</strong></li>
 </ul>
-<p>I advise you to work at least in pairs for each project notebook, as you did for the homework assignments. Of course, all team members may participate to each notebook.</p>
 </div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[2]:
+In&nbsp;[1]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%</span><span class="k">load_ext</span> <span class="n">rmagic</span>
@@ -1854,7 +1848,7 @@ In&nbsp;[2]:
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[3]:
+In&nbsp;[4]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
@@ -1889,6 +1883,7 @@ In&nbsp;[3]:
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>In all of the graphs, the changes in CPI (i.e. inflation) are displayed red, and the changes in the price of the good are in blue.</li>
+<li>All plots are saved to the visualization folder as png files. Code not displayed so as to not inhibit the visual representation in this notebook.</li>
 </ul>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1898,7 +1893,7 @@ In&nbsp;[3]:
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[4]:
+In&nbsp;[7]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
@@ -3079,7 +3074,7 @@ c9y4NI0ESIAESMBfAv8PFxtGOIehJKYAAAAASUVORK5CYII=
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[5]:
+In&nbsp;[9]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
@@ -4139,7 +4134,7 @@ GYHJi8D/A/iuD4VnuKJuAAAAAElFTkSuQmCC
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[6]:
+In&nbsp;[11]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
@@ -5299,7 +5294,7 @@ Z3hwYRoIgAAIgIC5BP4fqvfuFpmjQNsAAAAASUVORK5CYII=
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[7]:
+In&nbsp;[13]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
@@ -6332,7 +6327,7 @@ jEBGYBojkAXwNK7cXLSMQEYgI5ARmLwI/H9szrm+gZxAdwAAAABJRU5ErkJggg==
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[8]:
+In&nbsp;[15]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
@@ -8252,7 +8247,7 @@ I+AIrDACHoBXeHJ9aI6AI+AIOAL9ReD/A3pSNGIMOLnJAAAAAElFTkSuQmCC
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[9]:
+In&nbsp;[17]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
@@ -10003,7 +9998,7 @@ RgIkQAIkkMcEaIDzuHFZNRIgARIggeQS+D+5SGJfPAMBkQAAAABJRU5ErkJggg==
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[13]:
+In&nbsp;[21]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span> <span class="o">-</span><span class="n">r</span> <span class="mi">50</span> <span class="o">-</span><span class="n">w</span> <span class="mi">1000</span> <span class="o">-</span><span class="n">h</span> <span class="mi">500</span>
@@ -11807,7 +11802,7 @@ BBBAAAEEEEAAAQQQQACBZgn8f7izuUedOFB9AAAAAElFTkSuQmCC
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[14]:
+In&nbsp;[23]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span> <span class="o">-</span><span class="n">r</span> <span class="mi">50</span> <span class="o">-</span><span class="n">w</span> <span class="mi">1000</span> <span class="o">-</span><span class="n">h</span> <span class="mi">500</span>
@@ -13539,7 +13534,7 @@ X+EDqaLeLQcAAAAASUVORK5CYII=
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[16]:
+In&nbsp;[25]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span> <span class="o">-</span><span class="n">r</span> <span class="mi">50</span> <span class="o">-</span><span class="n">w</span> <span class="mi">1000</span> <span class="o">-</span><span class="n">h</span> <span class="mi">500</span>
@@ -14973,10 +14968,13 @@ DAAAAABJRU5ErkJggg==
 <h3 id="Inflation-vs-Price-for-positive-inflation-values">Inflation vs Price for positive inflation values<a class="anchor-link" href="#Inflation-vs-Price-for-positive-inflation-values">&#182;</a></h3>
 </div>
 
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We want to look at the positive values of inflation because the question we are trying to answer is whether or not metals, or rather gold, functions as a hedge against inflaiton. What this means is that we want to know if gold prices will remain stable, or perchange increase during times of high inflation.</p>
+</div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[21]:
+In&nbsp;[27]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span> <span class="o">-</span><span class="n">r</span> <span class="mi">50</span> <span class="o">-</span><span class="n">w</span> <span class="mi">1000</span> <span class="o">-</span><span class="n">h</span> <span class="mi">500</span>
@@ -16141,7 +16139,7 @@ AggggAACCCCQUwEa6DnNGJKFAAIIIIAAAggggAACCCAQlsC/vtWJiu3AjbIAAAAASUVORK5CYII=
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[23]:
+In&nbsp;[29]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span> <span class="o">-</span><span class="n">r</span> <span class="mi">50</span> <span class="o">-</span><span class="n">w</span> <span class="mi">1000</span> <span class="o">-</span><span class="n">h</span> <span class="mi">500</span>
@@ -17232,7 +17230,7 @@ iIAIiIAIiIAIiIAIiIAIFIvA/wdzyu7krjsupQAAAABJRU5ErkJggg==
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[24]:
+In&nbsp;[31]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span> <span class="o">-</span><span class="n">r</span> <span class="mi">50</span> <span class="o">-</span><span class="n">w</span> <span class="mi">1000</span> <span class="o">-</span><span class="n">h</span> <span class="mi">500</span>
@@ -18601,7 +18599,7 @@ QKACBPRAO4ZqIYAAAggggAACCCCAAAIIxCXwfy/I7DpUgamQAAAAAElFTkSuQmCC
 
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h1>
+<h1 id="Summary-of-Data">Summary of Data<a class="anchor-link" href="#Summary-of-Data">&#182;</a></h1>
 </div>
 
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -19073,7 +19071,7 @@ In&nbsp;[18]:
 
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Analysis">Analysis<a class="anchor-link" href="#Analysis">&#182;</a></h1>
+<h1 id="-Analysis-"><a id="analysis"> Analysis </a><a class="anchor-link" href="#-Analysis-">&#182;</a></h1>
 </div>
 
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -19084,18 +19082,8 @@ In&nbsp;[18]:
 <li><p>Wheat: In comparison to both gold and silver, there did not seem to be a difference in the behavior of wheat prices between the two periods. Wheat prices were highly volatile throughout the entire period of measurement. This could mean that wheat is greatly affected by inflation, while gold and silver are not as affected.</p></li>
 </ul>
 </div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">
-In&nbsp;[]:
-</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb">
-</pre></div>
-
-</div>
-</div>
-
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We deem that for current time, gold will not serve any function as a hedge.</p>
 </div></p>
             </div>
             <!-- /.entry-content -->

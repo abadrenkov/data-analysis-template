@@ -1720,7 +1720,7 @@ init_mathjax();
             <meta property="og:type" content="article"/>
             <meta property="og:title" content="Data Cleaning"/>
             <meta property="og:url" content="http://abadrenkov.github.io/gold_vs_inflation/nb2.html"/>
-            <meta property="og:description" content="Data Cleaning¶ Team members responsible for this notebook: Alexander Badrenkov: Cleaning the Wheat data Ivan Kho: Assist in CPI, Gold, Silver, Wheat cleaning Tony Lin: Assist in CPI, Gold, Silver cleaning Yvonne Ng: Assist in CPI, Gold, Silver cleaning The Cleaning begins¶ Data Cleaning for the CPI, Gold, and Silver ..."/>
+            <meta property="og:description" content="Data Cleaning¶ Summary of Notebook:¶ By data cleaning, we mean that we are taking the raw data sets that we have gathered and manipulating them into a form that we can readily access throughout our analysis. Specifically, we want all of our data in several data.frame objects that will ..."/>
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="http://abadrenkov.github.io/gold_vs_inflation/theme/css/bootstrap.min.css" type="text/css"/>
@@ -1819,6 +1819,20 @@ Gold vs Inflation            </a>
 </div>
 
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Summary-of-Notebook:">Summary of Notebook:<a class="anchor-link" href="#Summary-of-Notebook:">&#182;</a></h2>
+</div>
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>By data cleaning, we mean that we are taking the raw data sets that we have gathered and manipulating them into a form that we can readily access throughout our analysis. Specifically, we want all of our data in several data.frame objects that will make generating analysis and plots in R easier.</p>
+<p>The raw data sets for gold prices and price changes, silver prices and price changes, and CPI and inflation based on CPI are all in CSV file formats. We are converting the data in these CSV files into the following data.frame objects:</p>
+<ul>
+<li><strong>DFG</strong>: contains columns of data on gold prices, CPI, and corresponding dates</li>
+<li><strong>DFGC</strong>: contains columns of data on gold price changes, inflation, and corresponding dates</li>
+<li><strong>DFS</strong>: contains columns of data on silver prices, CPI, and corresponding dates</li>
+<li><strong>DFSI</strong>: contains columns of data on silver price changes, inflation, and corresponding dates</li>
+</ul>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="team-members-responsible-for-this-notebook">Team members responsible for this notebook:</h2>
 <ul>
 <li><strong>Alexander Badrenkov: Cleaning the Wheat data</strong></li>
@@ -1837,7 +1851,7 @@ Gold vs Inflation            </a>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[1]:
+In&nbsp;[177]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%</span><span class="k">load_ext</span> <span class="n">rmagic</span>
@@ -1846,14 +1860,31 @@ In&nbsp;[1]:
 </div>
 </div>
 
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>
+The rmagic extension is already loaded. To reload it, use:
+  %reload_ext rmagic
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Install the necessary packages if nonexistant</p>
+<p>We want to install the necessary packages if they are currently nonexistent. The package &quot;data.table&quot; is used for the function fread, which we use to read data from our CSV files to create data.table and data.frame objects. The package &quot;xlsx&quot; to read our raw wheat data xls files and to write the cleaned wheat data xls file.</p>
 </div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[2]:
+In&nbsp;[178]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
@@ -1875,11 +1906,24 @@ In&nbsp;[2]:
 
 
 <pre>
-Loading required package: data.table
-data.table 1.9.2  For help type: help(&quot;data.table&quot;)
 Loading required package: xlsx
 Loading required package: rJava
-Loading required package: xlsxjars
+Error : .onLoad failed in loadNamespace() for &apos;rJava&apos;, details:
+  call: dyn.load(file, DLLpath = DLLpath, ...)
+  error: unable to load shared object &apos;/home/oski/R/x86_64-pc-linux-gnu-library/3.0/rJava/libs/rJava.so&apos;:
+  libjvm.so: cannot open shared object file: No such file or directory
+Failed with error:  ‘package ‘rJava’ could not be loaded’
+Installing package into ‘/home/oski/R/x86_64-pc-linux-gnu-library/3.0’
+(as ‘lib’ is unspecified)
+trying URL &apos;http://cran.cnr.Berkeley.edu/src/contrib/xlsx_0.5.5.tar.gz&apos;
+Content type &apos;application/x-gzip&apos; length 309524 bytes (302 Kb)
+opened URL
+==================================================
+downloaded 302 Kb
+
+
+The downloaded source packages are in
+	‘/tmp/RtmpUiC2KM/downloaded_packages’
 
 </pre>
 
@@ -1891,12 +1935,12 @@ Loading required package: xlsxjars
 
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Load the necessary packages</p>
+<p>We load the necessary packages.</p>
 </div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[3]:
+In&nbsp;[35]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
@@ -1908,14 +1952,36 @@ In&nbsp;[3]:
 </div>
 </div>
 
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>
+Loading required package: rJava
+Error : .onLoad failed in loadNamespace() for &apos;rJava&apos;, details:
+  call: dyn.load(file, DLLpath = DLLpath, ...)
+  error: unable to load shared object &apos;/home/oski/R/x86_64-pc-linux-gnu-library/3.0/rJava/libs/rJava.so&apos;:
+  libjvm.so: cannot open shared object file: No such file or directory
+Error: package ‘rJava’ could not be loaded
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Load the necessary data files to begin working</p>
+<p>Here, we load the necessary data files to begin working. To work with our CSV files containing the raw data for gold, silver and CPI, we have to set our working directory to the directory containing the three files. We then create a list of all the CSV file names and use these file names to create a list of data.frame objects containing the data. After we finish, we have to set our working directory back to the notebooks directory.</p>
+<p>Finally we take the list that we created and separate the data. The CPI and inflation data are stored in the variable cpi, the gold and gold price changes data are stored in the variable gold, and the silver and silver price changes data are stored in the variable silver.</p>
 </div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[4]:
+In&nbsp;[179]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
@@ -1941,12 +2007,15 @@ In&nbsp;[4]:
 </div>
 
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>What we want to do for the gold data is to separate them into two separate dataframes. <br> One will involve the year to year data while the other will involve the changes in years.</p>
+<p>For the gold data, we want to separate it into two separate data.frame objects. One will contain the year to year gold prices while the other will contain the changes in gold price over year.</p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Since the CPI and gold data are of different lengths, we have to merge the two data.frame objects according to their corresponding dates.</p>
 </div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[5]:
+In&nbsp;[180]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
@@ -1964,16 +2033,37 @@ In&nbsp;[5]:
 </div>
 
 </div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We create a matrix from the vectors Date, CPI, and Gold that now contain the data, CPI, and gold data, making each one a column. We then convert this matrix into a data.frame object that we call DFG.</p>
+</div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[6]:
+In&nbsp;[181]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
 <span class="c"># Conversion from matrix to DataFrame for gold prices</span>
 <span class="n">cpi_gold_matrix</span> <span class="o">&lt;-</span> <span class="n">cbind</span><span class="p">(</span><span class="n">Date</span><span class="p">,</span> <span class="n">CPI</span><span class="p">,</span> <span class="n">Gold</span><span class="p">)</span>
 <span class="n">DFG</span> <span class="o">&lt;-</span> <span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">cpi_gold_matrix</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We print out the class of DFG as well as the first few entries of the DFG to verify that we did the conversion from matrix to data.frame correctly.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[182]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="n">cat</span><span class="p">(</span><span class="s">&quot;Class of DFG:&quot;</span><span class="p">,</span> <span class="n">class</span><span class="p">(</span><span class="n">DFG</span><span class="p">),</span> <span class="s">&quot;</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="n">cat</span><span class="p">(</span><span class="s">&quot;First few entries of DFG:&quot;</span><span class="p">,</span> <span class="s">&quot;</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">DFG</span><span class="p">))</span>
 </pre></div>
 
@@ -1989,6 +2079,10 @@ In&nbsp;[6]:
 
 
 <pre>
+Class of DFG: data.frame 
+
+First few entries of DFG: 
+
         Date       CPI  Gold
 1 12/31/1257 0.4414265 0.889
 2 12/31/1258  0.475071 0.889
@@ -2006,10 +2100,57 @@ In&nbsp;[6]:
 </div>
 
 </div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We print out the classes of the column vectors in the data.frame DFG, noting they are of class factor.</p>
+</div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[7]:
+In&nbsp;[183]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="k">print</span><span class="p">(</span><span class="n">lapply</span><span class="p">(</span><span class="n">DFG</span><span class="p">,</span> <span class="n">class</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+$Date
+[1] &quot;factor&quot;
+
+$CPI
+[1] &quot;factor&quot;
+
+$Gold
+[1] &quot;factor&quot;
+
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The column vectors in the data.frame DFG are currently set as factor. In order to work with the gold prices and gold price changes, we will need them to be in numeric form, so we grab the factors and convert them to numeric. For the date, we convert the data from factor to type Date.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[184]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
@@ -2030,14 +2171,17 @@ In&nbsp;[7]:
 </div>
 
 </div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We print out the classes of the column vectors in the data.frame DFG again to check if the conversion from factor to numeric was performed correctly. We note that they are now numeric.</p>
+</div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[8]:
+In&nbsp;[185]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
-<span class="k">print</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">DFG</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">lapply</span><span class="p">(</span><span class="n">DFG</span><span class="p">,</span> <span class="n">class</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -2052,13 +2196,15 @@ In&nbsp;[8]:
 
 
 <pre>
-  Date       CPI  Gold
-1 1257 0.4414265 0.889
-2 1258 0.4750710 0.889
-3 1259 0.4750710 0.889
-4 1260 0.4750710 0.889
-5 1261 0.4750710 0.889
-6 1262 0.4750710 0.889
+$Date
+[1] &quot;integer&quot;
+
+$CPI
+[1] &quot;numeric&quot;
+
+$Gold
+[1] &quot;numeric&quot;
+
 
 </pre>
 
@@ -2069,10 +2215,13 @@ In&nbsp;[8]:
 </div>
 
 </div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We perform the same process for the changes in gold prices. We create a matrix by binding the date, inflation, and gold price changes data, which we then convert into a data.frame object.</p>
+</div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[9]:
+In&nbsp;[186]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
@@ -2114,16 +2263,124 @@ In&nbsp;[9]:
 
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Here, we want to look only at the positive values of inflation</p>
+<p>We print out the class of DFGC as well as the first few entries of DFGC to verify that we did the conversion from matrix to data.frame correctly.</p>
 </div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[10]:
+In&nbsp;[187]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="n">cat</span><span class="p">(</span><span class="s">&quot;Class of DFGC:&quot;</span><span class="p">,</span> <span class="n">class</span><span class="p">(</span><span class="n">DFGC</span><span class="p">),</span> <span class="s">&quot;</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="n">cat</span><span class="p">(</span><span class="s">&quot;First few entries of DFGC:&quot;</span><span class="p">,</span> <span class="s">&quot;</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">DFGC</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+Class of DFGC: data.frame 
+
+First few entries of DFGC: 
+
+  Date  Inflation Change
+1 1257 0.77185505     NA
+2 1258 0.07621767      0
+3 1259 0.00000000      0
+4 1260 0.00000000      0
+5 1261 0.00000000      0
+6 1262 0.00000000      0
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We print out the classes of the column vectors of DFGC, noting that they are already numeric. Thus, we do not have to perform the conversion from factor to numeric on the vectors as we had done for DFG.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[118]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="k">print</span><span class="p">(</span><span class="n">lapply</span><span class="p">(</span><span class="n">DFGC</span><span class="p">,</span> <span class="n">class</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+$Date
+[1] &quot;numeric&quot;
+
+$Inflation
+[1] &quot;numeric&quot;
+
+$Change
+[1] &quot;numeric&quot;
+
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When we do our analysis, we will also want to look at the positive values of inflation. Our reasoning for this is that inflation is really only a concern to investors when it is positive--when price levels are rising and the currency and the value of certain goods are depreciating. We use logical indexing to create a new data.frame object called pos_DFGC that only contains the positive inflation data.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[154]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
 <span class="n">pos_DFGC</span> <span class="o">&lt;-</span> <span class="n">DFGC</span><span class="p">[</span><span class="n">DFGC</span><span class="err">$</span><span class="n">Inflation</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,]</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We print out the first few entries of this positive inflation and gold price changes data.frame to see what it looks like.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[155]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
 <span class="k">print</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">pos_DFGC</span><span class="p">))</span>
 </pre></div>
 
@@ -2139,13 +2396,13 @@ In&nbsp;[10]:
 
 
 <pre>
-   Date  Inflation   Change
-1  1257 0.77185505       NA
-2  1258 0.07621767 0.000000
-8  1264 0.01543473 0.200225
-10 1266 0.03750013 0.000000
-13 1269 0.18571459 0.000000
-14 1270 0.10362850 0.000000
+   Date  Inflation Change
+1  1257 0.77185505     NA
+2  1258 0.07621767      0
+8  1264 0.01543473      0
+10 1266 0.03750013      0
+13 1269 0.18571459      0
+14 1270 0.10362850      0
 
 </pre>
 
@@ -2160,10 +2417,13 @@ In&nbsp;[10]:
 <h4 id="Writing-cleaned-gold-files">Writing cleaned gold files<a class="anchor-link" href="#Writing-cleaned-gold-files">&#182;</a></h4>
 </div>
 
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>With the three data.frame objects that we have created to analyze the gold prices and changes in gold prices, we create our cleaned CSV files.</p>
+</div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[11]:
+In&nbsp;[61]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
@@ -2181,12 +2441,13 @@ In&nbsp;[11]:
 </div>
 
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As in gold, we want to separate silver into two separate dataframes. <br> One will involve the year to year data while the other will involve the changes in years.</p>
+<p>As for the gold data, we want to separate the silver data into two separate dataframes. One will contain the year to year data while the other will contain the changes over year.</p>
+<p>Again, we have to merge the CPI and silver price data because they have different lengths.</p>
 </div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[12]:
+In&nbsp;[192]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
@@ -2202,10 +2463,13 @@ In&nbsp;[12]:
 </div>
 
 </div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We create a matrix from the vectors Date, CPI, and Silver that now contain the date, CPI, and silver price data, making each one a column. We then convert this matrix into a data.frame object that we call DFS.</p>
+</div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[13]:
+In&nbsp;[193]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
@@ -2218,10 +2482,105 @@ In&nbsp;[13]:
 </div>
 
 </div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We print out the class of DFS as well as the first few entries of DFS to verify that we did the conversion from matrix to data.frame correctly.</p>
+</div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[14]:
+In&nbsp;[194]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="n">cat</span><span class="p">(</span><span class="s">&quot;Class of DFS:&quot;</span><span class="p">,</span> <span class="n">class</span><span class="p">(</span><span class="n">DFS</span><span class="p">),</span> <span class="s">&quot;</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="n">cat</span><span class="p">(</span><span class="s">&quot;First few entries of DFS:&quot;</span><span class="p">,</span> <span class="s">&quot;</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">DFS</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+Class of DFS: data.frame 
+
+First few entries of DFS: 
+
+        Date       CPI Silver
+1 12/31/1257 0.4414265 23.243
+2 12/31/1258  0.475071 23.243
+3 12/31/1259  0.475071 23.243
+4 12/31/1260  0.475071 23.243
+5 12/31/1261  0.475071 23.243
+6 12/31/1262  0.475071 23.243
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We print out the classes of the column vectors in the data.frame DFS, noting they are of class factor.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[195]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="k">print</span><span class="p">(</span><span class="n">lapply</span><span class="p">(</span><span class="n">DFS</span><span class="p">,</span> <span class="n">class</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+$Date
+[1] &quot;factor&quot;
+
+$CPI
+[1] &quot;factor&quot;
+
+$Silver
+[1] &quot;factor&quot;
+
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The column vectors in the data.frame DFS are currently set as factor. In order to work with the silver prices and silver price changes, we will need them to be in numeric form, so we grab the factors and convert them to numeric. For the date, we convert the data from factor to type Date.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[196]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
@@ -2242,17 +2601,79 @@ In&nbsp;[14]:
 </div>
 
 </div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We print out the classes of the column vectors in the data.frame DFS again to check if the conversion from factor to numeric was performed correctly. We note that they are now numeric.</p>
+</div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[15]:
+In&nbsp;[197]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="k">print</span><span class="p">(</span><span class="n">lapply</span><span class="p">(</span><span class="n">DFS</span><span class="p">,</span> <span class="n">class</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+$Date
+[1] &quot;integer&quot;
+
+$CPI
+[1] &quot;numeric&quot;
+
+$Silver
+[1] &quot;numeric&quot;
+
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We perform the same process for the changes in silver prices. We create a matrix by binding the date, inflation, and silver price changes data, which we then convert into a data.frame object.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[198]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
 <span class="c"># Conversion of matrix to DF for change in silver prices</span>
 <span class="n">inflation_schange_matrix</span> <span class="o">&lt;-</span> <span class="n">cbind</span><span class="p">(</span><span class="n">Date</span><span class="p">,</span> <span class="n">Inflation</span><span class="p">,</span> <span class="n">Change</span><span class="p">)</span>
 <span class="n">DFSI</span> <span class="o">&lt;-</span> <span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">inflation_schange_matrix</span><span class="p">)</span>
+</pre></div>
 
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We print out the class of the column vectors of the DFSI data.frame, noting that they are of class factor.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[199]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
 <span class="k">print</span><span class="p">(</span><span class="n">lapply</span><span class="p">(</span><span class="n">DFSI</span><span class="p">,</span> <span class="n">class</span><span class="p">))</span>
 </pre></div>
 
@@ -2287,10 +2708,13 @@ $Change
 </div>
 
 </div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The column vectors in the data.frame DFSI are currently set as factor. In order to work with the silver prices and silver price changes, we will need them to be in numeric form, so we grab the factors and convert them to numeric. For the date, we convert the data from factor to type Date.</p>
+</div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[16]:
+In&nbsp;[200]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
@@ -2340,14 +2764,17 @@ $Change
 </div>
 
 </div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We print out the classes of the column vectors in the data.frame DFSI again to check if the conversion from factor to numeric was performed correctly. We note that they are now numeric.</p>
+</div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[17]:
+In&nbsp;[201]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
-<span class="k">print</span><span class="p">(</span><span class="n">tail</span><span class="p">(</span><span class="n">DFSI</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">lapply</span><span class="p">((</span><span class="n">DFSI</span><span class="p">),</span> <span class="n">class</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -2362,13 +2789,15 @@ In&nbsp;[17]:
 
 
 <pre>
-    Date   Inflation      Change
-749 2005 0.022116904  0.07025440
-750 2006 0.044307058  0.05971083
-751 2007 0.040453873  0.14512843
-752 2008 0.009483167  0.15216670
-753 2009 0.023954908 -0.03823706
-754 2010 0.047706422 -0.10768176
+$Date
+[1] &quot;integer&quot;
+
+$Inflation
+[1] &quot;numeric&quot;
+
+$Change
+[1] &quot;numeric&quot;
+
 
 </pre>
 
@@ -2380,16 +2809,32 @@ In&nbsp;[17]:
 
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We want to look at the positive values of inflation</p>
+<p>When we do our analysis, we will also want to look at the positive values of inflation. Our reasoning for this is that inflation is really only a concern to investors when it is positive--when price levels are rising and the currency and the value of certain goods are depreciating. We use logical indexing to create a new data.frame object called pos_DFSI that only contains the positive inflation data.</p>
 </div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[18]:
+In&nbsp;[202]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
-<span class="n">pos_DFSI</span> <span class="o">&lt;-</span> <span class="n">DFSI</span><span class="p">[</span><span class="n">DFSI</span><span class="err">$</span><span class="n">Inflation</span> <span class="o">&gt;</span><span class="mi">0</span><span class="p">,]</span>
+<span class="n">pos_DFSI</span> <span class="o">&lt;-</span> <span class="n">DFSI</span><span class="p">[</span><span class="n">DFSI</span><span class="err">$</span><span class="n">Inflation</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,]</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We print out the first few entries of this positive inflation and silver price changes data.frame to see what it looks like.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[203]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
 <span class="k">print</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">pos_DFSI</span><span class="p">))</span>
 </pre></div>
 
@@ -2426,10 +2871,13 @@ In&nbsp;[18]:
 <h4 id="Writing-cleaned-Silver-files">Writing cleaned Silver files<a class="anchor-link" href="#Writing-cleaned-Silver-files">&#182;</a></h4>
 </div>
 
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>With the three data.frame objects that we have created to analyze the silver prices and changes in silver prices, we create our cleaned CSV files.</p>
+</div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[19]:
+In&nbsp;[204]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
