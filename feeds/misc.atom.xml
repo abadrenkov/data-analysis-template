@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Gold vs Inflation</title><link href="http://abadrenkov.github.io/gold_vs_inflation/" rel="alternate"></link><link href="http://abadrenkov.github.io/gold_vs_inflation/feeds/misc.atom.xml" rel="self"></link><id>http://abadrenkov.github.io/gold_vs_inflation/</id><updated>2014-03-04T00:00:00-08:00</updated><entry><title>Project Report</title><link href="http://abadrenkov.github.io/gold_vs_inflation/nb4.html" rel="alternate"></link><updated>2014-03-04T00:00:00-08:00</updated><author><name>Benoit Dherin</name></author><id>tag:abadrenkov.github.io,2014-03-04:gold_vs_inflation/nb4.html</id><summary type="html">&lt;p&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="summary"&gt;##Summary&lt;/h2&gt;
-&lt;p&gt;In this notebook, we summarize our findings. Our main conclusions are:&lt;/p&gt;
+&lt;h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class="header"&gt;
+&lt;th align="left"&gt;Summary&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class="odd"&gt;
+&lt;td align="left"&gt;In this notebook, we summarize our findings. Our main conclusions are:&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;ul&gt;
 &lt;li&gt;There is a relationship between wheat and inflation. During periods of inflation, wheat prices will be volatile.&lt;/li&gt;
 &lt;li&gt;Current market dictates that both Gold and Silver are affected by periods of inflation and are thus not good hedges against inflation.&lt;/li&gt;
@@ -6187,7 +6198,10 @@ saNNAAAAAElFTkSuQmCC
 
 &lt;/div&gt;&lt;/p&gt;</summary></entry><entry><title>Data Analysis</title><link href="http://abadrenkov.github.io/gold_vs_inflation/nb3.html" rel="alternate"></link><updated>2014-03-03T00:00:00-08:00</updated><author><name>Benoit Dherin</name></author><id>tag:abadrenkov.github.io,2014-03-03:gold_vs_inflation/nb3.html</id><summary type="html">&lt;p&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="summary"&gt;##Summary&lt;/h2&gt;
+&lt;h2&gt;
+Summary
+&lt;/h2&gt;
+&lt;hr /&gt;
 &lt;p&gt;In this notebook, we analyzed our data through the methods of clustering and graphical representation. Our analysis mainly derives from graphical interpretation. We find that Gold and Silver have in the past been stable during times of inflation, but over the past century, volatility has been increasing. Wheat prices have always been volatile. To go straight to our analysis of the graphs, &lt;a href="#analysis"&gt; click here&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -25667,8 +25681,19 @@ In&amp;nbsp;[53]:
 &lt;/div&gt;
 
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="summary"&gt;##Summary&lt;/h2&gt;
-&lt;p&gt;In this notebook, we gathered data on Gold, Silver, Wheat, and Inflation. The data gathered came in two formats: &lt;code&gt;xlsx&lt;/code&gt; and &lt;code&gt;csv&lt;/code&gt;. More details about where the data was found and a description of variables used can be found below.&lt;/p&gt;
+&lt;h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class="header"&gt;
+&lt;th align="left"&gt;Summary&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class="odd"&gt;
+&lt;td align="left"&gt;In this notebook, we gathered data on Gold, Silver, Wheat, and Inflation. The data gathered came in two formats: &lt;code&gt;xlsx&lt;/code&gt; and &lt;code&gt;csv&lt;/code&gt;. More details about where the data was found and a description of variables used can be found below.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="important"&gt;Important!!&lt;/h2&gt;
