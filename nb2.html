@@ -1720,7 +1720,7 @@ init_mathjax();
             <meta property="og:type" content="article"/>
             <meta property="og:title" content="Data Cleaning"/>
             <meta property="og:url" content="http://abadrenkov.github.io/gold_vs_inflation/nb2.html"/>
-            <meta property="og:description" content="Data Cleaning¶ Summary¶ By data cleaning, we mean that we are taking the raw data sets that we have gathered and manipulating them into a form that we can readily access throughout our analysis. Specifically, we want all of our data in several data.frame objects that will make generating ..."/>
+            <meta property="og:description" content="Data Cleaning¶ Summary of Notebook:¶ By data cleaning, we mean that we are taking the raw data sets that we have gathered and manipulating them into a form that we can readily access throughout our analysis. The raw data sets for gold prices and price changes, silver prices and price ..."/>
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="http://abadrenkov.github.io/gold_vs_inflation/theme/css/bootstrap.min.css" type="text/css"/>
@@ -1819,17 +1819,34 @@ Gold vs Inflation            </a>
 </div>
 
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h2>
+<h2 id="Summary-of-Notebook:">Summary of Notebook:<a class="anchor-link" href="#Summary-of-Notebook:">&#182;</a></h2>
 </div>
 
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>By data cleaning, we mean that we are taking the raw data sets that we have gathered and manipulating them into a form that we can readily access throughout our analysis. Specifically, we want all of our data in several data.frame objects that will make generating analysis and plots in R easier.</p>
-<p>The raw data sets for gold prices and price changes, silver prices and price changes, and CPI and inflation based on CPI are all in CSV file formats. We are converting the data in these CSV files into the following data.frame objects:</p>
+<p>By data cleaning, we mean that we are taking the raw data sets that we have gathered and manipulating them into a form that we can readily access throughout our analysis. The raw data sets for gold prices and price changes, silver prices and price changes, CPI and inflation based on CPI, and wheat prices are all contained in separate CSV files, and these data sets all span across different dates.</p>
+<p>Specifically, we need to make sure that the variables that we are plotting and analyzing together will have dates that correspond with one another. We are also grouping variables into different data frame objects and then converting these back into CSV files that contain the selected groupings of data. These groupings will make it easier to generate meaningful plots and analysis.</p>
+<p>List of CSV files generated and their corresponding data groupings:</p>
 <ul>
-<li><strong>DFG</strong>: contains columns of data on gold prices, CPI, and corresponding dates</li>
-<li><strong>DFGC</strong>: contains columns of data on gold price changes, inflation, and corresponding dates</li>
-<li><strong>DFS</strong>: contains columns of data on silver prices, CPI, and corresponding dates</li>
-<li><strong>DFSI</strong>: contains columns of data on silver price changes, inflation, and corresponding dates</li>
+<li><strong>DF_Gold.csv</strong>: data on gold prices, CPI, and corresponding dates</li>
+<li><strong>DF_Gold_Changes.csv</strong>: data on gold price changes, inflation, and corresponding dates</li>
+<li><strong>DF_Silver.csv</strong>: contains data on silver prices, CPI, and corresponding dates</li>
+<li><strong>DF_Silver_Inflation.csv</strong>: data on silver price changes, inflation, and corresponding dates</li>
+<li><strong>DF_Wheat.csv</strong>: contains data on wheat prices, CPI, and corresponding dates</li>
+<li><strong>DF_Wheat_change.csv</strong>: data on changes in wheat prices, inflation, and corresponding dates</li>
+<li><strong>DFG_positive_inflation.csv</strong>: data on positive changes in gold price and positive inflation</li>
+<li><strong>DFS_positive_inflation.csv</strong>: data on positive changes in silver price and positive inflation</li>
+<li><strong>GC_cluster1.csv</strong>: data on gold prices, CPI, and dates from 1257 to 1900</li>
+<li><strong>SI_cluster1.csv</strong>: data on silver prices, CPI, and dates from 1257 to 1900</li>
+<li><strong>wheat_cluster1.csv</strong>: data on wheat prices, CPI, and dates from 1257 to 1900</li>
+<li><strong>GC_cluster2.csv</strong>: data on gold prices, CPI, and dates from 1900 to 2011</li>
+<li><strong>SI_cluster2.csv</strong>: data on silver prices, CPI, and dates from 1257 to 2011</li>
+<li><strong>wheat_cluster2.csv</strong>: data on wheat prices, CPI, and dates from 1550 to 2011</li>
+<li><strong>gold_positive_inflation_cluster1.csv</strong>: data on positive gold price changes and inflation from 1257 to 1900</li>
+<li><strong>silver_positive_inflation_cluster1.csv</strong>: data on positive silver price changes and inflation from 1257 to 1900</li>
+<li><strong>wheat_positive_inflation_cluster1.csv</strong>: data on positive wheat price changes and inflation from 1551 to 1900</li>
+<li><strong>gold_positive_inflation_cluster2.csv</strong>: data on positive gold price changes and inflation from 1900 to 2011</li>
+<li><strong>silver_positive_inflation_cluster2.csv</strong>: data on positive silver price changes and inflation from 1900 to 2011</li>
+<li><strong>wheat_positive_inflation_cluster2.csv</strong>: data on positive wheat price changes and inflation from 1900 to 2011</li>
 </ul>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1851,11 +1868,28 @@ Gold vs Inflation            </a>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[1]:
+In&nbsp;[177]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%</span><span class="k">load_ext</span> <span class="n">rmagic</span>
 </pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>
+The rmagic extension is already loaded. To reload it, use:
+  %reload_ext rmagic
+
+</pre>
+</div>
+</div>
 
 </div>
 </div>
@@ -1867,7 +1901,7 @@ In&nbsp;[1]:
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[2]:
+In&nbsp;[178]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
@@ -1889,11 +1923,24 @@ In&nbsp;[2]:
 
 
 <pre>
-Loading required package: data.table
-data.table 1.9.2  For help type: help(&quot;data.table&quot;)
 Loading required package: xlsx
 Loading required package: rJava
-Loading required package: xlsxjars
+Error : .onLoad failed in loadNamespace() for &apos;rJava&apos;, details:
+  call: dyn.load(file, DLLpath = DLLpath, ...)
+  error: unable to load shared object &apos;/home/oski/R/x86_64-pc-linux-gnu-library/3.0/rJava/libs/rJava.so&apos;:
+  libjvm.so: cannot open shared object file: No such file or directory
+Failed with error:  ‘package ‘rJava’ could not be loaded’
+Installing package into ‘/home/oski/R/x86_64-pc-linux-gnu-library/3.0’
+(as ‘lib’ is unspecified)
+trying URL &apos;http://cran.cnr.Berkeley.edu/src/contrib/xlsx_0.5.5.tar.gz&apos;
+Content type &apos;application/x-gzip&apos; length 309524 bytes (302 Kb)
+opened URL
+==================================================
+downloaded 302 Kb
+
+
+The downloaded source packages are in
+	‘/tmp/RtmpUiC2KM/downloaded_packages’
 
 </pre>
 
@@ -1910,7 +1957,7 @@ Loading required package: xlsxjars
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[3]:
+In&nbsp;[35]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
@@ -1918,6 +1965,27 @@ In&nbsp;[3]:
 <span class="n">library</span><span class="p">(</span><span class="n">xlsx</span><span class="p">)</span>
 <span class="n">library</span><span class="p">(</span><span class="n">base</span><span class="p">)</span>
 </pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>
+Loading required package: rJava
+Error : .onLoad failed in loadNamespace() for &apos;rJava&apos;, details:
+  call: dyn.load(file, DLLpath = DLLpath, ...)
+  error: unable to load shared object &apos;/home/oski/R/x86_64-pc-linux-gnu-library/3.0/rJava/libs/rJava.so&apos;:
+  libjvm.so: cannot open shared object file: No such file or directory
+Error: package ‘rJava’ could not be loaded
+
+</pre>
+</div>
+</div>
 
 </div>
 </div>
@@ -2840,7 +2908,7 @@ In&nbsp;[204]:
 
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Procedure for wheat data: </strong> Below is the code that gathers the wheat data from 6 files (located in the raw data folder). <br> 1. Load a file. <br> 1. Grab the data for a certain year in our dictionary. <br> 2. Check if that data is empty. If it is, we start a new list for the data points. If it isn't, we grab the list associated with the year we want. <br> 3. For all the values for that year in our current file, add them to the list. <br> 4. Repeat this for all the data in 5 files. <br> 5. Sum all the values of the wheat per year. <br> 6. Put these values in an array and save it to an excel file.</p>
+<p>**Procedure for wheat data: ** Below is the code that gathers the wheat data from 6 files (located in the raw data folder). <br> 1. Load a file. <br> 1. Grab the data for a certain year in our dictionary. <br> 2. Check if that data is empty. If it is, we start a new list for the data points. If it isn't, we grab the list associated with the year we want. <br> 3. For all the values for that year in our current file, add them to the list. <br> 4. Repeat this for all the data in 5 files. <br> 5. Sum all the values of the wheat per year. <br> 6. Put these values in an array and save it to an excel file.</p>
 </div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
@@ -3321,7 +3389,7 @@ In&nbsp;[37]:
 </div>
 
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We want to separate the data into 2 clusters (one from the years before 1900, and one after).</p>
+<p>We want to separate the data into 2 clusters (one from the years before 1900, and one after). We do all this by using logical indexing.</p>
 </div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">

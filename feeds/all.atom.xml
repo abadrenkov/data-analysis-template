@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Gold vs Inflation</title><link href="http://abadrenkov.github.io/gold_vs_inflation/" rel="alternate"></link><link href="http://abadrenkov.github.io/gold_vs_inflation/feeds/all.atom.xml" rel="self"></link><id>http://abadrenkov.github.io/gold_vs_inflation/</id><updated>2014-03-04T00:00:00-08:00</updated><entry><title>Project Report</title><link href="http://abadrenkov.github.io/gold_vs_inflation/nb4.html" rel="alternate"></link><updated>2014-03-04T00:00:00-08:00</updated><author><name>Benoit Dherin</name></author><id>tag:abadrenkov.github.io,2014-03-04:gold_vs_inflation/nb4.html</id><summary type="html">&lt;p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Gold vs Inflation</title><link href="http://abadrenkov.github.io/gold_vs_inflation/" rel="alternate"></link><link href="http://abadrenkov.github.io/gold_vs_inflation/feeds/all.atom.xml" rel="self"></link><id>http://abadrenkov.github.io/gold_vs_inflation/</id><updated>2014-03-04T00:00:00-08:00</updated><entry><title>Project Report</title><link href="http://abadrenkov.github.io/gold_vs_inflation/nb4.html" rel="alternate"></link><updated>2014-03-04T00:00:00-08:00</updated><author><name>Benoit Dherin</name></author><id>tag:abadrenkov.github.io/gold_vs_inflation,2014-03-04:nb4.html</id><summary type="html">&lt;p&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2&gt;
-Summary
-&lt;/h2&gt;
-&lt;hr /&gt;
+&lt;table&gt;
+&lt;tbody&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;p&gt;In this notebook, we summarize our findings. Our main conclusions are:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;There is a relationship between wheat and inflation. During periods of inflation, wheat prices will be volatile.&lt;/li&gt;
@@ -6188,13 +6188,10 @@ saNNAAAAAElFTkSuQmCC
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;/div&gt;&lt;/p&gt;</summary></entry><entry><title>Data Analysis</title><link href="http://abadrenkov.github.io/gold_vs_inflation/nb3.html" rel="alternate"></link><updated>2014-03-03T00:00:00-08:00</updated><author><name>Benoit Dherin</name></author><id>tag:abadrenkov.github.io,2014-03-03:gold_vs_inflation/nb3.html</id><summary type="html">&lt;p&gt;
+&lt;/div&gt;&lt;/p&gt;</summary></entry><entry><title>Data Analysis</title><link href="http://abadrenkov.github.io/gold_vs_inflation/nb3.html" rel="alternate"></link><updated>2014-03-03T00:00:00-08:00</updated><author><name>Benoit Dherin</name></author><id>tag:abadrenkov.github.io/gold_vs_inflation,2014-03-03:nb3.html</id><summary type="html">&lt;p&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2&gt;
-Summary
-&lt;/h2&gt;
-&lt;hr /&gt;
-&lt;p&gt;In this notebook, we analyzed our data through the methods of clustering and graphical representation. Our analysis mainly derives from graphical interpretation. We find that Gold and Silver have in the past been stable during times of inflation, but over the past century, volatility has been increasing. Wheat prices have always been volatile.&lt;/p&gt;
+&lt;h2 id="summary"&gt;##Summary&lt;/h2&gt;
+&lt;p&gt;In this notebook, we analyzed our data through the methods of clustering and graphical representation. Our analysis mainly derives from graphical interpretation. We find that Gold and Silver have in the past been stable during times of inflation, but over the past century, volatility has been increasing. Wheat prices have always been volatile. To go straight to our analysis of the graphs, &lt;a href="#analysis"&gt; click here&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="team-members-responsible-for-this-notebook"&gt;Team members responsible for this notebook:&lt;/h2&gt;
@@ -6268,9 +6265,6 @@ In&amp;nbsp;[4]:
 &lt;h3 id="Changes-in-Gold-Price-From-1257-2011"&gt;Changes in Gold Price From 1257-2011&lt;a class="anchor-link" href="#Changes-in-Gold-Price-From-1257-2011"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;As a first step towards meaningful analysis of the data, we saw that there was a marked difference in the behavior of gold and silver prices between 1257 to 1900 and 1900 to 2011.&lt;/p&gt;
-&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
@@ -16177,9 +16171,6 @@ BBBAAAEEEEAAAQQQQACBZgn8f7izuUedOFB9AAAAAElFTkSuQmCC
 
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Gold: The &amp;quot;Positive Gold Cluster 1&amp;quot; graph shows that gold prices were relatively less volatile from 1257 to 1900. Changes in gold prices remained close to 0 even though inflation fluctuated greatly. In comparison, gold prices from 1901 to 2011 seemed to fluctuate much more greatly in this period and sometimes moved with inflation.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Changes-in-Silver-Price-from-1257-to-1900-(Cluster-1)-vs.-Changes-in-Silver-Price-from-1901-to-2011-(Cluster-2)"&gt;Changes in Silver Price from 1257 to 1900 (Cluster 1) vs. Changes in Silver Price from 1901 to 2011 (Cluster 2)&lt;a class="anchor-link" href="#Changes-in-Silver-Price-from-1257-to-1900-(Cluster-1)-vs.-Changes-in-Silver-Price-from-1901-to-2011-(Cluster-2)"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 
@@ -21611,9 +21602,6 @@ iIAIiIAIiIAIiIAIiIAIFIvA/wdzyu7krjsupQAAAABJRU5ErkJggg==
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Silver: The &amp;quot;Positive Silver Cluster 1&amp;quot; graph shows that silver prices were relatively less volatile from 1257 to 1900. Changes in silver prices remained close to 0 even though inflation fluctuated greatly. In comparison, gold prices from 1901 to 2011 seemed to fluctuate much more greatly in this period and sometimes moved with inflation.&lt;/p&gt;
-&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
@@ -22986,12 +22974,6 @@ QKACBPRAO4ZqIYAAAggggAACCCCAAAIIxCXwfy/I7DpUgamQAAAAAElFTkSuQmCC
 
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Wheat: In comparison to both gold and silver, there did not seem to be a difference in the behavior of wheat prices between the two periods. Wheat prices were highly volatile throughout the entire period of measurement. This could mean that wheat is greatly affected by inflation, while gold and silver are not as affected.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;From these graphs, we deem that Gold and Silver for the apst century have not been good tools to hedge against inflation.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h1 id="Summary-of-Data"&gt;Summary of Data&lt;a class="anchor-link" href="#Summary-of-Data"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;
 &lt;/div&gt;
 
@@ -23462,23 +23444,55 @@ In&amp;nbsp;[18]:
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;/div&gt;&lt;/p&gt;</summary></entry><entry><title>Data Cleaning</title><link href="http://abadrenkov.github.io/gold_vs_inflation/nb2.html" rel="alternate"></link><updated>2014-03-02T00:00:00-08:00</updated><author><name>Benoit Dherin</name></author><id>tag:abadrenkov.github.io,2014-03-02:gold_vs_inflation/nb2.html</id><summary type="html">&lt;p&gt;
+&lt;/div&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h1 id="-Analysis-"&gt;&lt;a id="analysis"&gt; Analysis &lt;/a&gt;&lt;a class="anchor-link" href="#-Analysis-"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;
+&lt;/div&gt;
+
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;As a first step towards meaningful analysis of the data, we saw that there was a marked difference in the behavior of gold and silver prices between 1257 to 1900 and 1900 to 2011.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Gold: The &amp;quot;Positive Gold Cluster 1&amp;quot; graph shows that gold prices were relatively less volatile from 1257 to 1900. Changes in gold prices remained close to 0 even though inflation fluctuated greatly. In comparison, gold prices from 1901 to 2011 seemed to fluctuate much more greatly in this period and sometimes moved with inflation.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Silver: The &amp;quot;Positive Silver Cluster 1&amp;quot; graph shows that silver prices were relatively less volatile from 1257 to 1900. Changes in silver prices remained close to 0 even though inflation fluctuated greatly. In comparison, gold prices from 1901 to 2011 seemed to fluctuate much more greatly in this period and sometimes moved with inflation.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Wheat: In comparison to both gold and silver, there did not seem to be a difference in the behavior of wheat prices between the two periods. Wheat prices were highly volatile throughout the entire period of measurement. This could mean that wheat is greatly affected by inflation, while gold and silver are not as affected.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;We deem that for current time, gold will not serve any function as a hedge.&lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;</summary></entry><entry><title>Data Cleaning</title><link href="http://abadrenkov.github.io/gold_vs_inflation/nb2.html" rel="alternate"></link><updated>2014-03-02T00:00:00-08:00</updated><author><name>Benoit Dherin</name></author><id>tag:abadrenkov.github.io/gold_vs_inflation,2014-03-02:nb2.html</id><summary type="html">&lt;p&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h1 id="Data-Cleaning"&gt;Data Cleaning&lt;a class="anchor-link" href="#Data-Cleaning"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;
 &lt;/div&gt;
 
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Summary"&gt;Summary&lt;a class="anchor-link" href="#Summary"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="Summary-of-Notebook:"&gt;Summary of Notebook:&lt;a class="anchor-link" href="#Summary-of-Notebook:"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
 &lt;/div&gt;
 
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;By data cleaning, we mean that we are taking the raw data sets that we have gathered and manipulating them into a form that we can readily access throughout our analysis. Specifically, we want all of our data in several data.frame objects that will make generating analysis and plots in R easier.&lt;/p&gt;
-&lt;p&gt;The raw data sets for gold prices and price changes, silver prices and price changes, and CPI and inflation based on CPI are all in CSV file formats. We are converting the data in these CSV files into the following data.frame objects:&lt;/p&gt;
+&lt;p&gt;By data cleaning, we mean that we are taking the raw data sets that we have gathered and manipulating them into a form that we can readily access throughout our analysis. The raw data sets for gold prices and price changes, silver prices and price changes, CPI and inflation based on CPI, and wheat prices are all contained in separate CSV files, and these data sets all span across different dates.&lt;/p&gt;
+&lt;p&gt;Specifically, we need to make sure that the variables that we are plotting and analyzing together will have dates that correspond with one another. We are also grouping variables into different data frame objects and then converting these back into CSV files that contain the selected groupings of data. These groupings will make it easier to generate meaningful plots and analysis.&lt;/p&gt;
+&lt;p&gt;List of CSV files generated and their corresponding data groupings:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;DFG&lt;/strong&gt;: contains columns of data on gold prices, CPI, and corresponding dates&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;DFGC&lt;/strong&gt;: contains columns of data on gold price changes, inflation, and corresponding dates&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;DFS&lt;/strong&gt;: contains columns of data on silver prices, CPI, and corresponding dates&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;DFSI&lt;/strong&gt;: contains columns of data on silver price changes, inflation, and corresponding dates&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DF_Gold.csv&lt;/strong&gt;: data on gold prices, CPI, and corresponding dates&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DF_Gold_Changes.csv&lt;/strong&gt;: data on gold price changes, inflation, and corresponding dates&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DF_Silver.csv&lt;/strong&gt;: contains data on silver prices, CPI, and corresponding dates&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DF_Silver_Inflation.csv&lt;/strong&gt;: data on silver price changes, inflation, and corresponding dates&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DF_Wheat.csv&lt;/strong&gt;: contains data on wheat prices, CPI, and corresponding dates&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DF_Wheat_change.csv&lt;/strong&gt;: data on changes in wheat prices, inflation, and corresponding dates&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DFG_positive_inflation.csv&lt;/strong&gt;: data on positive changes in gold price and positive inflation&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DFS_positive_inflation.csv&lt;/strong&gt;: data on positive changes in silver price and positive inflation&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GC_cluster1.csv&lt;/strong&gt;: data on gold prices, CPI, and dates from 1257 to 1900&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SI_cluster1.csv&lt;/strong&gt;: data on silver prices, CPI, and dates from 1257 to 1900&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;wheat_cluster1.csv&lt;/strong&gt;: data on wheat prices, CPI, and dates from 1257 to 1900&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GC_cluster2.csv&lt;/strong&gt;: data on gold prices, CPI, and dates from 1900 to 2011&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SI_cluster2.csv&lt;/strong&gt;: data on silver prices, CPI, and dates from 1257 to 2011&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;wheat_cluster2.csv&lt;/strong&gt;: data on wheat prices, CPI, and dates from 1550 to 2011&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;gold_positive_inflation_cluster1.csv&lt;/strong&gt;: data on positive gold price changes and inflation from 1257 to 1900&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;silver_positive_inflation_cluster1.csv&lt;/strong&gt;: data on positive silver price changes and inflation from 1257 to 1900&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;wheat_positive_inflation_cluster1.csv&lt;/strong&gt;: data on positive wheat price changes and inflation from 1551 to 1900&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;gold_positive_inflation_cluster2.csv&lt;/strong&gt;: data on positive gold price changes and inflation from 1900 to 2011&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;silver_positive_inflation_cluster2.csv&lt;/strong&gt;: data on positive silver price changes and inflation from 1900 to 2011&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;wheat_positive_inflation_cluster2.csv&lt;/strong&gt;: data on positive wheat price changes and inflation from 1900 to 2011&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -23500,11 +23514,28 @@ In&amp;nbsp;[18]:
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[1]:
+In&amp;nbsp;[177]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="k"&gt;load_ext&lt;/span&gt; &lt;span class="n"&gt;rmagic&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="vbox output_wrapper"&gt;
+&lt;div class="output vbox"&gt;
+
+
+&lt;div class="hbox output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="box-flex1 output_subarea output_stream output_stdout"&gt;
+&lt;pre&gt;
+The rmagic extension is already loaded. To reload it, use:
+  %reload_ext rmagic
+
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -23516,7 +23547,7 @@ In&amp;nbsp;[1]:
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[2]:
+In&amp;nbsp;[178]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="k"&gt;R&lt;/span&gt;
@@ -23538,11 +23569,24 @@ In&amp;nbsp;[2]:
 
 
 &lt;pre&gt;
-Loading required package: data.table
-data.table 1.9.2  For help type: help(&amp;quot;data.table&amp;quot;)
 Loading required package: xlsx
 Loading required package: rJava
-Loading required package: xlsxjars
+Error : .onLoad failed in loadNamespace() for &amp;apos;rJava&amp;apos;, details:
+  call: dyn.load(file, DLLpath = DLLpath, ...)
+  error: unable to load shared object &amp;apos;/home/oski/R/x86_64-pc-linux-gnu-library/3.0/rJava/libs/rJava.so&amp;apos;:
+  libjvm.so: cannot open shared object file: No such file or directory
+Failed with error:  ‘package ‘rJava’ could not be loaded’
+Installing package into ‘/home/oski/R/x86_64-pc-linux-gnu-library/3.0’
+(as ‘lib’ is unspecified)
+trying URL &amp;apos;http://cran.cnr.Berkeley.edu/src/contrib/xlsx_0.5.5.tar.gz&amp;apos;
+Content type &amp;apos;application/x-gzip&amp;apos; length 309524 bytes (302 Kb)
+opened URL
+==================================================
+downloaded 302 Kb
+
+
+The downloaded source packages are in
+	‘/tmp/RtmpUiC2KM/downloaded_packages’
 
 &lt;/pre&gt;
 
@@ -23559,7 +23603,7 @@ Loading required package: xlsxjars
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[3]:
+In&amp;nbsp;[35]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="k"&gt;R&lt;/span&gt;
@@ -23567,6 +23611,27 @@ In&amp;nbsp;[3]:
 &lt;span class="n"&gt;library&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;xlsx&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;library&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;base&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="vbox output_wrapper"&gt;
+&lt;div class="output vbox"&gt;
+
+
+&lt;div class="hbox output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="box-flex1 output_subarea output_stream output_stdout"&gt;
+&lt;pre&gt;
+Loading required package: rJava
+Error : .onLoad failed in loadNamespace() for &amp;apos;rJava&amp;apos;, details:
+  call: dyn.load(file, DLLpath = DLLpath, ...)
+  error: unable to load shared object &amp;apos;/home/oski/R/x86_64-pc-linux-gnu-library/3.0/rJava/libs/rJava.so&amp;apos;:
+  libjvm.so: cannot open shared object file: No such file or directory
+Error: package ‘rJava’ could not be loaded
+
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -24489,7 +24554,7 @@ In&amp;nbsp;[204]:
 
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;&lt;strong&gt;Procedure for wheat data: &lt;/strong&gt; Below is the code that gathers the wheat data from 6 files (located in the raw data folder). &lt;br&gt; 1. Load a file. &lt;br&gt; 1. Grab the data for a certain year in our dictionary. &lt;br&gt; 2. Check if that data is empty. If it is, we start a new list for the data points. If it isn't, we grab the list associated with the year we want. &lt;br&gt; 3. For all the values for that year in our current file, add them to the list. &lt;br&gt; 4. Repeat this for all the data in 5 files. &lt;br&gt; 5. Sum all the values of the wheat per year. &lt;br&gt; 6. Put these values in an array and save it to an excel file.&lt;/p&gt;
+&lt;p&gt;**Procedure for wheat data: ** Below is the code that gathers the wheat data from 6 files (located in the raw data folder). &lt;br&gt; 1. Load a file. &lt;br&gt; 1. Grab the data for a certain year in our dictionary. &lt;br&gt; 2. Check if that data is empty. If it is, we start a new list for the data points. If it isn't, we grab the list associated with the year we want. &lt;br&gt; 3. For all the values for that year in our current file, add them to the list. &lt;br&gt; 4. Repeat this for all the data in 5 files. &lt;br&gt; 5. Sum all the values of the wheat per year. &lt;br&gt; 6. Put these values in an array and save it to an excel file.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
@@ -24970,7 +25035,7 @@ In&amp;nbsp;[37]:
 &lt;/div&gt;
 
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;We want to separate the data into 2 clusters (one from the years before 1900, and one after).&lt;/p&gt;
+&lt;p&gt;We want to separate the data into 2 clusters (one from the years before 1900, and one after). We do all this by using logical indexing.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
@@ -25616,16 +25681,16 @@ In&amp;nbsp;[53]:
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;/div&gt;&lt;/p&gt;</summary></entry><entry><title>Data Gathering</title><link href="http://abadrenkov.github.io/gold_vs_inflation/nb1.html" rel="alternate"></link><updated>2014-03-01T00:00:00-08:00</updated><author><name>Benoit Dherin</name></author><id>tag:abadrenkov.github.io,2014-03-01:gold_vs_inflation/nb1.html</id><summary type="html">&lt;p&gt;
+&lt;/div&gt;&lt;/p&gt;</summary></entry><entry><title>Data Gathering</title><link href="http://abadrenkov.github.io/gold_vs_inflation/nb1.html" rel="alternate"></link><updated>2014-03-01T00:00:00-08:00</updated><author><name>Benoit Dherin</name></author><id>tag:abadrenkov.github.io/gold_vs_inflation,2014-03-01:nb1.html</id><summary type="html">&lt;p&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h1 id="Data-Gathering"&gt;Data Gathering&lt;a class="anchor-link" href="#Data-Gathering"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;
 &lt;/div&gt;
 
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2&gt;
-Summary
-&lt;/h2&gt;
-&lt;hr /&gt;
+&lt;table&gt;
+&lt;tbody&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;p&gt;In this notebook, we gathered data on Gold, Silver, Wheat, and Inflation. The data gathered came in two formats: &lt;code&gt;xlsx&lt;/code&gt; and &lt;code&gt;csv&lt;/code&gt;. More details about where the data was found and a description of variables used can be found below.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -26057,6 +26122,6 @@ In&amp;nbsp;[19]:
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;The &lt;strong&gt;Date&lt;/strong&gt;, &lt;strong&gt;Close&lt;/strong&gt;, and &lt;strong&gt;Change&lt;/strong&gt; are the important columns we want to look at. &lt;br&gt; The &lt;strong&gt;Close&lt;/strong&gt; references the price of Silver, while the &lt;strong&gt;Change&lt;/strong&gt; refers to the difference between the current and prior year's data.&lt;/p&gt;
-&lt;/div&gt;&lt;/p&gt;</summary></entry><entry><title>Reproducibility</title><link href="http://abadrenkov.github.io/gold_vs_inflation/reproducibility.html" rel="alternate"></link><updated>2014-02-28T00:00:00-08:00</updated><author><name>Benoit Dherin</name></author><id>tag:abadrenkov.github.io,2014-02-28:gold_vs_inflation/reproducibility.html</id><summary type="html">&lt;h1&gt;Reproducibility&lt;/h1&gt;
+&lt;/div&gt;&lt;/p&gt;</summary></entry><entry><title>Reproducibility</title><link href="http://abadrenkov.github.io/gold_vs_inflation/reproducibility.html" rel="alternate"></link><updated>2014-02-28T00:00:00-08:00</updated><author><name>Benoit Dherin</name></author><id>tag:abadrenkov.github.io/gold_vs_inflation,2014-02-28:reproducibility.html</id><summary type="html">&lt;h1&gt;Reproducibility&lt;/h1&gt;
 &lt;h2&gt;Virtual OskiBox&lt;/h2&gt;
 &lt;h2&gt;Software Requirements&lt;/h2&gt;</summary></entry></feed>
