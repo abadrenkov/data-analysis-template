@@ -1720,7 +1720,7 @@ init_mathjax();
             <meta property="og:type" content="article"/>
             <meta property="og:title" content="Data Cleaning"/>
             <meta property="og:url" content="http://abadrenkov.github.io/gold_vs_inflation/nb2.html"/>
-            <meta property="og:description" content="Data Cleaning¶ Summary of Notebook:¶ By data cleaning, we mean that we are taking the raw data sets that we have gathered and manipulating them into a form that we can readily access throughout our analysis. Specifically, we want all of our data in several data.frame objects that will ..."/>
+            <meta property="og:description" content="Data Cleaning¶ Summary¶ By data cleaning, we mean that we are taking the raw data sets that we have gathered and manipulating them into a form that we can readily access throughout our analysis. Specifically, we want all of our data in several data.frame objects that will make generating ..."/>
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="http://abadrenkov.github.io/gold_vs_inflation/theme/css/bootstrap.min.css" type="text/css"/>
@@ -1819,7 +1819,7 @@ Gold vs Inflation            </a>
 </div>
 
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Summary-of-Notebook:">Summary of Notebook:<a class="anchor-link" href="#Summary-of-Notebook:">&#182;</a></h2>
+<h2 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h2>
 </div>
 
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1851,28 +1851,11 @@ Gold vs Inflation            </a>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[177]:
+In&nbsp;[1]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%</span><span class="k">load_ext</span> <span class="n">rmagic</span>
 </pre></div>
-
-</div>
-</div>
-
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_stream output_stdout">
-<pre>
-The rmagic extension is already loaded. To reload it, use:
-  %reload_ext rmagic
-
-</pre>
-</div>
-</div>
 
 </div>
 </div>
@@ -1884,7 +1867,7 @@ The rmagic extension is already loaded. To reload it, use:
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[178]:
+In&nbsp;[2]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
@@ -1906,24 +1889,11 @@ In&nbsp;[178]:
 
 
 <pre>
+Loading required package: data.table
+data.table 1.9.2  For help type: help(&quot;data.table&quot;)
 Loading required package: xlsx
 Loading required package: rJava
-Error : .onLoad failed in loadNamespace() for &apos;rJava&apos;, details:
-  call: dyn.load(file, DLLpath = DLLpath, ...)
-  error: unable to load shared object &apos;/home/oski/R/x86_64-pc-linux-gnu-library/3.0/rJava/libs/rJava.so&apos;:
-  libjvm.so: cannot open shared object file: No such file or directory
-Failed with error:  ‘package ‘rJava’ could not be loaded’
-Installing package into ‘/home/oski/R/x86_64-pc-linux-gnu-library/3.0’
-(as ‘lib’ is unspecified)
-trying URL &apos;http://cran.cnr.Berkeley.edu/src/contrib/xlsx_0.5.5.tar.gz&apos;
-Content type &apos;application/x-gzip&apos; length 309524 bytes (302 Kb)
-opened URL
-==================================================
-downloaded 302 Kb
-
-
-The downloaded source packages are in
-	‘/tmp/RtmpUiC2KM/downloaded_packages’
+Loading required package: xlsxjars
 
 </pre>
 
@@ -1940,7 +1910,7 @@ The downloaded source packages are in
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[35]:
+In&nbsp;[3]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
@@ -1948,27 +1918,6 @@ In&nbsp;[35]:
 <span class="n">library</span><span class="p">(</span><span class="n">xlsx</span><span class="p">)</span>
 <span class="n">library</span><span class="p">(</span><span class="n">base</span><span class="p">)</span>
 </pre></div>
-
-</div>
-</div>
-
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_stream output_stdout">
-<pre>
-Loading required package: rJava
-Error : .onLoad failed in loadNamespace() for &apos;rJava&apos;, details:
-  call: dyn.load(file, DLLpath = DLLpath, ...)
-  error: unable to load shared object &apos;/home/oski/R/x86_64-pc-linux-gnu-library/3.0/rJava/libs/rJava.so&apos;:
-  libjvm.so: cannot open shared object file: No such file or directory
-Error: package ‘rJava’ could not be loaded
-
-</pre>
-</div>
-</div>
 
 </div>
 </div>
